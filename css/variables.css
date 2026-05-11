@@ -1,20 +1,159 @@
 :root{
 
---zhr-primary:#001d4c;
---zhr-secondary:#5b2c83;
---zhr-accent:#9f5de2;
+/* =====================================
+PRIMARY BRAND COLORS
+===================================== */
 
---zhr-bg:#f7f8fc;
+--zhr-primary:#001d4c;
+
+--zhr-secondary:#8b1e6d;
+
+--zhr-accent:#d81b60;
+
+--zhr-accent-light:#f472b6;
+
+
+
+/* =====================================
+BACKGROUNDS
+===================================== */
+
+--zhr-bg:#f6f8fc;
+
 --zhr-card:#ffffff;
 
---zhr-text:#1a1a1a;
+--zhr-surface:#f9fafb;
+
+--zhr-dark-bg:#0b1120;
+
+
+
+/* =====================================
+TEXT COLORS
+===================================== */
+
+--zhr-text:#111827;
+
 --zhr-muted:#6b7280;
+
+--zhr-light-text:#9ca3af;
+
+--zhr-white:#ffffff;
+
+
+
+/* =====================================
+BORDER COLORS
+===================================== */
 
 --zhr-border:#e5e7eb;
 
---radius:20px;
+--zhr-border-light:#f1f5f9;
 
---shadow:
+
+
+/* =====================================
+SUCCESS / ERROR
+===================================== */
+
+--zhr-success:#10b981;
+
+--zhr-danger:#ef4444;
+
+--zhr-warning:#f59e0b;
+
+
+
+/* =====================================
+GRADIENTS
+===================================== */
+
+--zhr-gradient:
+linear-gradient(
+135deg,
+#001d4c,
+#8b1e6d
+);
+
+--zhr-gradient-pink:
+linear-gradient(
+135deg,
+#d81b60,
+#8b1e6d
+);
+
+--zhr-gradient-soft:
+linear-gradient(
+135deg,
+#001d4c 0%,
+#4b1d75 50%,
+#8b1e6d 100%
+);
+
+
+
+/* =====================================
+SHADOWS
+===================================== */
+
+--shadow-sm:
+0 4px 12px rgba(0,0,0,0.05);
+
+--shadow-md:
 0 10px 30px rgba(0,0,0,0.08);
+
+--shadow-lg:
+0 18px 45px rgba(0,0,0,0.12);
+
+--shadow-pink:
+0 12px 30px rgba(216,27,96,0.25);
+
+
+
+/* =====================================
+RADIUS
+===================================== */
+
+--radius-sm:12px;
+
+--radius-md:20px;
+
+--radius-lg:28px;
+
+--radius-xl:40px;
+
+
+
+/* =====================================
+TRANSITIONS
+===================================== */
+
+--transition-fast:0.2s ease;
+
+--transition-normal:0.3s ease;
+
+--transition-slow:0.5s ease;
+
+
+
+/* =====================================
+LAYOUT
+===================================== */
+
+--container-width:1400px;
+
+--mobile-width:480px;
+
+
+
+/* =====================================
+GLASS EFFECT
+===================================== */
+
+--glass-bg:
+rgba(255,255,255,0.12);
+
+--glass-border:
+rgba(255,255,255,0.18);
 
 }
