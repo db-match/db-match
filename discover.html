@@ -3,8 +3,6 @@
 
 <head>
 
-<script src="https://unpkg.com/lucide@latest"></script>
- 
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -208,9 +206,29 @@ Ahmedabad, India
 
 
 
+<div id="bottom-nav"></div>
 
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+
 
 <script>
 
@@ -224,21 +242,19 @@ window.location.href="login.html";
 
 });
 
+fetch("components/bottom-nav.html")
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById(
+"bottom-nav"
+).innerHTML=data;
+
 lucide.createIcons();
+
+});
 
 </script>
 
-<div id="toast" class="toast"></div>
-
- <div id="global-loader" class="global-loader">
-<div class="loader-spinner"></div>
-</div>
-
-<script src="js/ui.js"></script> 
-
-<script>
-lucide.createIcons();
-</script>
- 
 </body>
 </html>
