@@ -1,0 +1,36 @@
+@media(max-width:768px){
+
+.hero-content h1{
+
+font-size:38px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.feature-grid{
+
+padding:40px 15px;
+
+}
+
+.action-buttons{
+
+justify-content:center;
+
+}
+
+}
