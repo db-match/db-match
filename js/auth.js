@@ -9,6 +9,8 @@ signupForm.addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
+showLoader();
+
 const inputs=signupForm.querySelectorAll("input");
 
 const fullName=inputs[0].value;
@@ -48,20 +50,33 @@ createdAt:new Date()
 
 });
 
-alert("Account Created Successfully");
+hideLoader();
+
+showToast(
+"Account Created Successfully",
+"success"
+);
+
+setTimeout(()=>{
 
 window.location.href="discover.html";
 
+},1200);
+
 }catch(error){
 
-alert(error.message);
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
 
 }
 
 });
 
 }
-
 
 
 
@@ -78,6 +93,8 @@ loginForm.addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
+showLoader();
+
 const inputs=loginForm.querySelectorAll("input");
 
 const email=inputs[0].value;
@@ -91,13 +108,27 @@ email,
 password
 );
 
-alert("Login Successful");
+hideLoader();
+
+showToast(
+"Login Successful",
+"success"
+);
+
+setTimeout(()=>{
 
 window.location.href="discover.html";
 
+},1200);
+
 }catch(error){
 
-alert(error.message);
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
 
 }
 
