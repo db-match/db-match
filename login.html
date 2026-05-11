@@ -22,6 +22,8 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/responsive.css">
 
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
@@ -37,15 +39,20 @@ Login to continue your Dawoodi Bohra
 matchmaking journey.
 </p>
 
-<form>
+<form id="login-form">
 
 <input type="email"
-placeholder="Email Address">
+id="login-email"
+placeholder="Email Address"
+required>
 
 <input type="password"
-placeholder="Password">
+id="login-password"
+placeholder="Password"
+required>
 
-<button class="primary-btn">
+<button type="submit"
+class="primary-btn">
 Login
 </button>
 
@@ -67,6 +74,14 @@ Create Profile
 
 </div>
 
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -75,16 +90,22 @@ Create Profile
 
 <script src="firebase/firebase-config.js"></script>
 
-<div id="toast" class="toast"></div>
+<script src="js/ui.js"></script>
 
- <div id="global-loader" class="global-loader">
-<div class="loader-spinner"></div>
-</div>
+<script src="js/auth.js"></script>
 
-<script src="js/ui.js"></script> 
- 
-<script src="js/auth.js"></script> 
- 
-  
+<script>
+
+lucide.createIcons();
+
+/* Toast Test */
+
+showToast(
+"Welcome Back",
+"success"
+);
+
+</script>
+
 </body>
 </html>
