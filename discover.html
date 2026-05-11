@@ -8,7 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Discover | Dawoodi Bohra Match</title>
+<title>
+Discover | Dawoodi Bohra Match
+</title>
 
 <link rel="stylesheet"
 href="css/variables.css">
@@ -22,37 +24,72 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/responsive.css">
 
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
 
-<div class="page-container">
+<div class="discover-page">
 
-<h1 class="page-title">
+<h1 class="discover-title">
 Discover Profiles
 </h1>
 
+
+
+<div class="discover-grid">
+
+
+
+<!-- CARD 1 -->
+
 <div class="profile-card">
 
-<img src="https://placehold.co/400x500"
+<img
+src="https://placehold.co/600x800"
 alt="Profile">
 
 <div class="profile-info">
 
-<h2>Zahra, 25</h2>
+<h3>Zahra, 25</h3>
 
 <p>
 Mumbai, India
 </p>
 
-<div class="action-buttons">
+<div class="profile-tags">
+
+<span>Creative</span>
+
+<span>Family Oriented</span>
+
+<span>Traveler</span>
+
+</div>
+
+<div class="card-buttons">
 
 <button class="reject-btn">
-✕
+
+<i data-lucide="x"></i>
+
 </button>
 
 <button class="like-btn">
-❤
+
+<i data-lucide="heart"></i>
+
 </button>
 
 </div>
@@ -61,7 +98,115 @@ Mumbai, India
 
 </div>
 
+
+
+
+
+<!-- CARD 2 -->
+
+<div class="profile-card">
+
+<img
+src="https://placehold.co/600x800"
+alt="Profile">
+
+<div class="profile-info">
+
+<h3>Fatema, 24</h3>
+
+<p>
+Dubai, UAE
+</p>
+
+<div class="profile-tags">
+
+<span>Faith Focused</span>
+
+<span>Professional</span>
+
+<span>Travel</span>
+
 </div>
+
+<div class="card-buttons">
+
+<button class="reject-btn">
+
+<i data-lucide="x"></i>
+
+</button>
+
+<button class="like-btn">
+
+<i data-lucide="heart"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- CARD 3 -->
+
+<div class="profile-card">
+
+<img
+src="https://placehold.co/600x800"
+alt="Profile">
+
+<div class="profile-info">
+
+<h3>Burhanuddin, 29</h3>
+
+<p>
+Ahmedabad, India
+</p>
+
+<div class="profile-tags">
+
+<span>Entrepreneur</span>
+
+<span>Simple Living</span>
+
+<span>Foodie</span>
+
+</div>
+
+<div class="card-buttons">
+
+<button class="reject-btn">
+
+<i data-lucide="x"></i>
+
+</button>
+
+<button class="like-btn">
+
+<i data-lucide="heart"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
 
 <script src="firebase/firebase-config.js"></script>
 
@@ -77,8 +222,9 @@ window.location.href="login.html";
 
 });
 
+lucide.createIcons();
+
 </script>
 
-  
 </body>
 </html>
