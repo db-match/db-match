@@ -1,82 +1,243 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* ===================================
+DISCOVER PAGE
+=================================== */
 
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:'Segoe UI',sans-serif;
-
-background:var(--zhr-bg);
-
-color:var(--zhr-text);
-
-min-height:100vh;
-
-}
-
-.app-container,
-.page-container{
-
-width:100%;
-max-width:1200px;
-
+.discover-page{
+padding:40px 24px 120px;
+max-width:1400px;
 margin:auto;
-
-padding:20px;
-
 }
 
-.hero-section{
+.discover-title{
+font-size:38px;
+font-weight:700;
+color:var(--primary);
+margin-bottom:30px;
+}
 
-min-height:100vh;
 
+
+/* ===================================
+GRID
+=================================== */
+
+.discover-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+align-items:start;
+}
+
+
+
+/* ===================================
+PROFILE CARD
+=================================== */
+
+.profile-card{
+background:#ffffff;
+border-radius:28px;
+overflow:hidden;
+box-shadow:
+0 10px 30px rgba(0,0,0,0.08);
+
+transition:0.3s;
+border:1px solid rgba(0,0,0,0.04);
+}
+
+.profile-card:hover{
+transform:translateY(-6px);
+box-shadow:
+0 18px 40px rgba(0,0,0,0.12);
+}
+
+
+
+/* ===================================
+IMAGE
+=================================== */
+
+.profile-card img{
+width:100%;
+height:420px;
+object-fit:cover;
+display:block;
+}
+
+
+
+/* ===================================
+INFO
+=================================== */
+
+.profile-info{
+padding:24px;
+}
+
+.profile-info h3{
+font-size:28px;
+font-weight:700;
+margin-bottom:8px;
+color:var(--primary);
+}
+
+.profile-info p{
+color:#666;
+font-size:16px;
+margin-bottom:18px;
+}
+
+
+
+/* ===================================
+TAGS
+=================================== */
+
+.profile-tags{
 display:flex;
-align-items:center;
-justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:24px;
+}
 
-text-align:center;
-
-background:
-linear-gradient(
+.profile-tags span{
+background:linear-gradient(
 135deg,
-var(--zhr-primary),
-var(--zhr-secondary)
+#001d4c,
+#8b1e6d
 );
 
 color:white;
 
-border-radius:0 0 40px 40px;
+padding:10px 16px;
+
+border-radius:50px;
+
+font-size:14px;
+font-weight:600;
+}
+
+
+
+/* ===================================
+BUTTONS
+=================================== */
+
+.card-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.card-buttons button{
+width:65px;
+height:65px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:0.3s;
+}
+
+.card-buttons i{
+width:28px;
+height:28px;
+}
+
+
+
+/* REJECT */
+
+.reject-btn{
+background:#f3f4f6;
+color:#777;
+}
+
+.reject-btn:hover{
+background:#ececec;
+transform:scale(1.08);
+}
+
+
+
+/* LIKE */
+
+.like-btn{
+background:linear-gradient(
+135deg,
+#d81b60,
+#8b1e6d
+);
+
+color:white;
+
+box-shadow:
+0 10px 25px rgba(216,27,96,0.35);
+}
+
+.like-btn:hover{
+transform:scale(1.08);
+}
+
+
+
+/* ===================================
+DESKTOP
+=================================== */
+
+@media(min-width:1200px){
+
+.discover-grid{
+grid-template-columns:
+repeat(3,1fr);
+}
 
 }
 
-.hero-content{
 
-max-width:700px;
+
+/* ===================================
+TABLET
+=================================== */
+
+@media(max-width:992px){
+
+.discover-grid{
+grid-template-columns:
+repeat(2,1fr);
+}
 
 }
 
-.hero-content h1{
 
-font-size:58px;
 
-line-height:1.2;
+/* ===================================
+MOBILE
+=================================== */
 
-margin-bottom:20px;
+@media(max-width:768px){
 
+.discover-page{
+padding:24px 16px 120px;
 }
 
-.hero-content p{
+.discover-title{
+font-size:28px;
+}
 
-font-size:20px;
+.discover-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
 
-line-height:1.8;
+.profile-card img{
+height:360px;
+}
 
-margin-bottom:30px;
+.profile-info h3{
+font-size:24px;
+}
 
 }
