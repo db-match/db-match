@@ -22,6 +22,8 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/responsive.css">
 
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
@@ -34,6 +36,13 @@ Chats
 
 <div class="chat-card">
 
+<div class="chat-user">
+
+<img src="https://placehold.co/100"
+alt="User">
+
+<div>
+
 <h3>Zahra</h3>
 
 <p>
@@ -42,8 +51,23 @@ Hey! Hope your day is going well.
 
 </div>
 
+</div>
+
+<span class="chat-time">
+2m ago
+</span>
+
+</div>
+
 <div class="chat-card"
 style="margin-top:15px;">
+
+<div class="chat-user">
+
+<img src="https://placehold.co/100"
+alt="User">
+
+<div>
 
 <h3>Sakina</h3>
 
@@ -54,14 +78,42 @@ Looking forward to speaking with you.
 </div>
 
 </div>
-  
-<div id="toast" class="toast"></div>
 
- <div id="global-loader" class="global-loader">
-<div class="loader-spinner"></div>
+<span class="chat-time">
+10m ago
+</span>
+
 </div>
 
-<script src="js/ui.js"></script> 
-  
+</div>
+
+<div id="bottom-nav"></div>
+
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+<script src="js/ui.js"></script>
+
+<script>
+
+fetch("components/bottom-nav.html")
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById(
+"bottom-nav"
+).innerHTML=data;
+
+lucide.createIcons();
+
+});
+
+</script>
+
 </body>
 </html>
