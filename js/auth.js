@@ -1,6 +1,9 @@
 const signupForm=document.querySelector("form");
 
-if(signupForm){
+if(
+signupForm &&
+window.location.pathname.includes("signup")
+){
 
 signupForm.addEventListener("submit",async(e)=>{
 
@@ -46,6 +49,49 @@ createdAt:new Date()
 });
 
 alert("Account Created Successfully");
+
+window.location.href="discover.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
+}
+
+
+
+
+
+
+const loginForm=document.querySelector("form");
+
+if(
+loginForm &&
+window.location.pathname.includes("login")
+){
+
+loginForm.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+const inputs=loginForm.querySelectorAll("input");
+
+const email=inputs[0].value;
+
+const password=inputs[1].value;
+
+try{
+
+await auth.signInWithEmailAndPassword(
+email,
+password
+);
+
+alert("Login Successful");
 
 window.location.href="discover.html";
 
