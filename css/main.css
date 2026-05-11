@@ -559,44 +559,39 @@ margin-top:25px;
 .like-btn,
 .reject-btn{
 
-width:72px;
-height:72px;
+width:70px;
+height:70px;
 
 border:none;
 
 border-radius:50%;
 
+font-size:24px;
+
+cursor:pointer;
+
 display:flex;
 align-items:center;
 justify-content:center;
 
-cursor:pointer;
-
 transition:0.3s ease;
-
-box-shadow:
-0 10px 25px rgba(0,0,0,0.08);
 
 }
 
 .like-btn{
 
-background:
-linear-gradient(
-135deg,
-var(--zhr-pink),
-var(--zhr-secondary)
-);
+background:#d6006e;
 
 color:white;
+
+box-shadow:
+0 10px 25px rgba(214,0,110,0.25);
 
 }
 
 .reject-btn{
 
-background:white;
-
-border:2px solid #e5e7eb;
+background:#f3f4f6;
 
 color:#6b7280;
 
@@ -605,32 +600,17 @@ color:#6b7280;
 .like-btn i,
 .reject-btn i{
 
-width:30px;
-height:30px;
-
-stroke-width:2.5;
+width:28px;
+height:28px;
 
 }
 
-.like-btn:hover{
-
-transform:translateY(-4px) scale(1.05);
-
-box-shadow:
-0 20px 35px rgba(214,0,110,0.35);
-
-}
-
+.like-btn:hover,
 .reject-btn:hover{
 
-transform:translateY(-4px);
-
-border-color:var(--zhr-primary);
-
-color:var(--zhr-primary);
+transform:scale(1.05);
 
 }
-
 
 /* =========================================
 PROFILE PAGE
