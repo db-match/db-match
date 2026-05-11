@@ -1,17 +1,16 @@
-const firebaseConfig={
+const firebaseConfig = {
+  apiKey: "AIzaSyAQ55Xbm1M8K1vXteQVJh85LpLplvTbZdE",
+  authDomain: "dawoodi-bohra-match.firebaseapp.com",
+  projectId: "dawoodi-bohra-match",
+  storageBucket: "dawoodi-bohra-match.firebasestorage.app",
+  messagingSenderId: "111949475025",
+  appId: "1:111949475025:web:f03855cfc28eb92e5e29f0"
+};
 
-apiKey:"YOUR_API_KEY",
+firebase.initializeApp(firebaseConfig);
 
-authDomain:"YOUR_DOMAIN",
+const auth = firebase.auth();
 
-projectId:"YOUR_PROJECT_ID",
+const db = firebase.firestore();
 
-storageBucket:"YOUR_BUCKET",
-
-messagingSenderId:"YOUR_SENDER_ID",
-
-appId:"YOUR_APP_ID"
-
-}
-
-console.log("Firebase Config Ready")
+console.log("Firebase Connected");
