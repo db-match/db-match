@@ -16,6 +16,9 @@ toast.innerText = message;
 toast.className =
 `toast show ${type}`;
 
+clearTimeout(window.toastTimeout);
+
+window.toastTimeout =
 setTimeout(()=>{
 
 toast.className =
@@ -33,7 +36,7 @@ GLOBAL LOADER
 
 function showLoader(){
 
-let loader =
+const loader =
 document.getElementById("global-loader");
 
 if(loader){
@@ -48,7 +51,7 @@ loader.style.display = "flex";
 
 function hideLoader(){
 
-let loader =
+const loader =
 document.getElementById("global-loader");
 
 if(loader){
@@ -114,6 +117,7 @@ AUTO CLOSE MOBILE KEYBOARD
 document.addEventListener("touchstart",function(e){
 
 if(
+document.activeElement &&
 document.activeElement.tagName === "INPUT" &&
 !e.target.closest("input")
 ){
@@ -121,5 +125,51 @@ document.activeElement.tagName === "INPUT" &&
 document.activeElement.blur();
 
 }
+
+});
+
+
+
+/* =========================================
+ESC KEY CLOSE KEYBOARD
+========================================= */
+
+document.addEventListener("keydown",function(e){
+
+if(e.key === "Escape"){
+
+if(document.activeElement){
+
+document.activeElement.blur();
+
+}
+
+}
+
+});
+
+
+
+/* =========================================
+ONLINE / OFFLINE DETECTION
+========================================= */
+
+window.addEventListener("offline",()=>{
+
+showToast(
+"No Internet Connection",
+"error"
+);
+
+});
+
+
+
+window.addEventListener("online",()=>{
+
+showToast(
+"Connection Restored",
+"success"
+);
 
 });
