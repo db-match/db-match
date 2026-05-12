@@ -182,6 +182,95 @@ transform:scale(1.08);
 }
 
 
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+left:0;
+
+width:100%;
+
+height:78px;
+
+background:white;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top:
+1px solid rgba(0,0,0,0.06);
+
+z-index:999;
+
+padding-bottom:
+env(safe-area-inset-bottom);
+
+box-shadow:
+0 -5px 25px rgba(0,0,0,0.04);
+
+}
+
+.nav-item{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:5px;
+
+text-decoration:none;
+
+color:#9ca3af;
+
+font-size:12px;
+
+font-weight:600;
+
+transition:0.3s ease;
+
+}
+
+.nav-item i{
+
+width:24px;
+height:24px;
+
+stroke-width:2.2;
+
+}
+
+.nav-item.active{
+
+color:#e10072;
+
+}
+
+.nav-item.active i{
+
+color:#e10072;
+
+}
+
+.page-container{
+
+padding:
+30px 20px 120px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+
 
 /* ===================================
 DESKTOP
