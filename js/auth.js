@@ -34,6 +34,10 @@ const user=userCredential.user;
 
 await db.collection("users").doc(user.uid).set({
 
+/* =========================================
+BASIC INFO
+========================================= */
+
 uid:user.uid,
 
 name:fullName,
@@ -42,11 +46,116 @@ email:email,
 
 phone:phone,
 
-approved:false,
+gender:"",
+dob:"",
+age:"",
+
+city:"",
+state:"",
+country:"",
+
+bio:"",
+
+
+
+/* =========================================
+MATCHMAKING DETAILS
+========================================= */
+
+profession:"",
+company:"",
+education:"",
+maritalStatus:"",
+
+sect:"",
+jamaat:"",
+motherTongue:"",
+
+height:"",
+weight:"",
+
+religiousValues:"",
+prayerFrequency:"",
+
+smoking:false,
+drinking:false,
+
+
+
+/* =========================================
+PARTNER PREFERENCES
+========================================= */
+
+preferredAgeMin:"",
+preferredAgeMax:"",
+
+preferredCity:"",
+preferredCountry:"",
+
+preferredProfession:"",
+
+
+
+/* =========================================
+PROFILE PHOTOS
+========================================= */
+
+profilePhoto1:"",
+profilePhoto2:"",
+
+
+
+/* =========================================
+VERIFICATION
+========================================= */
+
+itsNumber:"",
+itsCardImage:"",
+
+selfieImage:"",
+
+itsVerified:false,
+selfieVerified:false,
 
 verified:false,
 
-createdAt:new Date()
+
+
+/* =========================================
+ADMIN APPROVAL
+========================================= */
+
+approved:false,
+
+approvalStatus:"pending",
+
+rejectionReason:"",
+
+
+
+/* =========================================
+ACCOUNT STATUS
+========================================= */
+
+isBlocked:false,
+
+isDeleted:false,
+
+isPremium:false,
+
+
+
+/* =========================================
+ACTIVITY
+========================================= */
+
+createdAt:new Date(),
+
+lastActive:new Date(),
+
+lastLogin:new Date()
+
+
 
 });
 
