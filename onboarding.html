@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Complete Profile | Dawoodi Bohra Match
+</title>
+
+<link rel="stylesheet"
+href="css/variables.css">
+
+<link rel="stylesheet"
+href="css/layout.css">
+
+<link rel="stylesheet"
+href="css/main.css">
+
+<link rel="stylesheet"
+href="css/onboarding.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="onboarding-container">
+
+
+
+<!-- PROGRESS -->
+
+<div class="progress-wrapper">
+
+<div class="progress-bar">
+
+<div class="progress-fill"
+id="progress-fill"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- STEP CONTENT -->
+
+<div class="step-container"
+id="step-container">
+
+
+
+<!-- STEP 1 -->
+
+<div class="step active">
+
+<h1>
+What is your first name?
+</h1>
+
+<p>
+Your name helps create a more personal experience.
+</p>
+
+<input type="text"
+id="firstName"
+placeholder="First Name">
+
+</div>
+
+
+
+<!-- STEP 2 -->
+
+<div class="step">
+
+<h1>
+What is your last name?
+</h1>
+
+<p>
+This helps maintain authentic community profiles.
+</p>
+
+<input type="text"
+id="lastName"
+placeholder="Last Name">
+
+</div>
+
+
+
+<!-- STEP 3 -->
+
+<div class="step">
+
+<h1 id="welcome-text">
+Hello 👋
+</h1>
+
+<p>
+Let's continue building your profile.
+</p>
+
+</div>
+
+
+
+<!-- STEP 4 -->
+
+<div class="step">
+
+<h1>
+What is your date of birth?
+</h1>
+
+<p>
+Date of birth cannot be changed later.
+</p>
+
+<input type="date"
+id="dob">
+
+</div>
+
+
+
+<!-- STEP 5 -->
+
+<div class="step">
+
+<h1>
+Select your gender
+</h1>
+
+<div class="option-grid">
+
+<button class="option-btn"
+data-value="Male">
+Male
+</button>
+
+<button class="option-btn"
+data-value="Female">
+Female
+</button>
+
+</div>
+
+<input type="hidden"
+id="gender">
+
+</div>
+
+
+
+<!-- STEP 6 -->
+
+<div class="step">
+
+<h1>
+What is your height?
+</h1>
+
+<p>
+Enter your height in feet and inches.
+</p>
+
+<div class="height-grid">
+
+<input type="number"
+id="heightFeet"
+placeholder="Feet">
+
+<input type="number"
+id="heightInches"
+placeholder="Inches">
+
+</div>
+
+</div>
+
+
+
+<!-- STEP 7 -->
+
+<div class="step">
+
+<h1>
+What is your highest education?
+</h1>
+
+<select id="education">
+
+<option value="">
+Select Education
+</option>
+
+<option>
+High School
+</option>
+
+<option>
+Diploma
+</option>
+
+<option>
+Bachelor's Degree
+</option>
+
+<option>
+Master's Degree
+</option>
+
+<option>
+Post Graduate
+</option>
+
+<option>
+Doctorate
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- STEP 8 -->
+
+<div class="step">
+
+<h1>
+What do you do professionally?
+</h1>
+
+<input type="text"
+id="profession"
+placeholder="Profession">
+
+</div>
+
+
+
+<!-- STEP 9 -->
+
+<div class="step">
+
+<h1>
+How religious are you?
+</h1>
+
+<div class="option-grid">
+
+<button class="option-btn"
+data-field="religiousValues"
+data-value="Very Religious">
+
+Very Religious
+
+</button>
+
+<button class="option-btn"
+data-field="religiousValues"
+data-value="Moderate">
+
+Moderate
+
+</button>
+
+<button class="option-btn"
+data-field="religiousValues"
+data-value="Simple">
+
+Simple
+
+</button>
+
+</div>
+
+<input type="hidden"
+id="religiousValues">
+
+</div>
+
+
+
+<!-- STEP 10 -->
+
+<div class="step">
+
+<h1>
+When are you planning to get married?
+</h1>
+
+<select id="marriageTimeline">
+
+<option value="">
+Select Timeline
+</option>
+
+<option>
+Immediately
+</option>
+
+<option>
+Within 1 Year
+</option>
+
+<option>
+1 - 2 Years
+</option>
+
+<option>
+2 - 3 Years
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- STEP 11 -->
+
+<div class="step">
+
+<h1>
+Select your interests
+</h1>
+
+<p>
+Choose all that describe you.
+</p>
+
+<div class="interests-grid">
+
+<button class="interest-btn">
+Travel
+</button>
+
+<button class="interest-btn">
+Sports
+</button>
+
+<button class="interest-btn">
+Reading
+</button>
+
+<button class="interest-btn">
+Movies
+</button>
+
+<button class="interest-btn">
+Fitness
+</button>
+
+<button class="interest-btn">
+Food
+</button>
+
+<button class="interest-btn">
+Family Time
+</button>
+
+<button class="interest-btn">
+Business
+</button>
+
+<button class="interest-btn">
+Islamic Learning
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- STEP 12 -->
+
+<div class="step">
+
+<h1>
+Tell us about yourself
+</h1>
+
+<textarea
+id="bio"
+placeholder="Write a short bio"
+rows="5"></textarea>
+
+</div>
+
+
+
+<!-- STEP 13 -->
+
+<div class="step">
+
+<h1>
+Upload your profile photos
+</h1>
+
+<p>
+Minimum 2 photos required.
+</p>
+
+<input type="file"
+multiple>
+
+</div>
+
+
+
+<!-- STEP 14 -->
+
+<div class="step">
+
+<h1>
+Selfie Verification
+</h1>
+
+<p>
+Your selfie will remain private and used only for verification purposes.
+</p>
+
+<input type="file">
+
+</div>
+
+
+
+<!-- STEP 15 -->
+
+<div class="step">
+
+<h1>
+Upload ITS / E-Jamaat Card
+</h1>
+
+<p>
+Upload a clear ITS/E-Jamaat image.
+Profile access activates after admin approval.
+</p>
+
+<input type="file">
+
+</div>
+
+
+
+<!-- STEP 16 -->
+
+<div class="step">
+
+<h1>
+Confirmation
+</h1>
+
+<p>
+Please confirm the following before submitting your profile.
+</p>
+
+<div class="confirmation-box">
+
+<label class="custom-checkbox">
+
+<input type="checkbox"
+id="communityConfirm">
+
+<span class="checkmark"></span>
+
+<span class="checkbox-text">
+
+I confirm that I belong to the Dawoodi Bohra community and accept all terms and conditions of DawoodiBohraMatch.com.
+
+</span>
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<!-- STEP 17 -->
+
+<div class="step">
+
+<div class="success-screen">
+
+<i data-lucide="badge-check"></i>
+
+<h1>
+Profile Submitted Successfully
+</h1>
+
+<p>
+Your profile is now under review.
+Features will activate once admin approval is completed.
+</p>
+
+<button class="primary-btn"
+id="finish-btn">
+
+Visit Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- NAVIGATION -->
+
+<div class="bottom-fixed-nav">
+
+<button class="secondary-btn"
+id="back-btn">
+
+Back
+
+</button>
+
+<button class="primary-btn"
+id="next-btn">
+
+Next
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/onboarding.js"></script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
