@@ -8,7 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Settings | Dawoodi Bohra Match</title>
+<title>
+Settings | Dawoodi Bohra Matchmaking Platform
+</title>
 
 <link rel="stylesheet"
 href="css/variables.css">
@@ -22,6 +24,8 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/responsive.css">
 
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
@@ -32,31 +36,123 @@ href="css/responsive.css">
 Settings
 </h1>
 
-<div class="settings-card">
-Notifications
-</div>
+
 
 <div class="settings-card">
-Privacy Settings
+
+<div class="settings-left">
+
+<i data-lucide="bell"></i>
+
+<span>Notifications</span>
+
 </div>
+
+<i data-lucide="chevron-right"></i>
+
+</div>
+
+
 
 <div class="settings-card">
-Blocked Users
+
+<div class="settings-left">
+
+<i data-lucide="shield"></i>
+
+<span>Privacy Settings</span>
+
 </div>
+
+<i data-lucide="chevron-right"></i>
+
+</div>
+
+
 
 <div class="settings-card">
-Delete Account
+
+<div class="settings-left">
+
+<i data-lucide="ban"></i>
+
+<span>Blocked Users</span>
+
+</div>
+
+<i data-lucide="chevron-right"></i>
+
+</div>
+
+
+
+<div class="settings-card">
+
+<div class="settings-left">
+
+<i data-lucide="trash-2"></i>
+
+<span>Delete Account</span>
+
+</div>
+
+<i data-lucide="chevron-right"></i>
+
 </div>
 
 </div>
+
+
+
+<div id="bottom-nav"></div>
 
 <div id="toast" class="toast"></div>
 
 <div id="global-loader" class="global-loader">
+
 <div class="loader-spinner"></div>
+
 </div>
 
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
 <script src="js/ui.js"></script>
-  
+
+
+
+<script>
+
+auth.onAuthStateChanged((user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+});
+
+fetch("components/bottom-nav.html")
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById(
+"bottom-nav"
+).innerHTML=data;
+
+lucide.createIcons();
+
+});
+
+</script>
+
 </body>
 </html>
