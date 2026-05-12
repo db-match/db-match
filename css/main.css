@@ -1389,3 +1389,24 @@ color:var(--zhr-muted);
 font-size:16px;
 
 }
+
+textarea,
+select{
+
+padding:16px;
+
+border-radius:16px;
+
+border:1px solid var(--zhr-border);
+
+font-size:16px;
+
+outline:none;
+
+font-family:'Poppins',sans-serif;
+
+width:100%;
+
+background:white;
+
+}
