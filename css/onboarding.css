@@ -1,0 +1,113 @@
+/* =========================================
+CONFIRMATION STEP
+========================================= */
+
+.confirmation-box{
+
+margin-top:40px;
+
+padding:28px;
+
+background:white;
+
+border-radius:28px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.05);
+
+}
+
+
+
+.custom-checkbox{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:16px;
+
+cursor:pointer;
+
+position:relative;
+
+}
+
+
+
+.custom-checkbox input{
+
+display:none;
+
+}
+
+
+
+.checkmark{
+
+min-width:26px;
+height:26px;
+
+border-radius:8px;
+
+border:2px solid #d1d5db;
+
+margin-top:2px;
+
+position:relative;
+
+transition:0.3s ease;
+
+}
+
+
+
+.custom-checkbox input:checked
++ .checkmark{
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#8b176d
+);
+
+border-color:
+transparent;
+
+}
+
+
+
+.custom-checkbox input:checked
++ .checkmark::after{
+
+content:"";
+
+position:absolute;
+
+left:8px;
+top:3px;
+
+width:6px;
+height:12px;
+
+border:solid white;
+
+border-width:0 2px 2px 0;
+
+transform:rotate(45deg);
+
+}
+
+
+
+.checkbox-text{
+
+font-size:16px;
+
+line-height:1.8;
+
+color:var(--zhr-text);
+
+}
