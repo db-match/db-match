@@ -618,3 +618,31 @@ padding:18px;
 
 
 }
+
+/* =========================================
+ONBOARDING BUTTON FIX
+========================================= */
+
+.bottom-fixed-nav .secondary-btn{
+
+background:white;
+
+color:var(--zhr-primary);
+
+border:2px solid #dbe2ea;
+
+box-shadow:
+0 5px 18px rgba(0,0,0,0.05);
+
+}
+
+
+
+.bottom-fixed-nav .secondary-btn:hover{
+
+background:#f9fafb;
+
+transform:translateY(-2px);
+
+}
+
