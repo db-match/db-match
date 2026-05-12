@@ -8,7 +8,8 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Profile | Dawoodi Bohra Match</title>
+<title>
+Profile | Dawoodi Bohra Match</title>
 
 <link rel="stylesheet"
 href="css/variables.css">
@@ -21,6 +22,8 @@ href="css/main.css">
 
 <link rel="stylesheet"
 href="css/responsive.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 
@@ -40,20 +43,68 @@ Mumbai, India
 </p>
 
 <span class="verified-badge">
-Verified
+
+<i data-lucide="badge-check"></i>
+
+Verified Profile
+
 </span>
 
 </div>
 
 </div>
 
+
+
+<div id="bottom-nav"></div>
+
 <div id="toast" class="toast"></div>
 
 <div id="global-loader" class="global-loader">
+
 <div class="loader-spinner"></div>
+
 </div>
 
-<script src="js/ui.js"></script>  
-  
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+
+
+<script>
+
+auth.onAuthStateChanged((user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+});
+
+fetch("components/bottom-nav.html")
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById(
+"bottom-nav"
+).innerHTML=data;
+
+lucide.createIcons();
+
+});
+
+</script>
+
 </body>
 </html>
