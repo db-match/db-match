@@ -168,7 +168,8 @@ showToast(
 
 setTimeout(()=>{
 
-window.location.href="discover.html";
+window.location.href=
+"profile-edit.html";
 
 },1200);
 
