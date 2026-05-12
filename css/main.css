@@ -1340,3 +1340,52 @@ translateY(0);
 }
 
 
+/* =========================================
+EMPTY STATE
+========================================= */
+
+.empty-state{
+
+grid-column:1/-1;
+
+text-align:center;
+
+padding:80px 20px;
+
+background:white;
+
+border-radius:30px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.05);
+
+}
+
+.empty-state i{
+
+width:70px;
+height:70px;
+
+margin-bottom:20px;
+
+color:#e10072;
+
+}
+
+.empty-state h2{
+
+font-size:32px;
+
+margin-bottom:15px;
+
+color:var(--zhr-primary);
+
+}
+
+.empty-state p{
+
+color:var(--zhr-muted);
+
+font-size:16px;
+
+}
