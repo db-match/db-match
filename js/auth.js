@@ -169,7 +169,7 @@ showToast(
 setTimeout(()=>{
 
 window.location.href=
-"profile-edit.html";
+"onboarding.html";
 
 },1200);
 
