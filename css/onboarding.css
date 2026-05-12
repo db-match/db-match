@@ -1,4 +1,449 @@
 /* =========================================
+ONBOARDING LAYOUT
+========================================= */
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#f8f9fd,
+#eef2ff
+);
+
+min-height:100vh;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+
+
+.onboarding-container{
+
+max-width:760px;
+
+margin:auto;
+
+padding:
+40px 20px 140px;
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+
+
+/* =========================================
+PROGRESS BAR
+========================================= */
+
+.progress-wrapper{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+background:white;
+
+padding:22px 20px;
+
+z-index:999;
+
+box-shadow:
+0 5px 25px rgba(0,0,0,0.04);
+
+}
+
+
+
+.progress-bar{
+
+width:100%;
+
+max-width:760px;
+
+height:10px;
+
+background:#e5e7eb;
+
+border-radius:50px;
+
+overflow:hidden;
+
+margin:auto;
+
+}
+
+
+
+.progress-fill{
+
+height:100%;
+
+width:0%;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#8b176d
+);
+
+transition:0.4s ease;
+
+}
+
+
+
+/* =========================================
+STEP CONTAINER
+========================================= */
+
+.step-container{
+
+margin-top:90px;
+
+}
+
+
+
+.step{
+
+display:none;
+
+animation:
+fadeSlide 0.4s ease;
+
+}
+
+
+
+.step.active{
+
+display:block;
+
+}
+
+
+
+/* =========================================
+STEP CONTENT
+========================================= */
+
+.step h1{
+
+font-size:42px;
+
+font-weight:800;
+
+line-height:1.2;
+
+margin-bottom:18px;
+
+color:var(--zhr-primary);
+
+}
+
+
+
+.step p{
+
+font-size:17px;
+
+line-height:1.8;
+
+color:var(--zhr-muted);
+
+margin-bottom:35px;
+
+}
+
+
+
+/* =========================================
+INPUTS
+========================================= */
+
+.step input,
+.step select,
+.step textarea{
+
+width:100%;
+
+padding:18px 22px;
+
+border-radius:22px;
+
+border:1px solid #dbe2ea;
+
+background:white;
+
+font-size:16px;
+
+font-family:'Poppins',sans-serif;
+
+outline:none;
+
+transition:0.3s ease;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,0.03);
+
+}
+
+
+
+.step textarea{
+
+resize:none;
+
+}
+
+
+
+.step input:focus,
+.step select:focus,
+.step textarea:focus{
+
+border-color:#e10072;
+
+box-shadow:
+0 0 0 5px rgba(225,0,114,0.08);
+
+}
+
+
+
+/* =========================================
+OPTION BUTTONS
+========================================= */
+
+.option-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:16px;
+
+}
+
+
+
+.option-btn{
+
+padding:18px;
+
+border:none;
+
+border-radius:22px;
+
+background:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+box-shadow:
+0 5px 18px rgba(0,0,0,0.05);
+
+}
+
+
+
+.option-btn.active{
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#8b176d
+);
+
+color:white;
+
+}
+
+
+
+/* =========================================
+HEIGHT GRID
+========================================= */
+
+.height-grid{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:16px;
+
+}
+
+
+
+/* =========================================
+INTERESTS
+========================================= */
+
+.interests-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:14px;
+
+}
+
+
+
+.interest-btn{
+
+padding:14px 22px;
+
+border:none;
+
+border-radius:50px;
+
+background:white;
+
+font-size:15px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,0.05);
+
+}
+
+
+
+.interest-btn.active{
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#8b176d
+);
+
+color:white;
+
+}
+
+
+
+/* =========================================
+BOTTOM NAVIGATION
+========================================= */
+
+.bottom-fixed-nav{
+
+position:fixed;
+
+bottom:0;
+left:0;
+
+width:100%;
+
+background:white;
+
+padding:22px;
+
+display:flex;
+
+justify-content:space-between;
+
+gap:18px;
+
+z-index:999;
+
+box-shadow:
+0 -5px 25px rgba(0,0,0,0.05);
+
+}
+
+
+
+.bottom-fixed-nav button{
+
+flex:1;
+
+}
+
+
+
+/* =========================================
+SUCCESS SCREEN
+========================================= */
+
+.success-screen{
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+
+
+.success-screen i{
+
+width:90px;
+height:90px;
+
+color:#e10072;
+
+margin-bottom:25px;
+
+}
+
+
+
+.success-screen h1{
+
+margin-bottom:20px;
+
+}
+
+
+
+.success-screen p{
+
+max-width:520px;
+
+margin:auto;
+
+margin-bottom:35px;
+
+}
+
+
+
+/* =========================================
 CONFIRMATION STEP
 ========================================= */
 
@@ -72,8 +517,7 @@ linear-gradient(
 #8b176d
 );
 
-border-color:
-transparent;
+border-color:transparent;
 
 }
 
@@ -109,5 +553,68 @@ font-size:16px;
 line-height:1.8;
 
 color:var(--zhr-text);
+
+}
+
+
+
+/* =========================================
+ANIMATION
+========================================= */
+
+@keyframes fadeSlide{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+.step h1{
+
+font-size:34px;
+
+}
+
+
+
+.option-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+
+
+.bottom-fixed-nav{
+
+padding:18px;
+
+}
+
+
 
 }
