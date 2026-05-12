@@ -8,7 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Signup | Dawoodi Bohra Match</title>
+<title>
+Create Profile | Dawoodi Bohra Matchmaking Platform
+</title>
 
 <link rel="stylesheet"
 href="css/variables.css">
@@ -22,6 +24,8 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/responsive.css">
 
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
@@ -33,25 +37,34 @@ href="css/responsive.css">
 <h1>Create Profile</h1>
 
 <p>
-Start your Dawoodi Bohra
+Start your trusted Dawoodi Bohra
 matchmaking journey.
 </p>
 
-<form>
+<form id="signup-form">
 
 <input type="text"
-placeholder="Full Name">
+placeholder="Full Name"
+autocomplete="name"
+required>
 
 <input type="email"
-placeholder="Email Address">
+placeholder="Email Address"
+autocomplete="email"
+required>
 
 <input type="tel"
-placeholder="Mobile Number">
+placeholder="Mobile Number"
+autocomplete="tel"
+required>
 
 <input type="password"
-placeholder="Create Password">
+placeholder="Create Password"
+autocomplete="new-password"
+required>
 
-<button class="primary-btn">
+<button type="submit"
+class="primary-btn">
 Continue
 </button>
 
@@ -73,6 +86,18 @@ Login
 
 </div>
 
+
+
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -81,15 +106,15 @@ Login
 
 <script src="firebase/firebase-config.js"></script>
 
-<div id="toast" class="toast"></div>
-
-<div id="global-loader" class="global-loader">
-<div class="loader-spinner"></div>
-</div>
-
 <script src="js/ui.js"></script>
 
 <script src="js/auth.js"></script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
 
 </body>
 </html>
