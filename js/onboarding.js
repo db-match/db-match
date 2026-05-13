@@ -1,139 +1,179 @@
-/* =========================================
-STEP SYSTEM
-========================================= */
-
-const steps =
-document.querySelectorAll(".step");
-
-const nextBtn =
-document.getElementById("next-btn");
-
-const backBtn =
-document.getElementById("back-btn");
-
-const progressFill =
-document.getElementById("progress-fill");
-
-let currentStep = 0;
-
-const totalSteps =
-steps.length;
-
-
+console.log("Onboarding Ready");
 
 /* =========================================
-UPDATE STEP UI
+FIREBASE AUTH CHECK
 ========================================= */
 
-function updateStep(){
+auth.onAuthStateChanged((user)=>{
 
-steps.forEach((step,index)=>{
+if(!user){
 
-step.classList.remove("active");
-
-if(index === currentStep){
-
-step.classList.add("active");
+window.location.href="login.html";
 
 }
 
 });
 
+/* =========================================
+ALL STEPS
+========================================= */
 
+const steps =
+document.querySelectorAll(".step");
+
+const progressFill =
+document.getElementById(
+"progress-fill"
+);
+
+const nextBtn =
+document.getElementById(
+"next-btn"
+);
+
+const backBtn =
+document.getElementById(
+"back-btn"
+);
+
+let currentStep = 0;
+
+/* =========================================
+SHOW STEP
+========================================= */
+
+function showStep(index){
+
+steps.forEach((step)=>{
+
+step.classList.remove("active");
+
+});
+
+steps[index].classList.add("active");
 
 /* =========================================
 PROGRESS BAR
 ========================================= */
 
 const progress =
-((currentStep + 1)
-/ totalSteps) * 100;
+((index + 1) / steps.length) * 100;
 
 progressFill.style.width =
 `${progress}%`;
-
-
 
 /* =========================================
 BACK BUTTON
 ========================================= */
 
-if(currentStep === 0){
+if(index === 0){
 
-backBtn.style.visibility =
-"hidden";
+backBtn.style.opacity = "0.4";
 
-}else{
-
-backBtn.style.visibility =
-"visible";
-
-}
-
-
-
-/* =========================================
-NEXT BUTTON HIDE
-========================================= */
-
-if(currentStep === totalSteps - 1){
-
-nextBtn.style.display =
+backBtn.style.pointerEvents =
 "none";
 
 }else{
 
-nextBtn.style.display =
-"flex";
+backBtn.style.opacity = "1";
+
+backBtn.style.pointerEvents =
+"auto";
 
 }
 
-
-
 /* =========================================
-WELCOME TEXT
+LAST STEP BUTTON
 ========================================= */
 
-if(currentStep === 2){
+if(index === steps.length - 1){
 
-const firstName =
-document.getElementById(
-"firstName"
-).value;
+nextBtn.style.display = "none";
 
-document.getElementById(
-"welcome-text"
-).innerHTML =
+}else{
 
-`Hello ${firstName} 👋`;
+nextBtn.style.display = "block";
 
 }
 
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
-
-
 
 /* =========================================
-VALIDATION
+VALIDATE STEP
 ========================================= */
 
 function validateStep(){
 
+const current =
+steps[currentStep];
 
+const requiredInputs =
+current.querySelectorAll(
+"input[required], select[required], textarea[required]"
+);
 
-/* STEP 1 */
+for(let input of requiredInputs){
 
-if(currentStep === 0){
+/* =========================================
+CHECKBOX
+========================================= */
 
-const value =
-document.getElementById(
-"firstName"
-).value.trim();
-
-if(!value){
+if(
+input.type === "checkbox" &&
+!input.checked
+){
 
 showToast(
-"Please enter your first name",
+"Please accept terms & conditions",
+"error"
+);
+
+return false;
+
+}
+
+/* =========================================
+NORMAL INPUTS
+========================================= */
+
+if(
+input.type !== "checkbox" &&
+!input.value.trim()
+){
+
+showToast(
+"Please complete all required details",
+"error"
+);
+
+input.focus();
+
+return false;
+
+}
+
+}
+
+/* =========================================
+PHOTO VALIDATION
+========================================= */
+
+if(current.dataset.step === "photos"){
+
+const uploadedPhotos =
+document.querySelectorAll(
+".photo-upload.uploaded"
+);
+
+if(uploadedPhotos.length < 2){
+
+showToast(
+"Please upload minimum 2 photos",
 "error"
 );
 
@@ -143,21 +183,21 @@ return false;
 
 }
 
+/* =========================================
+SELFIE VALIDATION
+========================================= */
 
+if(current.dataset.step === "selfie"){
 
-/* STEP 2 */
-
-if(currentStep === 1){
-
-const value =
+const selfie =
 document.getElementById(
-"lastName"
-).value.trim();
+"selfie-image"
+);
 
-if(!value){
+if(!selfie.files[0]){
 
 showToast(
-"Please enter your last name",
+"Selfie verification is required",
 "error"
 );
 
@@ -167,21 +207,21 @@ return false;
 
 }
 
+/* =========================================
+ITS VALIDATION
+========================================= */
 
+if(current.dataset.step === "its"){
 
-/* STEP 4 */
-
-if(currentStep === 3){
-
-const value =
+const itsCard =
 document.getElementById(
-"dob"
-).value;
+"its-image"
+);
 
-if(!value){
+if(!itsCard.files[0]){
 
 showToast(
-"Please select your date of birth",
+"Please upload ITS/E-Jamaat card",
 "error"
 );
 
@@ -190,211 +230,10 @@ return false;
 }
 
 }
-
-
-
-/* STEP 5 */
-
-if(currentStep === 4){
-
-const value =
-document.getElementById(
-"gender"
-).value;
-
-if(!value){
-
-showToast(
-"Please select gender",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 6 */
-
-if(currentStep === 5){
-
-const feet =
-document.getElementById(
-"heightFeet"
-).value;
-
-const inches =
-document.getElementById(
-"heightInches"
-).value;
-
-if(!feet || !inches){
-
-showToast(
-"Please enter height",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 7 */
-
-if(currentStep === 6){
-
-const value =
-document.getElementById(
-"education"
-).value;
-
-if(!value){
-
-showToast(
-"Please select education",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 8 */
-
-if(currentStep === 7){
-
-const value =
-document.getElementById(
-"profession"
-).value.trim();
-
-if(!value){
-
-showToast(
-"Please enter profession",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 9 */
-
-if(currentStep === 8){
-
-const value =
-document.getElementById(
-"religiousValues"
-).value;
-
-if(!value){
-
-showToast(
-"Please select religious values",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 10 */
-
-if(currentStep === 9){
-
-const value =
-document.getElementById(
-"marriageTimeline"
-).value;
-
-if(!value){
-
-showToast(
-"Please select marriage timeline",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 12 */
-
-if(currentStep === 11){
-
-const value =
-document.getElementById(
-"bio"
-).value.trim();
-
-if(!value){
-
-showToast(
-"Please write something about yourself",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
-
-/* STEP 16 */
-
-if(currentStep === 15){
-
-const confirm =
-document.getElementById(
-"communityConfirm"
-);
-
-if(!confirm.checked){
-
-showToast(
-"Please accept the confirmation to continue",
-"error"
-);
-
-return false;
-
-}
-
-}
-
-
 
 return true;
 
 }
-
-
 
 /* =========================================
 NEXT BUTTON
@@ -406,22 +245,12 @@ nextBtn.addEventListener(
 
 if(!validateStep()) return;
 
-if(currentStep < totalSteps - 1){
-
 currentStep++;
 
-updateStep();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+showStep(currentStep);
 
 }
-
-});
-
-
+);
 
 /* =========================================
 BACK BUTTON
@@ -435,124 +264,225 @@ if(currentStep > 0){
 
 currentStep--;
 
-updateStep();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+showStep(currentStep);
 
 }
 
-});
-
-
+}
+);
 
 /* =========================================
-OPTION BUTTONS
+SELECTION CARDS
 ========================================= */
 
 document.querySelectorAll(
-".option-btn"
-).forEach((btn)=>{
+".select-card"
+).forEach((card)=>{
 
-btn.addEventListener(
+card.addEventListener(
 "click",
 ()=>{
 
 const parent =
-btn.parentElement;
+card.parentElement;
 
 parent.querySelectorAll(
-".option-btn"
-).forEach((b)=>{
+".select-card"
+).forEach((item)=>{
 
-b.classList.remove(
+item.classList.remove(
 "active"
 );
 
 });
 
-btn.classList.add(
+card.classList.add(
 "active"
 );
 
-
-
 /* =========================================
-GENDER
+STORE VALUE
 ========================================= */
 
-if(currentStep === 4){
+const hiddenInput =
+parent.parentElement.querySelector(
+".selection-value"
+);
 
-document.getElementById(
-"gender"
-).value =
+if(hiddenInput){
 
-btn.dataset.value;
+hiddenInput.value =
+card.dataset.value;
 
 }
 
-
-
-/* =========================================
-RELIGIOUS VALUES
-========================================= */
-
-if(btn.dataset.field){
-
-document.getElementById(
-btn.dataset.field
-).value =
-
-btn.dataset.value;
-
 }
+);
 
 });
-
-});
-
-
 
 /* =========================================
-INTEREST BUTTONS
+CHIPS
 ========================================= */
 
 document.querySelectorAll(
-".interest-btn"
-).forEach((btn)=>{
+".chip"
+).forEach((chip)=>{
 
-btn.addEventListener(
+chip.addEventListener(
 "click",
 ()=>{
 
-btn.classList.toggle(
+chip.classList.toggle(
 "active"
+);
+
+}
 );
 
 });
 
+/* =========================================
+PHOTO UPLOAD PREVIEW
+========================================= */
+
+document.querySelectorAll(
+".photo-input"
+).forEach((input)=>{
+
+input.addEventListener(
+"change",
+(e)=>{
+
+const file =
+e.target.files[0];
+
+if(!file) return;
+
+const parent =
+input.closest(
+".photo-upload"
+);
+
+const reader =
+new FileReader();
+
+reader.onload = function(a){
+
+parent.innerHTML = `
+
+<img
+src="${a.target.result}"
+class="uploaded-photo"
+>
+
+`;
+
+parent.classList.add(
+"uploaded"
+);
+
+};
+
+reader.readAsDataURL(file);
+
+}
+);
+
 });
 
+/* =========================================
+SELFIE PREVIEW
+========================================= */
 
+const selfieInput =
+document.getElementById(
+"selfie-image"
+);
+
+if(selfieInput){
+
+selfieInput.addEventListener(
+"change",
+(e)=>{
+
+const file =
+e.target.files[0];
+
+if(!file) return;
+
+document.getElementById(
+"selfie-preview"
+).innerHTML = `
+
+<img
+src="${URL.createObjectURL(file)}"
+class="uploaded-photo"
+>
+
+`;
+
+}
+);
+
+}
+
+/* =========================================
+ITS PREVIEW
+========================================= */
+
+const itsInput =
+document.getElementById(
+"its-image"
+);
+
+if(itsInput){
+
+itsInput.addEventListener(
+"change",
+(e)=>{
+
+const file =
+e.target.files[0];
+
+if(!file) return;
+
+document.getElementById(
+"its-preview"
+).innerHTML = `
+
+<img
+src="${URL.createObjectURL(file)}"
+class="uploaded-photo"
+>
+
+`;
+
+}
+);
+
+}
 
 /* =========================================
 SAVE PROFILE
 ========================================= */
 
-const finishBtn =
+const onboardingForm =
 document.getElementById(
-"finish-btn"
+"onboarding-form"
 );
 
-finishBtn.addEventListener(
-"click",
-async()=>{
+onboardingForm.addEventListener(
+"submit",
+async(e)=>{
 
-try{
+e.preventDefault();
+
+if(!validateStep()) return;
 
 showLoader();
+
+try{
 
 const user =
 auth.currentUser;
@@ -564,46 +494,62 @@ showToast(
 "error"
 );
 
+hideLoader();
+
 return;
 
 }
 
-
-
 /* =========================================
-INTERESTS
+COLLECT INTERESTS
 ========================================= */
 
-const interests = [];
+const selectedInterests = [];
 
 document.querySelectorAll(
-".interest-btn.active"
-).forEach((btn)=>{
+".chip.active"
+).forEach((chip)=>{
 
-interests.push(
-btn.innerText
+selectedInterests.push(
+chip.innerText
 );
 
 });
 
-
-
 /* =========================================
-SAVE DATA
+UPDATE FIRESTORE
 ========================================= */
 
 await db.collection("users")
 .doc(user.uid)
 .update({
 
-name:
+/* =========================================
+NAME
+========================================= */
+
+firstName:
 document.getElementById(
-"firstName"
-).value
-+ " " +
-document.getElementById(
-"lastName"
+"first-name"
 ).value,
+
+lastName:
+document.getElementById(
+"last-name"
+).value,
+
+fullName:
+document.getElementById(
+"first-name"
+).value + " " +
+
+document.getElementById(
+"last-name"
+).value,
+
+/* =========================================
+BASIC INFO
+========================================= */
 
 dob:
 document.getElementById(
@@ -611,17 +557,18 @@ document.getElementById(
 ).value,
 
 gender:
+document.querySelector(
+".gender-selection .select-card.active"
+)?.dataset.value || "",
+
+heightFeet:
 document.getElementById(
-"gender"
+"height-feet"
 ).value,
 
-height:
+heightInches:
 document.getElementById(
-"heightFeet"
-).value
-+ "'" +
-document.getElementById(
-"heightInches"
+"height-inches"
 ).value,
 
 education:
@@ -634,14 +581,14 @@ document.getElementById(
 "profession"
 ).value,
 
-religiousValues:
+religiousLevel:
 document.getElementById(
-"religiousValues"
+"religious-level"
 ).value,
 
 marriageTimeline:
 document.getElementById(
-"marriageTimeline"
+"marriage-timeline"
 ).value,
 
 bio:
@@ -649,29 +596,36 @@ document.getElementById(
 "bio"
 ).value,
 
-interests:interests,
+/* =========================================
+INTERESTS
+========================================= */
+
+interests:
+selectedInterests,
+
+/* =========================================
+VERIFICATION
+========================================= */
 
 profileCompleted:true,
 
 approvalStatus:"pending",
 
+approved:false,
+
 lastActive:new Date()
 
 });
 
+/* =========================================
+SUCCESS STEP
+========================================= */
+
+currentStep++;
+
+showStep(currentStep);
+
 hideLoader();
-
-showToast(
-"Profile Submitted Successfully",
-"success"
-);
-
-setTimeout(()=>{
-
-window.location.href =
-"pending-approval.html";
-
-},1500);
 
 }catch(error){
 
@@ -684,12 +638,36 @@ error.message,
 
 }
 
-});
-
-
+}
+);
 
 /* =========================================
-INITIALIZE
+GO TO DASHBOARD
 ========================================= */
 
-updateStep();
+const dashboardBtn =
+document.getElementById(
+"go-dashboard"
+);
+
+if(dashboardBtn){
+
+dashboardBtn.addEventListener(
+"click",
+()=>{
+
+window.location.href =
+"pending-approval.html";
+
+}
+);
+
+}
+
+/* =========================================
+INIT
+========================================= */
+
+showStep(currentStep);
+
+lucide.createIcons();
