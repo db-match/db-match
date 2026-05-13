@@ -35,16 +35,31 @@ const user=userCredential.user;
 await db.collection("users").doc(user.uid).set({
 
 /* =========================================
-BASIC INFO
+ACCOUNT INFO
 ========================================= */
 
 uid:user.uid,
 
-name:fullName,
-
 email:email,
 
 phone:phone,
+
+
+
+/* =========================================
+NAME
+========================================= */
+
+firstName:"",
+lastName:"",
+
+fullName:fullName,
+
+
+
+/* =========================================
+BASIC PROFILE
+========================================= */
 
 gender:"",
 dob:"",
@@ -71,14 +86,36 @@ sect:"",
 jamaat:"",
 motherTongue:"",
 
+heightFeet:"",
+heightInches:"",
 height:"",
+
 weight:"",
 
 religiousValues:"",
 prayerFrequency:"",
 
+marriageTimeline:"",
+
+
+
+/* =========================================
+LIFESTYLE
+========================================= */
+
 smoking:false,
+
 drinking:false,
+
+dietPreference:"",
+
+
+
+/* =========================================
+INTERESTS
+========================================= */
+
+interests:[],
 
 
 
@@ -100,8 +137,12 @@ preferredProfession:"",
 PROFILE PHOTOS
 ========================================= */
 
+profilePhotos:[],
+
 profilePhoto1:"",
 profilePhoto2:"",
+
+displayPhoto:"",
 
 
 
@@ -110,14 +151,26 @@ VERIFICATION
 ========================================= */
 
 itsNumber:"",
+
 itsCardImage:"",
 
 selfieImage:"",
 
 itsVerified:false,
+
 selfieVerified:false,
 
 verified:false,
+
+
+
+/* =========================================
+PROFILE STATUS
+========================================= */
+
+profileCompleted:false,
+
+onboardingCompleted:false,
 
 
 
@@ -130,6 +183,10 @@ approved:false,
 approvalStatus:"pending",
 
 rejectionReason:"",
+
+approvedBy:"",
+
+approvedAt:null,
 
 
 
@@ -146,6 +203,18 @@ isPremium:false,
 
 
 /* =========================================
+ENGAGEMENT
+========================================= */
+
+profileViews:0,
+
+likesReceived:0,
+
+matchesCount:0,
+
+
+
+/* =========================================
 ACTIVITY
 ========================================= */
 
@@ -154,8 +223,6 @@ createdAt:new Date(),
 lastActive:new Date(),
 
 lastLogin:new Date()
-
-
 
 });
 
