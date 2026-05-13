@@ -44,13 +44,47 @@ SHOW STEP
 
 function showStep(index){
 
+
+
+/* =========================================
+STEP SAFETY
+========================================= */
+
+if(index < 0){
+
+index = 0;
+
+}
+
+if(index >= steps.length){
+
+index = steps.length - 1;
+
+}
+
+/* =========================================
+UPDATE CURRENT STEP
+========================================= */
+
+currentStep = index;
+
+/* =========================================
+SHOW ACTIVE STEP
+========================================= */
+
 steps.forEach((step)=>{
 
 step.classList.remove("active");
 
 });
 
+
+
+if(steps[index]){
+
 steps[index].classList.add("active");
+
+}
 
 /* =========================================
 PROGRESS BAR
@@ -59,12 +93,18 @@ PROGRESS BAR
 const progress =
 ((index + 1) / steps.length) * 100;
 
+if(progressFill){
+
 progressFill.style.width =
 `${progress}%`;
+
+}
 
 /* =========================================
 BACK BUTTON
 ========================================= */
+
+if(backBtn){
 
 if(index === 0){
 
@@ -82,9 +122,13 @@ backBtn.style.pointerEvents =
 
 }
 
+}
+
 /* =========================================
 LAST STEP BUTTON
 ========================================= */
+
+if(nextBtn){
 
 if(index === steps.length - 1){
 
@@ -96,9 +140,18 @@ nextBtn.style.display = "block";
 
 }
 
+}
+
+/* =========================================
+SCROLL TOP
+========================================= */
+
 window.scrollTo({
+
 top:0,
+
 behavior:"smooth"
+
 });
 
 }
@@ -116,6 +169,12 @@ const requiredInputs =
 current.querySelectorAll(
 "input[required], select[required], textarea[required]"
 );
+
+if(!current){
+
+return false;
+
+}
 
 for(let input of requiredInputs){
 
@@ -194,7 +253,7 @@ document.getElementById(
 "selfie-image"
 );
 
-if(!selfie.files[0]){
+if(!selfie || !selfie.files[0]){
 
 showToast(
 "Selfie verification is required",
@@ -218,7 +277,7 @@ document.getElementById(
 "its-image"
 );
 
-if(!itsCard.files[0]){
+if(!itsCard || !itsCard.files[0]){
 
 showToast(
 "Please upload ITS/E-Jamaat card",
@@ -244,6 +303,12 @@ nextBtn.addEventListener(
 ()=>{
 
 if(!validateStep()) return;
+
+if(currentStep >= steps.length - 1){
+
+return;
+
+}
 
 currentStep++;
 
@@ -382,6 +447,12 @@ parent.classList.add(
 "uploaded"
 );
 
+setTimeout(()=>{
+
+lucide.createIcons();
+
+},100);
+
 };
 
 reader.readAsDataURL(file);
@@ -472,6 +543,8 @@ document.getElementById(
 "onboarding-form"
 );
 
+if(onboardingForm){
+
 onboardingForm.addEventListener(
 "submit",
 async(e)=>{
@@ -497,6 +570,19 @@ showToast(
 hideLoader();
 
 return;
+
+}
+
+
+
+/* =========================================
+PREVENT STEP OVERFLOW
+========================================= */
+
+if(currentStep >= steps.length){
+
+currentStep =
+steps.length - 1;
 
 }
 
@@ -623,9 +709,7 @@ lastActive:new Date()
 SUCCESS STEP
 ========================================= */
 
-currentStep++;
-
-showStep(currentStep);
+showStep(steps.length - 1);
 
 hideLoader();
 
@@ -673,3 +757,9 @@ INIT
 showStep(currentStep);
 
 lucide.createIcons();
+
+  showToast(
+"Welcome to Dawoodi Bohra Match",
+"success"
+);
+}
