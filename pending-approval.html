@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Profile Under Review | Dawoodi Bohra Match
+</title>
+
+<link rel="stylesheet"
+href="css/variables.css">
+
+<link rel="stylesheet"
+href="css/layout.css">
+
+<link rel="stylesheet"
+href="css/main.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+/* =========================================
+BODY
+========================================= */
+
+body{
+
+margin:0;
+padding:0;
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(
+180deg,
+#f8f7fb,
+#f3eff8
+);
+
+min-height:100vh;
+
+color:#111827;
+
+}
+
+
+
+/* =========================================
+MAIN CONTAINER
+========================================= */
+
+.pending-container{
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+padding:
+40px 24px 120px;
+
+box-sizing:border-box;
+
+text-align:center;
+
+}
+
+
+
+/* =========================================
+STATUS ICON
+========================================= */
+
+.pending-icon{
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#7b2a6b
+);
+
+margin-bottom:40px;
+
+box-shadow:
+0 25px 60px rgba(225,0,114,0.25);
+
+animation:
+floatIcon 3s ease-in-out infinite;
+
+}
+
+
+
+.pending-icon i{
+
+width:64px;
+height:64px;
+
+color:white;
+
+}
+
+
+
+/* =========================================
+FLOAT ANIMATION
+========================================= */
+
+@keyframes floatIcon{
+
+0%{
+
+transform:
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateY(-8px);
+
+}
+
+100%{
+
+transform:
+translateY(0px);
+
+}
+
+}
+
+
+
+/* =========================================
+HEADINGS
+========================================= */
+
+.pending-title{
+
+font-size:42px;
+
+font-weight:800;
+
+line-height:1.15;
+
+margin-bottom:18px;
+
+color:#111827;
+
+}
+
+
+
+.pending-subtitle{
+
+font-size:18px;
+
+line-height:1.8;
+
+max-width:650px;
+
+color:#6b7280;
+
+margin-bottom:40px;
+
+}
+
+
+
+/* =========================================
+INFO CARD
+========================================= */
+
+.review-card{
+
+width:100%;
+
+max-width:650px;
+
+background:white;
+
+border-radius:36px;
+
+padding:36px;
+
+box-sizing:border-box;
+
+box-shadow:
+0 20px 60px rgba(123,42,107,0.10);
+
+margin-bottom:32px;
+
+text-align:left;
+
+}
+
+
+
+/* =========================================
+REVIEW ITEMS
+========================================= */
+
+.review-item{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:18px;
+
+margin-bottom:28px;
+
+}
+
+
+
+.review-item:last-child{
+
+margin-bottom:0;
+
+}
+
+
+
+.review-item-icon{
+
+width:54px;
+height:54px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+rgba(123,42,107,0.08);
+
+flex-shrink:0;
+
+}
+
+
+
+.review-item-icon i{
+
+width:26px;
+height:26px;
+
+color:#7b2a6b;
+
+}
+
+
+
+.review-item-content h3{
+
+margin:0;
+
+font-size:18px;
+
+font-weight:700;
+
+margin-bottom:8px;
+
+color:#111827;
+
+}
+
+
+
+.review-item-content p{
+
+margin:0;
+
+font-size:15px;
+
+line-height:1.7;
+
+color:#6b7280;
+
+}
+
+
+
+/* =========================================
+STATUS BADGE
+========================================= */
+
+.status-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:16px 24px;
+
+border-radius:50px;
+
+background:
+rgba(225,0,114,0.10);
+
+color:#7b2a6b;
+
+font-size:16px;
+
+font-weight:700;
+
+margin-bottom:36px;
+
+}
+
+
+
+.status-dot{
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:#e10072;
+
+animation:
+pulseDot 1.5s infinite;
+
+}
+
+
+
+@keyframes pulseDot{
+
+0%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:scale(1.4);
+
+opacity:0.5;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+
+
+/* =========================================
+LIMITED ACCESS BOX
+========================================= */
+
+.access-box{
+
+width:100%;
+
+max-width:650px;
+
+padding:30px;
+
+border-radius:32px;
+
+background:
+rgba(123,42,107,0.06);
+
+box-sizing:border-box;
+
+margin-bottom:36px;
+
+}
+
+
+
+.access-box h3{
+
+margin:0;
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:16px;
+
+color:#111827;
+
+}
+
+
+
+.access-box p{
+
+margin:0;
+
+font-size:16px;
+
+line-height:1.8;
+
+color:#5b5564;
+
+}
+
+
+
+/* =========================================
+BUTTONS
+========================================= */
+
+.pending-actions{
+
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+
+
+.primary-btn{
+
+height:62px;
+
+padding:0 34px;
+
+border:none;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+135deg,
+#e10072,
+#7b2a6b
+);
+
+color:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:
+0 12px 30px rgba(225,0,114,0.25);
+
+transition:0.3s ease;
+
+}
+
+
+
+.primary-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+
+
+.secondary-btn{
+
+height:62px;
+
+padding:0 34px;
+
+border-radius:22px;
+
+border:none;
+
+background:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:#374151;
+
+box-shadow:
+0 12px 30px rgba(0,0,0,0.06);
+
+}
+
+
+
+/* =========================================
+BOTTOM TEXT
+========================================= */
+
+.bottom-note{
+
+margin-top:40px;
+
+font-size:14px;
+
+line-height:1.8;
+
+color:#9ca3af;
+
+max-width:650px;
+
+}
+
+
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+.pending-title{
+
+font-size:34px;
+
+}
+
+.pending-subtitle{
+
+font-size:16px;
+
+}
+
+.review-card{
+
+padding:28px;
+
+border-radius:30px;
+
+}
+
+.review-item{
+
+align-items:flex-start;
+
+}
+
+.pending-actions{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="pending-container">
+
+
+
+<div class="pending-icon">
+
+<i data-lucide="shield-check"></i>
+
+</div>
+
+
+
+<div class="status-badge">
+
+<div class="status-dot"></div>
+
+Profile Under Review
+
+</div>
+
+
+
+<h1 class="pending-title">
+
+Your profile is being verified
+
+</h1>
+
+
+
+<p class="pending-subtitle">
+
+Thank you for helping us maintain a trusted Dawoodi Bohra matchmaking community. Our admin team is reviewing your profile, selfie verification and ITS/E-Jamaat details.
+
+</p>
+
+
+
+
+
+<div class="review-card">
+
+
+
+<div class="review-item">
+
+<div class="review-item-icon">
+
+<i data-lucide="camera"></i>
+
+</div>
+
+<div class="review-item-content">
+
+<h3>
+Photo Verification
+</h3>
+
+<p>
+We verify profile photos to ensure genuine and respectful community profiles.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="review-item">
+
+<div class="review-item-icon">
+
+<i data-lucide="scan-face"></i>
+
+</div>
+
+<div class="review-item-content">
+
+<h3>
+Selfie Verification
+</h3>
+
+<p>
+Your live selfie helps prevent fake profiles and keeps the platform secure.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="review-item">
+
+<div class="review-item-icon">
+
+<i data-lucide="badge-check"></i>
+
+</div>
+
+<div class="review-item-content">
+
+<h3>
+ITS / E-Jamaat Verification
+</h3>
+
+<p>
+Manual ITS/E-Jamaat verification helps maintain a trusted Dawoodi Bohra community.
+</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="access-box">
+
+<h3>
+Features will unlock after approval
+</h3>
+
+<p>
+
+Once approved by admin, you will receive full access to:
+
+<br><br>
+
+• Unlimited profile browsing  
+• Unlimited likes & matches  
+• Private 24-hour chats  
+• Verified community interactions  
+• Full discover, likes & chats access  
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="pending-actions">
+
+<button class="primary-btn"
+onclick="window.location.href='profile.html'">
+
+View Profile
+
+</button>
+
+<button class="secondary-btn"
+onclick="window.location.href='edit-profile.html'">
+
+Edit Details
+
+</button>
+
+</div>
+
+
+
+
+
+<p class="bottom-note">
+
+Reviews are typically completed as quickly as possible to ensure profile authenticity, privacy and community safety.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+<div id="toast" class="toast"></div>
+
+<div id="global-loader" class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script>
+
+auth.onAuthStateChanged(async(user)=>{
+
+if(!user){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
+
+try{
+
+const doc =
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+const profile =
+doc.data();
+
+
+
+/* =========================================
+IF APPROVED
+========================================= */
+
+if(profile.approved === true){
+
+window.location.href =
+"discover.html";
+
+}
+
+
+
+/* =========================================
+BLOCKED USER
+========================================= */
+
+if(profile.isBlocked === true){
+
+showToast(
+"Your account is blocked",
+"error"
+);
+
+}
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
+
+
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
