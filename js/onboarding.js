@@ -31,6 +31,16 @@ document.getElementById(
 "next-btn"
 );
 
+const submitBtn =
+document.getElementById(
+"submit-btn"
+);
+
+const dashboardBtn =
+document.getElementById(
+"dashboard-btn"
+);
+
 const backBtn =
 document.getElementById(
 "back-btn"
@@ -125,31 +135,71 @@ backBtn.style.pointerEvents =
 }
 
 /* =========================================
-LAST STEP BUTTON
+BOTTOM BUTTON STATES
 ========================================= */
 
-if(nextBtn){
+if(nextBtn && submitBtn && dashboardBtn){
+
+/* =========================================
+SUCCESS STEP
+========================================= */
 
 if(
-
-index === steps.length - 1 ||
-
-steps[index].querySelector(
-".submit-btn"
-)
-
+steps[index].dataset.step ===
+"success"
 ){
 
 nextBtn.style.display = "none";
 
-}else{
+submitBtn.style.display = "none";
+
+dashboardBtn.style.display =
+"block";
+
+backBtn.style.display =
+"none";
+
+}
+
+/* =========================================
+FINAL CONFIRMATION STEP
+========================================= */
+
+else if(index === steps.length - 2){
+
+nextBtn.style.display = "none";
+
+submitBtn.style.display =
+"block";
+
+dashboardBtn.style.display =
+"none";
+
+backBtn.style.display =
+"block";
+
+}
+
+/* =========================================
+NORMAL STEPS
+========================================= */
+
+else{
 
 nextBtn.style.display = "block";
 
-}
+submitBtn.style.display =
+"none";
+
+dashboardBtn.style.display =
+"none";
+
+backBtn.style.display =
+"block";
 
 }
 
+}
 /* =========================================
 SCROLL TOP
 ========================================= */
