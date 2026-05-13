@@ -932,11 +932,10 @@ lastActive:new Date()
 /* =========================================
 SUCCESS STEP
 ========================================= */
-
+showStep(steps.length - 1);
+  
 hideLoader();
 
-window.location.href =
-"pending-approval.html";
 }catch(error){
 
 hideLoader();
