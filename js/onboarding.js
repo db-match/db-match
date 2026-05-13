@@ -242,7 +242,7 @@ CHECKBOX
 
 if(
 input.type === "checkbox" &&
-!input.checked
+input.checked === false
 ){
 
 showToast(
