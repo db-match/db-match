@@ -130,7 +130,15 @@ LAST STEP BUTTON
 
 if(nextBtn){
 
-if(index === steps.length - 1){
+if(
+
+index === steps.length - 1 ||
+
+steps[index].querySelector(
+".submit-btn"
+)
+
+){
 
 nextBtn.style.display = "none";
 
