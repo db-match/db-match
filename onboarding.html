@@ -24,17 +24,32 @@ href="css/main.css">
 <link rel="stylesheet"
 href="css/onboarding.css">
 
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
 <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 
 <body>
 
+
+
 <div class="onboarding-container">
 
 
 
-<!-- TOP PROGRESS -->
+
+<!-- =========================================
+TOP PROGRESS BAR
+========================================= -->
 
 <div class="progress-wrapper">
 
@@ -49,13 +64,20 @@ id="progress-fill"></div>
 
 
 
-<!-- STEP CONTAINER -->
+
+<!-- =========================================
+STEP CONTAINER
+========================================= -->
+
+<form id="onboarding-form">
 
 <div class="step-container">
 
 
 
-<!-- STEP 1 -->
+<!-- =========================================
+STEP 1
+========================================= -->
 
 <div class="step active">
 
@@ -64,18 +86,22 @@ What’s your first name?
 </h1>
 
 <p>
-This helps build your profile identity.
+Your first name helps create your profile identity.
 </p>
 
 <input type="text"
-id="firstName"
-placeholder="Enter first name">
+id="first-name"
+placeholder="First Name"
+required>
 
 </div>
 
 
 
-<!-- STEP 2 -->
+
+<!-- =========================================
+STEP 2
+========================================= -->
 
 <div class="step">
 
@@ -84,38 +110,45 @@ What’s your last name?
 </h1>
 
 <p>
-This helps maintain authentic community profiles.
+Authentic profiles help maintain a trusted community.
 </p>
 
 <input type="text"
-id="lastName"
-placeholder="Enter last name">
+id="last-name"
+placeholder="Last Name"
+required>
 
 </div>
 
 
 
-<!-- STEP 3 -->
+
+<!-- =========================================
+STEP 3
+========================================= -->
 
 <div class="step">
 
 <h1>
-Hello 👋<br>
 When were you born?
 </h1>
 
 <p>
-Your birth date cannot be changed later.
+Your date of birth cannot be changed later.
 </p>
 
 <input type="date"
-id="dob">
+id="dob"
+required>
 
 </div>
 
 
 
-<!-- STEP 4 -->
+
+<!-- =========================================
+STEP 4
+========================================= -->
 
 <div class="step">
 
@@ -124,12 +157,13 @@ Select your gender
 </h1>
 
 <p>
-This helps us personalize your matches.
+This helps personalize your matchmaking experience.
 </p>
 
-<div class="selection-grid">
+<div class="selection-grid gender-selection">
 
-<button class="select-card"
+<button type="button"
+class="select-card"
 data-value="Male">
 
 <i data-lucide="user"></i>
@@ -138,7 +172,8 @@ Male
 
 </button>
 
-<button class="select-card"
+<button type="button"
+class="select-card"
 data-value="Female">
 
 <i data-lucide="heart"></i>
@@ -150,13 +185,18 @@ Female
 </div>
 
 <input type="hidden"
-id="gender">
+class="selection-value"
+id="gender"
+required>
 
 </div>
 
 
 
-<!-- STEP 5 -->
+
+<!-- =========================================
+STEP 5
+========================================= -->
 
 <div class="step">
 
@@ -171,12 +211,14 @@ Enter your height in feet and inches.
 <div class="height-grid">
 
 <input type="number"
-id="heightFeet"
-placeholder="Feet">
+id="height-feet"
+placeholder="Feet"
+required>
 
 <input type="number"
-id="heightInches"
-placeholder="Inches">
+id="height-inches"
+placeholder="Inches"
+required>
 
 </div>
 
@@ -184,22 +226,26 @@ placeholder="Inches">
 
 
 
-<!-- STEP 6 -->
+
+<!-- =========================================
+STEP 6
+========================================= -->
 
 <div class="step">
 
 <h1>
-Education
+Education Details
 </h1>
 
 <p>
-Choose your highest education level.
+Choose your highest qualification.
 </p>
 
-<select id="education">
+<select id="education"
+required>
 
 <option value="">
-Select education
+Select Education
 </option>
 
 <option>
@@ -232,7 +278,10 @@ CA / CPA / CFA
 
 
 
-<!-- STEP 7 -->
+
+<!-- =========================================
+STEP 7
+========================================= -->
 
 <div class="step">
 
@@ -246,13 +295,17 @@ Tell the community about your profession.
 
 <input type="text"
 id="profession"
-placeholder="Your profession">
+placeholder="Profession"
+required>
 
 </div>
 
 
 
-<!-- STEP 8 -->
+
+<!-- =========================================
+STEP 8
+========================================= -->
 
 <div class="step">
 
@@ -261,68 +314,30 @@ How religious are you?
 </h1>
 
 <p>
-Choose the option that describes you best.
+Choose the option that best describes you.
 </p>
 
-<div class="chips-container">
-
-<div class="chip">
-Very Religious
-</div>
-
-<div class="chip">
-Practicing
-</div>
-
-<div class="chip">
-Moderate
-</div>
-
-<div class="chip">
-Simple
-</div>
-
-</div>
-
-<input type="hidden"
-id="religiousValues">
-
-</div>
-
-
-
-<!-- STEP 9 -->
-
-<div class="step">
-
-<h1>
-Marriage timeline
-</h1>
-
-<p>
-When are you planning to get married?
-</p>
-
-<select id="marriageTimeline">
+<select id="religious-level"
+required>
 
 <option value="">
-Select timeline
+Select Option
 </option>
 
 <option>
-Within 1 year
+Very Religious
 </option>
 
 <option>
-1-2 years
+Practicing
 </option>
 
 <option>
-2-3 years
+Moderate
 </option>
 
 <option>
-Just exploring
+Simple
 </option>
 
 </select>
@@ -331,7 +346,54 @@ Just exploring
 
 
 
-<!-- STEP 10 -->
+
+<!-- =========================================
+STEP 9
+========================================= -->
+
+<div class="step">
+
+<h1>
+Marriage Timeline
+</h1>
+
+<p>
+When are you planning to get married?
+</p>
+
+<select id="marriage-timeline"
+required>
+
+<option value="">
+Select Timeline
+</option>
+
+<option>
+Within 1 Year
+</option>
+
+<option>
+1-2 Years
+</option>
+
+<option>
+2-3 Years
+</option>
+
+<option>
+Just Exploring
+</option>
+
+</select>
+
+</div>
+
+
+
+
+<!-- =========================================
+STEP 10
+========================================= -->
 
 <div class="step">
 
@@ -340,24 +402,27 @@ Tell us about yourself
 </h1>
 
 <p>
-Write a short introduction.
+A short introduction helps others know you better.
 </p>
 
 <textarea
 id="bio"
-rows="5"
-placeholder="Family oriented, respectful, enjoys meaningful conversations..."></textarea>
+placeholder="Family oriented, respectful, enjoys meaningful conversations..."
+required></textarea>
 
 </div>
 
 
 
-<!-- STEP 11 -->
+
+<!-- =========================================
+STEP 11
+========================================= -->
 
 <div class="step">
 
 <h1>
-Your interests
+Your Interests
 </h1>
 
 <p>
@@ -374,15 +439,15 @@ Select interests that describe you.
 
 <div class="chip">Fitness</div>
 
-<div class="chip">Food</div>
-
 <div class="chip">Business</div>
+
+<div class="chip">Food</div>
 
 <div class="chip">Mountains</div>
 
-<div class="chip">Islamic Learning</div>
-
 <div class="chip">Movies</div>
+
+<div class="chip">Islamic Learning</div>
 
 <div class="chip">Podcasts</div>
 
@@ -392,43 +457,75 @@ Select interests that describe you.
 
 
 
-<!-- STEP 12 -->
 
-<div class="step">
+<!-- =========================================
+STEP 12
+========================================= -->
+
+<div class="step"
+data-step="photos">
 
 <h1>
-Add your photos
+Add Your Photos
 </h1>
 
 <p>
-Minimum 2 photos required.
+Minimum 2 photos are required to continue.
 </p>
 
 <div class="photo-grid">
 
-<div class="photo-upload">
+
+
+<label class="photo-upload">
+
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
 
 <i data-lucide="camera"></i>
 
-</div>
+</label>
 
-<div class="photo-upload">
 
-<i data-lucide="camera"></i>
 
-</div>
+<label class="photo-upload">
 
-<div class="photo-upload">
-
-<i data-lucide="camera"></i>
-
-</div>
-
-<div class="photo-upload">
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
 
 <i data-lucide="camera"></i>
 
-</div>
+</label>
+
+
+
+<label class="photo-upload">
+
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
+
+<i data-lucide="camera"></i>
+
+</label>
+
+
+
+<label class="photo-upload">
+
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
+
+<i data-lucide="camera"></i>
+
+</label>
 
 </div>
 
@@ -436,49 +533,69 @@ Minimum 2 photos required.
 
 
 
-<!-- STEP 13 -->
 
-<div class="step">
+<!-- =========================================
+STEP 13
+========================================= -->
+
+<div class="step"
+data-step="selfie">
 
 <h1>
-Selfie verification
+Selfie Verification
 </h1>
 
 <p>
-Your selfie is private and used only for verification.
+Your selfie is private and used only for verification purposes.
 </p>
 
-<div class="verification-box">
+<label class="verification-box"
+id="selfie-preview">
+
+<input type="file"
+id="selfie-image"
+accept="image/*"
+hidden>
 
 <i data-lucide="shield-check"></i>
 
-</div>
+</label>
 
 </div>
 
 
 
-<!-- STEP 14 -->
 
-<div class="step">
+<!-- =========================================
+STEP 14
+========================================= -->
+
+<div class="step"
+data-step="its">
 
 <h1>
-ITS / E-Jamaat verification
+ITS / E-Jamaat Verification
 </h1>
 
 <p>
-Upload a clear card image for manual approval.
+Upload a clear ITS/E-Jamaat card image for manual review.
 </p>
 
-<div class="verification-box">
+<label class="verification-box"
+id="its-preview">
+
+<input type="file"
+id="its-image"
+accept="image/*"
+hidden>
 
 <i data-lucide="badge-check"></i>
 
-</div>
+</label>
 
 <div class="verification-note">
 
-Profiles are reviewed manually to maintain a safe and genuine community.
+Profiles are manually reviewed to maintain a safe and genuine Dawoodi Bohra matchmaking community.
 
 </div>
 
@@ -486,26 +603,30 @@ Profiles are reviewed manually to maintain a safe and genuine community.
 
 
 
-<!-- STEP 15 -->
+
+<!-- =========================================
+STEP 15
+========================================= -->
 
 <div class="step">
 
 <h1>
-Final confirmation
+Final Confirmation
 </h1>
 
 <p>
-Please confirm before continuing.
+Please confirm before submitting your profile.
 </p>
 
 <label class="checkbox-wrapper">
 
 <input type="checkbox"
-id="termsCheck">
+id="termsCheck"
+required>
 
 <span>
 
-I confirm that I belong to the Dawoodi Bohra community and accept all terms & conditions of dawoodibohramatch.com
+I confirm that I belong to the Dawoodi Bohra community and accept all terms & conditions of DawoodiBohraMatch.com
 
 </span>
 
@@ -515,7 +636,10 @@ I confirm that I belong to the Dawoodi Bohra community and accept all terms & co
 
 
 
-<!-- STEP 16 -->
+
+<!-- =========================================
+STEP 16
+========================================= -->
 
 <div class="step success-step">
 
@@ -530,11 +654,12 @@ Profile Submitted 🎉
 </h1>
 
 <p>
-Your profile will be reviewed by our team before activation.
+Your profile has been submitted for admin review and verification.
 </p>
 
-<button class="primary-btn"
-id="finish-btn">
+<button type="button"
+class="primary-btn"
+id="go-dashboard">
 
 Visit Dashboard
 
@@ -546,21 +671,29 @@ Visit Dashboard
 
 </div>
 
+</form>
 
 
-<!-- BOTTOM NAV -->
+
+
+
+<!-- =========================================
+BOTTOM NAVIGATION
+========================================= -->
 
 <div class="bottom-actions">
 
 <button class="back-btn"
-id="backBtn">
+id="back-btn"
+type="button">
 
 Back
 
 </button>
 
 <button class="next-btn"
-id="nextBtn">
+id="next-btn"
+type="button">
 
 Next
 
@@ -568,7 +701,11 @@ Next
 
 </div>
 
+
+
 </div>
+
+
 
 
 
@@ -579,6 +716,8 @@ Next
 <div class="loader-spinner"></div>
 
 </div>
+
+
 
 
 
