@@ -437,17 +437,39 @@ input.closest(
 ".photo-upload"
 );
 
-const reader =
-new FileReader();
-
-reader.onload = function(a){
+const imageURL =
+URL.createObjectURL(file);
 
 parent.innerHTML = `
 
+<div class="preview-wrapper">
+
 <img
-src="${a.target.result}"
+src="${imageURL}"
 class="uploaded-photo"
 >
+
+<div class="photo-actions">
+
+<button
+type="button"
+class="photo-edit-btn">
+
+<i data-lucide="refresh-cw"></i>
+
+</button>
+
+<button
+type="button"
+class="photo-remove-btn">
+
+<i data-lucide="x"></i>
+
+</button>
+
+</div>
+
+</div>
 
 `;
 
@@ -455,15 +477,56 @@ parent.classList.add(
 "uploaded"
 );
 
-setTimeout(()=>{
+/* =========================================
+RESTORE ICONS
+========================================= */
 
 lucide.createIcons();
 
-},100);
+/* =========================================
+RE-UPLOAD
+========================================= */
 
-};
+parent.querySelector(
+".photo-edit-btn"
+).addEventListener(
+"click",
+()=>{
 
-reader.readAsDataURL(file);
+input.click();
+
+}
+);
+
+/* =========================================
+REMOVE PHOTO
+========================================= */
+
+parent.querySelector(
+".photo-remove-btn"
+).addEventListener(
+"click",
+()=>{
+
+parent.innerHTML = `
+
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
+
+<i data-lucide="camera"></i>
+
+`;
+
+parent.classList.remove(
+"uploaded"
+);
+
+lucide.createIcons();
+
+}
+);
 
 }
 );
@@ -490,16 +553,43 @@ e.target.files[0];
 
 if(!file) return;
 
+const preview =
 document.getElementById(
 "selfie-preview"
-).innerHTML = `
+);
+
+preview.innerHTML = `
+
+<div class="preview-wrapper">
 
 <img
 src="${URL.createObjectURL(file)}"
-class="uploaded-photo"
+class="preview-image"
 >
 
+<button
+type="button"
+class="retake-btn"
+id="retake-selfie">
+
+Retake
+
+</button>
+
+</div>
+
 `;
+
+document.getElementById(
+"retake-selfie"
+).addEventListener(
+"click",
+()=>{
+
+selfieInput.click();
+
+}
+);
 
 }
 );
@@ -526,16 +616,43 @@ e.target.files[0];
 
 if(!file) return;
 
+const preview =
 document.getElementById(
 "its-preview"
-).innerHTML = `
+);
+
+preview.innerHTML = `
+
+<div class="preview-wrapper">
 
 <img
 src="${URL.createObjectURL(file)}"
-class="uploaded-photo"
+class="preview-image"
 >
 
+<button
+type="button"
+class="retake-btn"
+id="retake-its">
+
+Upload Again
+
+</button>
+
+</div>
+
 `;
+
+document.getElementById(
+"retake-its"
+).addEventListener(
+"click",
+()=>{
+
+itsInput.click();
+
+}
+);
 
 }
 );
