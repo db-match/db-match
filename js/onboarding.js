@@ -955,12 +955,9 @@ error.message,
 GO TO DASHBOARD
 ========================================= */
 
-const dashboardBtn =
-document.getElementById(
-"go-dashboard"
-);
-
-if(dashboardBtn){
+/* =========================================
+VISIT DASHBOARD
+========================================= */
 
 dashboardBtn.addEventListener(
 "click",
@@ -972,8 +969,7 @@ window.location.href =
 }
 );
 
-}
-
+  
 /* =========================================
 INIT
 ========================================= */
