@@ -2,10 +2,13 @@
 ONBOARDING PAGE
 ========================================= */
 
+html,
 body{
 
 margin:0;
 padding:0;
+
+min-height:100%;
 
 background:
 linear-gradient(
@@ -13,6 +16,8 @@ linear-gradient(
 #f8f7fb,
 #f4f1f8
 );
+
+background-attachment:fixed;
 
 font-family:'Poppins',sans-serif;
 
@@ -61,9 +66,9 @@ width:100%;
 padding:24px;
 
 background:
-rgba(255,255,255,0.92);
+rgba(248,247,251,0.92);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(14px);
 
 z-index:100;
 
@@ -129,9 +134,13 @@ flex:1;
 
 display:flex;
 
-align-items:center;
+align-items:flex-start;
 
 justify-content:center;
+
+padding-top:40px;
+
+padding-bottom:80px;
 
 }
 
@@ -147,7 +156,7 @@ max-width:520px;
 
 animation:
 fadeSlide 0.35s ease;
-
+padding-bottom:60px;
 }
 
 
@@ -156,8 +165,9 @@ fadeSlide 0.35s ease;
 
 display:block;
 
-}
+width:100%;
 
+}
 
 
 /* =========================================
@@ -694,9 +704,9 @@ width:100%;
 padding:20px;
 
 background:
-rgba(255,255,255,0.96);
+rgba(248,247,251,0.94);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
 
 display:flex;
 
@@ -911,6 +921,71 @@ padding:16px;
 height:58px;
 
 font-size:16px;
+
+}
+
+}
+
+
+/* =========================================
+SMOOTH MOBILE EXPERIENCE
+========================================= */
+
+input,
+textarea,
+select,
+button{
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+
+
+button{
+
+touch-action:manipulation;
+
+}
+
+
+
+.step input,
+.step textarea,
+.step select{
+
+appearance:none;
+
+-webkit-appearance:none;
+
+}
+
+
+
+/* =========================================
+SAFE AREA SUPPORT
+========================================= */
+
+.bottom-actions{
+
+padding-bottom:
+calc(20px + env(safe-area-inset-bottom));
+
+}
+
+
+
+/* =========================================
+PREVENT MOBILE ZOOM
+========================================= */
+
+@media screen and (max-width:768px){
+
+input,
+select,
+textarea{
+
+font-size:16px !important;
 
 }
 
