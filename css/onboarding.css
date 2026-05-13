@@ -1136,3 +1136,72 @@ line-height:1.7;
 color:#5b5564;
 
 }
+
+
+/* =========================================
+PHOTO ACTIONS
+========================================= */
+
+.photo-actions{
+
+position:absolute;
+
+top:12px;
+
+right:12px;
+
+display:flex;
+
+gap:10px;
+
+z-index:10;
+
+}
+
+
+
+/* =========================================
+PHOTO BUTTONS
+========================================= */
+
+.photo-edit-btn,
+.photo-remove-btn{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+cursor:pointer;
+
+background:
+rgba(123,42,107,0.92);
+
+backdrop-filter:blur(10px);
+
+color:white;
+
+box-shadow:
+0 10px 20px rgba(0,0,0,0.15);
+
+}
+
+
+
+.photo-edit-btn i,
+.photo-remove-btn i{
+
+width:18px;
+
+height:18px;
+
+}
