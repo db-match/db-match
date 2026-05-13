@@ -609,6 +609,8 @@ VERIFICATION
 
 profileCompleted:true,
 
+  onboardingCompleted:true,
+
 approvalStatus:"pending",
 
 approved:false,
