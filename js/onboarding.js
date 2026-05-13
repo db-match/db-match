@@ -560,6 +560,12 @@ document.getElementById(
 
 preview.innerHTML = `
 
+<input type="file"
+id="selfie-image"
+accept="image/*"
+capture="user"
+hidden>
+
 <div class="preview-wrapper">
 
 <img
@@ -580,21 +586,46 @@ Retake
 
 `;
 
+/* =========================================
+RESTORE INPUT
+========================================= */
+
+const newInput =
+document.getElementById(
+"selfie-image"
+);
+
+newInput.files = e.target.files;
+
+/* =========================================
+RETAKE
+========================================= */
+
 document.getElementById(
 "retake-selfie"
 ).addEventListener(
 "click",
 ()=>{
 
-selfieInput.click();
+newInput.click();
 
 }
+);
+
+/* =========================================
+RE-BIND EVENT
+========================================= */
+
+newInput.addEventListener(
+"change",
+arguments.callee
 );
 
 }
 );
 
 }
+
 
 /* =========================================
 ITS PREVIEW
@@ -623,6 +654,12 @@ document.getElementById(
 
 preview.innerHTML = `
 
+<input type="file"
+id="its-image"
+accept="image/*"
+capture="environment"
+hidden>
+
 <div class="preview-wrapper">
 
 <img
@@ -643,15 +680,27 @@ Upload Again
 
 `;
 
+const newInput =
+document.getElementById(
+"its-image"
+);
+
+newInput.files = e.target.files;
+
 document.getElementById(
 "retake-its"
 ).addEventListener(
 "click",
 ()=>{
 
-itsInput.click();
+newInput.click();
 
 }
+);
+
+newInput.addEventListener(
+"change",
+arguments.callee
 );
 
 }
