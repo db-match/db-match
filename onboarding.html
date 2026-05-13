@@ -534,7 +534,6 @@ hidden>
 
 
 
-
 <!-- =========================================
 STEP 13
 ========================================= -->
@@ -547,7 +546,7 @@ Selfie Verification
 </h1>
 
 <p>
-Your selfie is private and used only for verification purposes.
+Take a clear live selfie for profile verification.
 </p>
 
 <label class="verification-box"
@@ -556,11 +555,27 @@ id="selfie-preview">
 <input type="file"
 id="selfie-image"
 accept="image/*"
+capture="user"
 hidden>
 
-<i data-lucide="shield-check"></i>
+<i data-lucide="camera"></i>
 
 </label>
+
+<div class="selfie-note">
+
+Your selfie is never shown publicly on your profile.
+
+Please ensure:
+
+• Face is clearly visible  
+• Good lighting  
+• No sunglasses/masks  
+• Real live selfie only  
+
+You can retake the selfie if unclear.
+
+</div>
 
 </div>
 
@@ -579,15 +594,16 @@ ITS / E-Jamaat Verification
 </h1>
 
 <p>
-Upload a clear ITS/E-Jamaat card image for manual review.
+Upload a clear ITS/E-Jamaat card image for admin verification.
 </p>
 
-<label class="verification-box"
+<label class="verification-box its-box"
 id="its-preview">
 
 <input type="file"
 id="its-image"
 accept="image/*"
+capture="environment"
 hidden>
 
 <i data-lucide="badge-check"></i>
@@ -596,7 +612,11 @@ hidden>
 
 <div class="verification-note">
 
-Profiles are manually reviewed to maintain a safe and genuine Dawoodi Bohra matchmaking community.
+Please upload a clear and readable ITS/E-Jamaat card.
+
+Profiles are manually reviewed before access is granted to all matchmaking features.
+
+You can upload again if image is unclear.
 
 </div>
 
