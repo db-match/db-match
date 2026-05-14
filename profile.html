@@ -77,20 +77,14 @@ Verified Profile
 
 <script src="js/ui.js"></script>
 
+  <script src="js/guards.js"></script>
+
 
 
 <script>
 
-auth.onAuthStateChanged((user)=>{
-
-if(!user){
-
-window.location.href="login.html";
-
-}
-
-});
-
+requireApproval();
+  
 fetch("components/bottom-nav.html")
 .then(res=>res.text())
 .then(data=>{
