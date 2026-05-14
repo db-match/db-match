@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Account Blocked | Dawoodi Bohra Match
+</title>
+
+<link rel="stylesheet"
+href="css/variables.css">
+
+<link rel="stylesheet"
+href="css/layout.css">
+
+<link rel="stylesheet"
+href="css/main.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<div class="auth-card">
+
+<div style="font-size:60px;margin-bottom:20px;">
+🚫
+</div>
+
+<h1>
+Account Blocked
+</h1>
+
+<p style="margin-top:15px;line-height:1.7;">
+
+Your Dawoodi Bohra Match account
+has been temporarily restricted.
+
+Please contact support if you
+believe this is a mistake.
+
+</p>
+
+<button
+id="logout-btn"
+class="primary-btn"
+style="margin-top:25px;">
+Logout
+</button>
+
+</div>
+
+</div>
+
+<div id="toast"
+class="toast"></div>
+
+<div id="global-loader"
+class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script>
+
+const logoutBtn =
+document.getElementById(
+"logout-btn"
+);
+
+logoutBtn.addEventListener(
+"click",
+async()=>{
+
+await auth.signOut();
+
+window.location.href =
+"login.html";
+
+}
+);
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
