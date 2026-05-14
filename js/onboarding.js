@@ -1,20 +1,6 @@
 console.log("Onboarding Ready");
 
 /* =========================================
-FIREBASE AUTH CHECK
-========================================= */
-
-auth.onAuthStateChanged((user)=>{
-
-if(!user){
-
-window.location.href="login.html";
-
-}
-
-});
-
-/* =========================================
 ALL STEPS
 ========================================= */
 
