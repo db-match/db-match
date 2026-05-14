@@ -197,3 +197,77 @@ console.log(error);
 });
 
 }
+
+
+/* =========================================
+POST LOGIN REDIRECT
+========================================= */
+
+async function handlePostLoginRedirect(user){
+
+try{
+
+const doc =
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+/* =========================================
+NO PROFILE
+========================================= */
+
+if(!doc.exists){
+
+window.location.href =
+"signup.html";
+
+return;
+
+}
+
+const profile =
+doc.data();
+
+/* =========================================
+ONBOARDING INCOMPLETE
+========================================= */
+
+if(
+profile.onboardingCompleted
+!== true
+){
+
+window.location.href =
+"onboarding.html";
+
+return;
+
+}
+
+/* =========================================
+NOT APPROVED
+========================================= */
+
+if(profile.approved !== true){
+
+window.location.href =
+"pending-approval.html";
+
+return;
+
+}
+
+/* =========================================
+APPROVED USER
+========================================= */
+
+window.location.href =
+"discover.html";
+
+}catch(error){
+
+console.log(error);
+
+}
+
+}
