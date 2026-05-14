@@ -226,6 +226,8 @@ lastLogin:new Date()
 
 });
 
+  console.log("Firestore User Created");
+
 await user.sendEmailVerification();
 
   await auth.signOut();
