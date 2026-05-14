@@ -11,6 +11,10 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 
+auth.setPersistence(
+firebase.auth.Auth.Persistence.SESSION
+);
+
 const db = firebase.firestore();
 
 console.log("Firebase Connected");
