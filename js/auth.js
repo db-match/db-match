@@ -320,49 +320,7 @@ showToast(
 "success"
 );
 
-const doc =
-await db.collection("users")
-.doc(user.uid)
-.get();
-
-const profile =
-doc.data();
-
-/* =========================================
-ONBOARDING CHECK
-========================================= */
-
-if(
-profile.onboardingCompleted
-!== true
-){
-
-window.location.href =
-"onboarding.html";
-
-return;
-
-}
-
-/* =========================================
-APPROVAL CHECK
-========================================= */
-
-if(profile.approved !== true){
-
-window.location.href =
-"pending-approval.html";
-
-return;
-
-}
-
-/* =========================================
-APPROVED USER
-========================================= */
-
-window.location.href =
-"discover.html";
+handlePostLoginRedirect(user);
   
 }catch(error){
 
