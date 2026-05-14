@@ -87,6 +87,18 @@ Verified Profile
   
 requireAuth();
 requireApproval();
+
+fetch("components/navbar.html")
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById(
+"navbar"
+).innerHTML = data;
+
+lucide.createIcons();
+
+});
   
 fetch("components/bottom-nav.html")
 .then(res=>res.text())
