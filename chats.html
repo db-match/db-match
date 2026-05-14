@@ -97,10 +97,23 @@ Looking forward to speaking with you.
 
 </div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/guard.js"></script>
+
 <script src="js/ui.js"></script>
 
 <script>
 
+requireAuth();
+requireApproval();
+  
 fetch("components/bottom-nav.html")
 .then(res=>res.text())
 .then(data=>{
