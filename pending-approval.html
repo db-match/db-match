@@ -829,20 +829,17 @@ Reviews are typically completed as quickly as possible to ensure profile authent
 
 <script src="js/ui.js"></script>
 
+  <script src="js/guards.js"></script>
+
 <script>
 
-auth.onAuthStateChanged(async(user)=>{
+requireAuth();
 
-if(!user){
-
-window.location.href =
-"login.html";
-
-return;
-
-}
+(async()=>{
 
 try{
+
+const user = auth.currentUser;
 
 const doc =
 await db.collection("users")
@@ -851,8 +848,6 @@ await db.collection("users")
 
 const profile =
 doc.data();
-
-
 
 /* =========================================
 IF APPROVED
@@ -886,7 +881,6 @@ console.log(error);
 
 }
 
-});
 
 
 
