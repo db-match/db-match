@@ -32,10 +32,6 @@ password
 
 const user=userCredential.user;
 
-  await user.sendEmailVerification();
-
-  await auth.signOut();
-
 await db.collection("users").doc(user.uid).set({
 
 /* =========================================
@@ -230,6 +226,11 @@ lastLogin:new Date()
 
 });
 
+await user.sendEmailVerification();
+
+  await auth.signOut();
+
+  
 hideLoader();
 
 showToast(
