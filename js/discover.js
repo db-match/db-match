@@ -3,27 +3,12 @@ document.querySelector(
 ".discover-grid"
 );
 
-
-
 auth.onAuthStateChanged(
 async(user)=>{
-
-if(!user){
-
-window.location.href =
-"login.html";
-
-return;
-
-}
-
-
 
 try{
 
 showLoader();
-
-
 
 /* =========================================
 CURRENT USER DATA
@@ -36,42 +21,6 @@ await db.collection("users")
 
 const currentUser =
 currentUserDoc.data();
-
-
-
-/* =========================================
-PROFILE COMPLETION CHECK
-========================================= */
-
-if(!currentUser.profileCompleted){
-
-hideLoader();
-
-window.location.href =
-"profile-edit.html";
-
-return;
-
-}
-
-
-
-/* =========================================
-ADMIN APPROVAL CHECK
-========================================= */
-
-if(currentUser.approved !== true){
-
-hideLoader();
-
-window.location.href =
-"pending-approval.html";
-
-return;
-
-}
-
-
 
 /* =========================================
 GENDER FILTER
