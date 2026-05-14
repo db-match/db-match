@@ -287,6 +287,59 @@ const email=inputs[0].value;
 
 const password=inputs[1].value;
 
+  const forgotPasswordLink =
+document.getElementById(
+"forgot-password-link"
+);
+
+/* =========================================
+FORGOT PASSWORD
+========================================= */
+
+if(forgotPasswordLink){
+
+forgotPasswordLink.addEventListener(
+"click",
+async(e)=>{
+
+e.preventDefault();
+
+if(!email){
+
+showToast(
+"Please enter your email address first",
+"error"
+);
+
+return;
+
+}
+
+try{
+
+await auth.sendPasswordResetEmail(
+email
+);
+
+showToast(
+"Password reset email sent",
+"success"
+);
+
+}catch(error){
+
+showToast(
+error.message,
+"error"
+);
+
+}
+
+}
+);
+
+}
+  
 try{
 
 const userCredential =
