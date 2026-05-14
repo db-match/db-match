@@ -201,3 +201,66 @@ console.log(error);
 }
 
 }
+
+
+
+/* =========================================
+REQUIRE ADMIN
+========================================= */
+
+function requireAdmin(){
+
+auth.onAuthStateChanged(
+async(user)=>{
+
+if(!user){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
+
+try{
+
+const doc =
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+if(!doc.exists){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
+
+const profile =
+doc.data();
+
+/* =========================================
+NOT ADMIN
+========================================= */
+
+if(profile.role !== "admin"){
+
+window.location.href =
+"discover.html";
+
+return;
+
+}
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
+
+}
+
