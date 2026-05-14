@@ -25,12 +25,56 @@ REDIRECT IF LOGGED IN
 
 function redirectIfLoggedIn(){
 
-auth.onAuthStateChanged((user)=>{
+auth.onAuthStateChanged(async(user)=>{
 
-if(user){
+if(!user) return;
+
+try{
+
+const doc =
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+const profile =
+doc.data();
+
+/* =========================================
+ONBOARDING NOT COMPLETED
+========================================= */
+
+if(!profile.onboardingCompleted){
+
+window.location.href =
+"onboarding.html";
+
+return;
+
+}
+
+/* =========================================
+NOT APPROVED
+========================================= */
+
+if(profile.approved !== true){
+
+window.location.href =
+"pending-approval.html";
+
+return;
+
+}
+
+/* =========================================
+APPROVED USER
+========================================= */
 
 window.location.href =
 "discover.html";
+
+}catch(error){
+
+console.log(error);
 
 }
 
