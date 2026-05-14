@@ -27,7 +27,15 @@ function redirectIfLoggedIn(){
 
 auth.onAuthStateChanged(async(user)=>{
 
-if(!user) return;
+/* =========================================
+NO USER
+========================================= */
+
+if(!user){
+
+return;
+
+}
 
 try{
 
@@ -36,6 +44,16 @@ await db.collection("users")
 .doc(user.uid)
 .get();
 
+/* =========================================
+NO PROFILE EXISTS
+========================================= */
+
+if(!doc.exists){
+
+return;
+
+}
+
 const profile =
 doc.data();
 
@@ -43,7 +61,10 @@ doc.data();
 ONBOARDING NOT COMPLETED
 ========================================= */
 
-if(!profile.onboardingCompleted){
+if(
+profile.onboardingCompleted
+!== true
+){
 
 window.location.href =
 "onboarding.html";
@@ -107,6 +128,19 @@ await db.collection("users")
 .doc(user.uid)
 .get();
 
+/* =========================================
+NO PROFILE
+========================================= */
+
+if(!doc.exists){
+
+window.location.href =
+"signup.html";
+
+return;
+
+}
+
 const profile =
 doc.data();
 
@@ -162,4 +196,4 @@ console.log(error);
 
 });
 
-  }
+}
