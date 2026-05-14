@@ -32,6 +32,8 @@ password
 
 const user=userCredential.user;
 
+  await user.sendEmailVerification();
+
 await db.collection("users").doc(user.uid).set({
 
 /* =========================================
@@ -229,16 +231,16 @@ lastLogin:new Date()
 hideLoader();
 
 showToast(
-"Account Created Successfully",
+"Verification email sent. Please verify your email before login.",
 "success"
 );
 
 setTimeout(()=>{
 
-window.location.href=
-"onboarding.html";
+window.location.href =
+"login.html";
 
-},1200);
+},2000);
 
 }catch(error){
 
@@ -280,10 +282,34 @@ const password=inputs[1].value;
 
 try{
 
+const userCredential =
+
 await auth.signInWithEmailAndPassword(
 email,
 password
 );
+
+const user =
+userCredential.user;
+
+/* =========================================
+EMAIL VERIFICATION CHECK
+========================================= */
+
+if(!user.emailVerified){
+
+hideLoader();
+
+showToast(
+"Please verify your email first",
+"error"
+);
+
+await auth.signOut();
+
+return;
+
+}
 
 hideLoader();
 
@@ -291,12 +317,6 @@ showToast(
 "Login Successful",
 "success"
 );
-
-setTimeout(()=>{
-
-window.location.href="discover.html";
-
-},1200);
 
 }catch(error){
 
