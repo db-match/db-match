@@ -68,10 +68,8 @@ BLOCKED USER
 
 if(profile.isBlocked === true){
 
-showToast(
-"Account blocked",
-"error"
-);
+window.location.href =
+"blocked.html";
 
 return;
 
@@ -146,6 +144,20 @@ return;
 const profile =
 doc.data();
 
+  
+/* =========================================
+BLOCKED USER
+========================================= */
+
+if(profile.isBlocked === true){
+
+window.location.href =
+"blocked.html";
+
+return;
+
+}
+  
 /* =========================================
 ONBOARDING INCOMPLETE
 ========================================= */
