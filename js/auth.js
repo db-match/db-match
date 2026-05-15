@@ -264,37 +264,14 @@ error.message,
 
 }
 
-
-
-
-
-const loginForm=document.querySelector("form");
-
-if(
-loginForm &&
-window.location.pathname.includes("login")
-){
-
-loginForm.addEventListener("submit",async(e)=>{
-
-e.preventDefault();
-
-showLoader();
-
-const inputs=loginForm.querySelectorAll("input");
-
-const email=inputs[0].value;
-
-const password=inputs[1].value;
-
-  const forgotPasswordLink =
-document.getElementById(
-"forgot-password-link"
-);
-
 /* =========================================
 FORGOT PASSWORD
 ========================================= */
+
+const forgotPasswordLink =
+document.getElementById(
+"forgot-password-link"
+);
 
 if(forgotPasswordLink){
 
@@ -304,10 +281,15 @@ async(e)=>{
 
 e.preventDefault();
 
+const email =
+document.getElementById(
+"login-email"
+).value;
+
 if(!email){
 
 showToast(
-"Please enter your email address first",
+"Please enter your email first",
 "error"
 );
 
@@ -339,7 +321,28 @@ error.message,
 );
 
 }
-  
+
+
+
+const loginForm=document.querySelector("form");
+
+if(
+loginForm &&
+window.location.pathname.includes("login")
+){
+
+loginForm.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+showLoader();
+
+const inputs=loginForm.querySelectorAll("input");
+
+const email=inputs[0].value;
+
+const password=inputs[1].value;
+
 try{
 
 const userCredential =
