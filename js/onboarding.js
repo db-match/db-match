@@ -1063,6 +1063,30 @@ INTERESTS
 interests:
 selectedInterests,
 
+
+/* =========================================
+PROFILE PHOTOS
+========================================= */
+
+profilePhotos:
+uploadedPhotos,
+
+profilePhoto1:
+uploadedPhotos[0] || "",
+
+profilePhoto2:
+uploadedPhotos[1] || "",
+
+displayPhoto:
+uploadedPhotos[0] || "",
+
+selfieImage:
+selfieURL,
+
+itsCardImage:
+itsURL,
+
+  
 /* =========================================
 VERIFICATION
 ========================================= */
