@@ -292,12 +292,12 @@ SELFIE VALIDATION
 
 if(current.dataset.step === "selfie"){
 
-const selfie =
+const selfieURL =
 document.getElementById(
-"selfie-image"
-);
+"selfie-preview"
+)?.dataset.url;
 
-if(!selfie || !selfie.files[0]){
+if(!selfieURL){
 
 showToast(
 "Selfie verification is required",
@@ -316,12 +316,12 @@ ITS VALIDATION
 
 if(current.dataset.step === "its"){
 
-const itsCard =
+const itsURL =
 document.getElementById(
-"its-image"
-);
+"its-preview"
+)?.dataset.url;
 
-if(!itsCard || !itsCard.files[0]){
+if(!itsURL){
 
 showToast(
 "Please upload ITS/E-Jamaat card",
@@ -486,7 +486,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-"users/photos"
+`users/${user.uid}/photos`
 );
 
 hideLoader();
@@ -623,7 +623,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-"users/selfie"
+`users/${user.uid}/selfie`
 );
 
 hideLoader();
@@ -746,7 +746,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-"users/its"
+`users/${user.uid}/its`
 );
 
 hideLoader();
