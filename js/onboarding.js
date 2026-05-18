@@ -1003,7 +1003,9 @@ dob:
 document.getElementById(
 "dob"
 ).value,
+age:age,
 
+  
 gender:
 document.querySelector(
 ".gender-selection .select-card.active"
