@@ -1,10 +1,10 @@
 console.log("Storage Ready");
 
 /* =========================================
-UPLOAD IMAGE
+UPLOAD FILE
 ========================================= */
 
-async function uploadImage(
+async function uploadFile(
 file,
 folder
 ){
