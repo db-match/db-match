@@ -461,7 +461,7 @@ document.querySelectorAll(
 
 input.addEventListener(
 "change",
-(e)=>{
+async(e)=>{
 
 const file =
 e.target.files[0];
@@ -486,7 +486,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-`users/${user.uid}/photos/${fileName}`
+"users/photos"
 );
 
 hideLoader();
@@ -584,57 +584,6 @@ error.message,
 
 }
 
-/* =========================================
-RESTORE ICONS
-========================================= */
-
-lucide.createIcons();
-
-/* =========================================
-RE-UPLOAD
-========================================= */
-
-parent.querySelector(
-".photo-edit-btn"
-).addEventListener(
-"click",
-()=>{
-
-input.click();
-
-}
-);
-
-/* =========================================
-REMOVE PHOTO
-========================================= */
-
-parent.querySelector(
-".photo-remove-btn"
-).addEventListener(
-"click",
-()=>{
-
-parent.innerHTML = `
-
-<input type="file"
-class="photo-input"
-accept="image/*"
-hidden>
-
-<i data-lucide="camera"></i>
-
-`;
-
-parent.classList.remove(
-"uploaded"
-);
-
-lucide.createIcons();
-
-}
-);
-
 }
 );
 
@@ -653,8 +602,9 @@ if(selfieInput){
 
 selfieInput.addEventListener(
 "change",
-(e)=>{
+async(e)=>{
 
+  
 const file =
 e.target.files[0];
 
@@ -673,7 +623,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-`users/${user.uid}/selfie/${fileName}`
+"users/selfie"
 );
 
 hideLoader();
@@ -780,7 +730,7 @@ if(itsInput){
 
 itsInput.addEventListener(
 "change",
-(e)=>{
+async(e)=>{
 
 const file =
 e.target.files[0];
@@ -800,7 +750,7 @@ Date.now() + "-" + file.name;
 const downloadURL =
 await uploadFile(
 file,
-`users/${user.uid}/its/${fileName}`
+"users/its"
 );
 
 hideLoader();
