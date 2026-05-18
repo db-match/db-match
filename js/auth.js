@@ -139,24 +139,15 @@ preferredProfession:"",
 PROFILE PHOTOS
 ========================================= */
 
-profilePhotos:
-uploadedPhotos,
+profilePhotos:[],
 
-profilePhoto1:
-uploadedPhotos[0] || "",
+profilePhoto1:"",
 
-profilePhoto2:
-uploadedPhotos[1] || "",
+profilePhoto2:"",
 
-displayPhoto:
-uploadedPhotos[0] || "",
+displayPhoto:"",
 
-selfieImage:
-selfieURL,
-
-itsCardImage:
-itsURL,
-
+  
 
 /* =========================================
 VERIFICATION
