@@ -1005,6 +1005,16 @@ document.getElementById(
 ).value,
 age:age,
 
+city:
+document.getElementById(
+"city"
+).value,
+
+country:
+document.getElementById(
+"country"
+).value,
+
   
 gender:
 document.querySelector(
