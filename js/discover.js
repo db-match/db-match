@@ -48,6 +48,11 @@ oppositeGender
 "==",
 true
 )
+.where(
+"onboardingCompleted",
+"==",
+true
+)
 .onSnapshot((snapshot)=>{
 
 discoverGrid.innerHTML = "";
@@ -122,7 +127,7 @@ alt="Profile">
 
 <h3>
 
-${profile.name || "Member"},
+${profile.fullName || "Member"}
 
 ${profile.age || ""}
 
