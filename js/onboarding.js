@@ -473,15 +473,33 @@ input.closest(
 ".photo-upload"
 );
 
-const imageURL =
-URL.createObjectURL(file);
+const user =
+auth.currentUser;
+
+showLoader();
+
+try{
+
+const fileName =
+Date.now() + "-" + file.name;
+
+const downloadURL =
+await uploadFile(
+file,
+`users/${user.uid}/photos/${fileName}`
+);
+
+hideLoader();
+
+const parent =
+input.closest(".photo-upload");
 
 parent.innerHTML = `
 
 <div class="preview-wrapper">
 
 <img
-src="${imageURL}"
+src="${downloadURL}"
 class="uploaded-photo"
 >
 
@@ -509,9 +527,62 @@ class="photo-remove-btn">
 
 `;
 
+parent.dataset.url =
+downloadURL;
+
 parent.classList.add(
 "uploaded"
 );
+
+lucide.createIcons();
+
+parent.querySelector(
+".photo-edit-btn"
+).addEventListener(
+"click",
+()=>{
+
+input.click();
+
+}
+);
+
+parent.querySelector(
+".photo-remove-btn"
+).addEventListener(
+"click",
+()=>{
+
+parent.innerHTML = `
+
+<input type="file"
+class="photo-input"
+accept="image/*"
+hidden>
+
+<i data-lucide="camera"></i>
+
+`;
+
+parent.classList.remove(
+"uploaded"
+);
+
+lucide.createIcons();
+
+}
+);
+
+}catch(error){
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
 
 /* =========================================
 RESTORE ICONS
@@ -589,10 +660,31 @@ e.target.files[0];
 
 if(!file) return;
 
+const user =
+auth.currentUser;
+
+showLoader();
+
+try{
+
+const fileName =
+Date.now() + "-" + file.name;
+
+const downloadURL =
+await uploadFile(
+file,
+`users/${user.uid}/selfie/${fileName}`
+);
+
+hideLoader();
+
 const preview =
 document.getElementById(
 "selfie-preview"
 );
+
+preview.dataset.url =
+downloadURL;
 
 preview.innerHTML = `
 
@@ -605,7 +697,7 @@ hidden>
 <div class="preview-wrapper">
 
 <img
-src="${URL.createObjectURL(file)}"
+src="${downloadURL}"
 class="preview-image"
 >
 
@@ -622,6 +714,18 @@ Retake
 
 `;
 
+}catch(error){
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
+
+  
 /* =========================================
 RESTORE INPUT
 ========================================= */
@@ -683,10 +787,31 @@ e.target.files[0];
 
 if(!file) return;
 
+const user =
+auth.currentUser;
+
+showLoader();
+
+try{
+
+const fileName =
+Date.now() + "-" + file.name;
+
+const downloadURL =
+await uploadFile(
+file,
+`users/${user.uid}/its/${fileName}`
+);
+
+hideLoader();
+
 const preview =
 document.getElementById(
 "its-preview"
 );
+
+preview.dataset.url =
+downloadURL;
 
 preview.innerHTML = `
 
@@ -699,7 +824,7 @@ hidden>
 <div class="preview-wrapper">
 
 <img
-src="${URL.createObjectURL(file)}"
+src="${downloadURL}"
 class="preview-image"
 >
 
@@ -715,6 +840,17 @@ Upload Again
 </div>
 
 `;
+
+}catch(error){
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
 
 const newInput =
 document.getElementById(
@@ -816,6 +952,33 @@ chip.innerText
 UPDATE FIRESTORE
 ========================================= */
 
+const uploadedPhotos = [];
+
+document.querySelectorAll(
+".photo-upload.uploaded"
+).forEach((photo)=>{
+
+if(photo.dataset.url){
+
+uploadedPhotos.push(
+photo.dataset.url
+);
+
+}
+
+});
+
+const selfieURL =
+document.getElementById(
+"selfie-preview"
+)?.dataset.url || "";
+
+const itsURL =
+document.getElementById(
+"its-preview"
+)?.dataset.url || "";
+
+  
 await db.collection("users")
 .doc(user.uid)
 .update({
