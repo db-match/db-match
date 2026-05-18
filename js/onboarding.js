@@ -706,10 +706,6 @@ newInput.click();
 RE-BIND EVENT
 ========================================= */
 
-newInput.addEventListener(
-"change",
-arguments.callee
-);
 
 }
 );
@@ -818,11 +814,6 @@ document.getElementById(
 newInput.click();
 
 }
-);
-
-newInput.addEventListener(
-"change",
-arguments.callee
 );
 
 }
