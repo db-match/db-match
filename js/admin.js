@@ -9,15 +9,34 @@ document.getElementById(
 "admin-grid"
 );
 
+const pendingCount =
+document.getElementById(
+"pending-count"
+);
+
+const approvedCount =
+document.getElementById(
+"approved-count"
+);
+
+const returnedCount =
+document.getElementById(
+"returned-count"
+);
+
+const blockedCount =
+document.getElementById(
+"blocked-count"
+);
+
 /* =========================================
-LOAD ADMIN PANEL
+INIT
 ========================================= */
 
-showLoader();
 loadAdminPanel();
 
 /* =========================================
-ADMIN PANEL
+LOAD ADMIN PANEL
 ========================================= */
 
 async function loadAdminPanel(){
@@ -25,10 +44,8 @@ async function loadAdminPanel(){
 auth.onAuthStateChanged(
 async(user)=>{
 
-try{
-
 /* =========================================
-WAIT FOR AUTH
+NOT LOGGED IN
 ========================================= */
 
 if(!user){
@@ -40,10 +57,12 @@ return;
 
 }
 
+try{
+
 showLoader();
 
 /* =========================================
-CURRENT USER DOC
+CURRENT USER
 ========================================= */
 
 const adminDoc =
@@ -68,6 +87,19 @@ const adminData =
 adminDoc.data();
 
 /* =========================================
+NOT ADMIN
+========================================= */
+
+if(adminData.role !== "admin"){
+
+window.location.href =
+"discover.html";
+
+return;
+
+}
+
+/* =========================================
 BLOCKED ADMIN
 ========================================= */
 
@@ -81,17 +113,10 @@ return;
 }
 
 /* =========================================
-NOT ADMIN
+LOAD STATS
 ========================================= */
 
-if(adminData.role !== "admin"){
-
-window.location.href =
-"discover.html";
-
-return;
-
-}
+loadDashboardStats();
 
 /* =========================================
 LOAD PENDING USERS
@@ -113,7 +138,14 @@ true
 adminGrid.innerHTML = "";
 
 /* =========================================
-EMPTY STATE
+COUNT
+========================================= */
+
+pendingCount.innerText =
+snapshot.size;
+
+/* =========================================
+EMPTY
 ========================================= */
 
 if(snapshot.empty){
@@ -125,6 +157,10 @@ adminGrid.innerHTML = `
 <h2>
 No Pending Profiles
 </h2>
+
+<p>
+All profiles are reviewed.
+</p>
 
 </div>
 
@@ -152,9 +188,16 @@ SKIP ADMINS
 if(profile.role === "admin")
 return;
 
+/* =========================================
+CARD
+========================================= */
+
 adminGrid.innerHTML += `
 
-<div class="admin-card">
+<div
+class="admin-card"
+onclick="openProfileReview('${profile.uid}')"
+>
 
 <img
 src="${
@@ -166,41 +209,34 @@ alt="Profile">
 <div class="admin-content">
 
 <h2>
+
 ${profile.fullName || "Member"}
+
 </h2>
 
 <p>
-${profile.age || ""}
- Years
+
+${profile.age || ""} Years
+
 </p>
 
 <p>
+
 ${profile.city || ""}
 ${profile.country ? ", " : ""}
 ${profile.country || ""}
+
 </p>
 
 <p>
-${profile.profession || ""}
+
+${profile.profession || "Not Added"}
+
 </p>
 
-<div class="admin-actions">
+<div class="status-badge">
 
-<button
-class="approve-btn"
-onclick="approveUser('${profile.uid}')">
-
-Approve
-
-</button>
-
-<button
-class="reject-btn"
-onclick="rejectUser('${profile.uid}')">
-
-Reject
-
-</button>
+Pending Review
 
 </div>
 
@@ -212,8 +248,6 @@ Reject
 
 });
 
-lucide.createIcons();
-
 hideLoader();
 
 });
@@ -232,109 +266,83 @@ error.message,
 }
 
 });
-
- }
-
-
-/* =========================================
-APPROVE USER
-========================================= */
-
-async function approveUser(uid){
-
-try{
-
-showLoader();
-
-await db.collection("users")
-.doc(uid)
-.update({
-
-approved:true,
-
-approvalStatus:"approved",
-
-approvedAt:new Date(),
-
-rejectionReason:""
-
-});
-
-hideLoader();
-
-showToast(
-"User Approved",
-"success"
-);
-
-}catch(error){
-
-console.log(error);
-
-hideLoader();
-
-showToast(
-error.message,
-"error"
-);
-
-}
 
 }
 
 /* =========================================
-REJECT USER
+LOAD STATS
 ========================================= */
 
-async function rejectUser(uid){
+async function loadDashboardStats(){
 
-const reason =
-prompt(
-"Enter rejection reason"
-);
+/* =========================================
+APPROVED
+========================================= */
 
-if(!reason){
+const approvedSnapshot =
+await db.collection("users")
+.where(
+"approvalStatus",
+"==",
+"approved"
+)
+.get();
 
-return;
+approvedCount.innerText =
+approvedSnapshot.size;
+
+/* =========================================
+RETURNED
+========================================= */
+
+const returnedSnapshot =
+await db.collection("users")
+.where(
+"approvalStatus",
+"==",
+"returned"
+)
+.get();
+
+returnedCount.innerText =
+returnedSnapshot.size;
+
+/* =========================================
+BLOCKED
+========================================= */
+
+const blockedSnapshot =
+await db.collection("users")
+.where(
+"isBlocked",
+"==",
+true
+)
+.get();
+
+blockedCount.innerText =
+blockedSnapshot.size;
 
 }
 
-try{
+/* =========================================
+OPEN PROFILE REVIEW
+========================================= */
 
-showLoader();
+function openProfileReview(uid){
 
-await db.collection("users")
-.doc(uid)
-.update({
+console.log(
+"Open Review:",
+uid
+);
 
-approved:false,
-
-approvalStatus:"rejected",
-
-rejectionReason:reason,
-
-approvedAt:null
-
-});
-
-hideLoader();
+/* =========================================
+NEXT STEP
+========================================= */
 
 showToast(
-"User Rejected",
+"Profile review modal coming in Step 3",
 "success"
 );
-
-}catch(error){
-
-console.log(error);
-
-hideLoader();
-
-showToast(
-error.message,
-"error"
-);
-
-}
 
 }
