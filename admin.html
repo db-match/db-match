@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Admin Panel | Dawoodi Bohra Match
+</title>
+
+<link rel="stylesheet"
+href="css/variables.css">
+
+<link rel="stylesheet"
+href="css/layout.css">
+
+<link rel="stylesheet"
+href="css/main.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+.admin-container{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.admin-title{
+font-size:32px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.admin-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.admin-card{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.admin-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.admin-content{
+padding:20px;
+}
+
+.admin-content h2{
+margin:0 0 10px;
+}
+
+.admin-content p{
+margin:6px 0;
+color:#666;
+}
+
+.admin-actions{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.approve-btn,
+.reject-btn{
+flex:1;
+border:none;
+padding:14px;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+}
+
+.approve-btn{
+background:#16a34a;
+color:#fff;
+}
+
+.reject-btn{
+background:#dc2626;
+color:#fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+<h1 class="admin-title">
+Admin Approval Panel
+</h1>
+
+<div class="admin-grid"
+id="admin-grid">
+
+</div>
+
+</div>
+
+<div id="toast"
+class="toast"></div>
+
+<div id="global-loader"
+class="global-loader">
+
+<div class="loader-spinner"></div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="firebase/firebase-config.js"></script>
+
+<script src="js/ui.js"></script>
+
+<script src="js/admin.js"></script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
