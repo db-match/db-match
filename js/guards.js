@@ -264,3 +264,88 @@ console.log(error);
 
 }
 
+
+
+/* =========================================
+REQUIRE ADMIN
+========================================= */
+
+function requireAdmin(){
+
+auth.onAuthStateChanged(
+async(user)=>{
+
+/* =========================================
+NO USER
+========================================= */
+
+if(!user){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
+
+try{
+
+const doc =
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+/* =========================================
+NO PROFILE
+========================================= */
+
+if(!doc.exists){
+
+window.location.href =
+"signup.html";
+
+return;
+
+}
+
+const profile =
+doc.data();
+
+/* =========================================
+NOT ADMIN
+========================================= */
+
+if(profile.role !== "admin"){
+
+window.location.href =
+"discover.html";
+
+return;
+
+}
+
+/* =========================================
+BLOCKED
+========================================= */
+
+if(profile.isBlocked === true){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
+
+}catch(error){
+
+console.log(error);
+
+window.location.href =
+"login.html";
+
+}
+
+});
+
+}
