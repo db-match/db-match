@@ -13,6 +13,7 @@ document.getElementById(
 LOAD ADMIN PANEL
 ========================================= */
 
+showLoader();
 loadAdminPanel();
 
 /* =========================================
@@ -32,7 +33,8 @@ WAIT FOR AUTH
 
 if(!user){
 
-hideLoader();
+window.location.href =
+"login.html";
 
 return;
 
