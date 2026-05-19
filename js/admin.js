@@ -21,20 +21,24 @@ ADMIN PANEL
 
 async function loadAdminPanel(){
 
+auth.onAuthStateChanged(
+async(user)=>{
+
 try{
 
-showLoader();
-
 /* =========================================
-CURRENT USER
+WAIT FOR AUTH
 ========================================= */
 
-const user =
-auth.currentUser;
-
 if(!user){
+
+hideLoader();
+
 return;
+
 }
+
+showLoader();
 
 /* =========================================
 CURRENT USER DOC
@@ -62,26 +66,13 @@ const adminData =
 adminDoc.data();
 
 /* =========================================
-DEBUG
-========================================= */
-
-console.log(adminData);
-
-console.log(
-"ROLE:",
-adminData.role
-);
-
-/* =========================================
 BLOCKED ADMIN
 ========================================= */
 
 if(adminData.isBlocked === true){
 
-showToast(
-"Account blocked",
-"error"
-);
+window.location.href =
+"blocked.html";
 
 return;
 
@@ -238,7 +229,10 @@ error.message,
 
 }
 
-}
+});
+
+ }
+
 
 /* =========================================
 APPROVE USER
