@@ -10,11 +10,15 @@ document.getElementById(
 );
 
 /* =========================================
-CHECK ADMIN
+AUTH CHECK
 ========================================= */
 
 auth.onAuthStateChanged(
 async(user)=>{
+
+/* =========================================
+NOT LOGGED IN
+========================================= */
 
 if(!user){
 
@@ -30,7 +34,7 @@ try{
 showLoader();
 
 /* =========================================
-CURRENT USER
+CURRENT USER DOC
 ========================================= */
 
 const adminDoc =
@@ -38,8 +42,47 @@ await db.collection("users")
 .doc(user.uid)
 .get();
 
+/* =========================================
+NO PROFILE
+========================================= */
+
+if(!adminDoc.exists){
+
+window.location.href =
+"signup.html";
+
+return;
+
+}
+
 const adminData =
 adminDoc.data();
+
+/* =========================================
+DEBUG
+========================================= */
+
+console.log(adminData);
+
+console.log(
+"ROLE:",
+adminData.role
+);
+
+/* =========================================
+BLOCKED ADMIN
+========================================= */
+
+if(adminData.isBlocked === true){
+
+showToast(
+"Account blocked",
+"error"
+);
+
+return;
+
+}
 
 /* =========================================
 NOT ADMIN
@@ -60,18 +103,22 @@ LOAD PENDING USERS
 
 db.collection("users")
 .where(
-"approved",
-"==",
-false
-)
-.where(
 "onboardingCompleted",
 "==",
 true
 )
+.where(
+"approvalStatus",
+"==",
+"pending"
+)
 .onSnapshot((snapshot)=>{
 
 adminGrid.innerHTML = "";
+
+/* =========================================
+EMPTY STATE
+========================================= */
 
 if(snapshot.empty){
 
@@ -93,10 +140,21 @@ return;
 
 }
 
+/* =========================================
+PROFILE LOOP
+========================================= */
+
 snapshot.forEach((doc)=>{
 
 const profile =
 doc.data();
+
+/* =========================================
+SKIP ADMINS
+========================================= */
+
+if(profile.role === "admin")
+return;
 
 adminGrid.innerHTML += `
 
@@ -106,7 +164,8 @@ adminGrid.innerHTML += `
 src="${
 profile.profilePhoto1 ||
 'https://placehold.co/600x800'
-}">
+}"
+alt="Profile">
 
 <div class="admin-content">
 
@@ -116,11 +175,12 @@ ${profile.fullName || "Member"}
 
 <p>
 ${profile.age || ""}
-Years
+ Years
 </p>
 
 <p>
 ${profile.city || ""}
+${profile.country ? ", " : ""}
 ${profile.country || ""}
 </p>
 
@@ -156,11 +216,15 @@ Reject
 
 });
 
+lucide.createIcons();
+
 hideLoader();
 
 });
 
 }catch(error){
+
+console.log(error);
 
 hideLoader();
 
@@ -171,7 +235,8 @@ error.message,
 
 }
 
-});
+}
+);
 
 /* =========================================
 APPROVE USER
@@ -191,7 +256,9 @@ approved:true,
 
 approvalStatus:"approved",
 
-approvedAt:new Date()
+approvedAt:new Date(),
+
+rejectionReason:""
 
 });
 
@@ -203,6 +270,8 @@ showToast(
 );
 
 }catch(error){
+
+console.log(error);
 
 hideLoader();
 
@@ -226,7 +295,11 @@ prompt(
 "Enter rejection reason"
 );
 
-if(!reason) return;
+if(!reason){
+
+return;
+
+}
 
 try{
 
@@ -240,7 +313,9 @@ approved:false,
 
 approvalStatus:"rejected",
 
-rejectionReason:reason
+rejectionReason:reason,
+
+approvedAt:null
 
 });
 
@@ -252,6 +327,8 @@ showToast(
 );
 
 }catch(error){
+
+console.log(error);
 
 hideLoader();
 
