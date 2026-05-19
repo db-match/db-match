@@ -314,9 +314,9 @@ BLOCKED
 const blockedSnapshot =
 await db.collection("users")
 .where(
-"isBlocked",
+"approvalStatus",
 "==",
-true
+"blocked"
 )
 .get();
 
@@ -632,3 +632,227 @@ document.getElementById(
 ).style.display = "none";
 
 }
+
+/* =========================================
+APPROVE USER
+========================================= */
+
+async function approveUser(uid){
+
+const confirmApprove =
+confirm(
+"Approve this profile?"
+);
+
+if(!confirmApprove){
+return;
+}
+
+try{
+
+showLoader();
+
+/* =========================================
+UPDATE USER
+========================================= */
+
+await db.collection("users")
+.doc(uid)
+.update({
+
+approved:true,
+
+approvalStatus:"approved",
+
+approvedAt:new Date(),
+
+adminComment:"",
+
+isBlocked:false,
+
+blockedReason:""
+
+});
+
+/* =========================================
+CLOSE MODAL
+========================================= */
+
+closeReviewModal();
+
+hideLoader();
+
+showToast(
+"Profile Approved Successfully",
+"success"
+);
+
+}catch(error){
+
+console.log(error);
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
+
+}
+
+/* =========================================
+RETURN PROFILE
+========================================= */
+
+async function returnProfile(uid){
+
+const reason =
+prompt(
+"Enter return comments for user"
+);
+
+if(!reason){
+
+showToast(
+"Return comments required",
+"error"
+);
+
+return;
+
+}
+
+try{
+
+showLoader();
+
+/* =========================================
+UPDATE USER
+========================================= */
+
+await db.collection("users")
+.doc(uid)
+.update({
+
+approved:false,
+
+approvalStatus:"returned",
+
+adminComment:reason,
+
+approvedAt:null
+
+});
+
+/* =========================================
+CLOSE MODAL
+========================================= */
+
+closeReviewModal();
+
+hideLoader();
+
+showToast(
+"Profile Returned",
+"success"
+);
+
+}catch(error){
+
+console.log(error);
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
+
+}
+
+/* =========================================
+BLOCK USER
+========================================= */
+
+async function blockUser(uid){
+
+const reason =
+prompt(
+"Enter block reason"
+);
+
+if(!reason){
+
+showToast(
+"Block reason required",
+"error"
+);
+
+return;
+
+}
+
+const confirmBlock =
+confirm(
+"Are you sure you want to block this user?"
+);
+
+if(!confirmBlock){
+return;
+}
+
+try{
+
+showLoader();
+
+/* =========================================
+UPDATE USER
+========================================= */
+
+await db.collection("users")
+.doc(uid)
+.update({
+
+isBlocked:true,
+
+blockedReason:reason,
+
+approved:false,
+
+approvalStatus:"blocked"
+
+});
+
+  
+/* =========================================
+CLOSE MODAL
+========================================= */
+
+closeReviewModal();
+
+hideLoader();
+
+showToast(
+"User Blocked",
+"success"
+);
+
+}catch(error){
+
+console.log(error);
+
+hideLoader();
+
+showToast(
+error.message,
+"error"
+);
+
+}
+
+}
+
