@@ -329,20 +329,306 @@ blockedSnapshot.size;
 OPEN PROFILE REVIEW
 ========================================= */
 
-function openProfileReview(uid){
+async function openProfileReview(uid){
 
-console.log(
-"Open Review:",
-uid
+try{
+
+showLoader();
+
+/* =========================================
+GET USER
+========================================= */
+
+const doc =
+await db.collection("users")
+.doc(uid)
+.get();
+
+const profile =
+doc.data();
+
+/* =========================================
+MODAL
+========================================= */
+
+const modal =
+document.getElementById(
+"review-modal"
+);
+
+const body =
+document.getElementById(
+"review-body"
 );
 
 /* =========================================
-NEXT STEP
+HTML
 ========================================= */
 
+body.innerHTML = `
+
+<!-- =========================================
+BASIC DETAILS
+========================================= -->
+
+<div class="review-section">
+
+<h3>
+Basic Details
+</h3>
+
+<div class="review-grid">
+
+<div class="review-item">
+<div class="review-label">
+Full Name
+</div>
+<div class="review-value">
+${profile.fullName || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Age
+</div>
+<div class="review-value">
+${profile.age || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Gender
+</div>
+<div class="review-value">
+${profile.gender || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+City
+</div>
+<div class="review-value">
+${profile.city || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Country
+</div>
+<div class="review-value">
+${profile.country || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Profession
+</div>
+<div class="review-value">
+${profile.profession || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Education
+</div>
+<div class="review-value">
+${profile.education || ""}
+</div>
+</div>
+
+<div class="review-item">
+<div class="review-label">
+Marriage Timeline
+</div>
+<div class="review-value">
+${profile.marriageTimeline || ""}
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+BIO
+========================================= -->
+
+<div class="review-section">
+
+<h3>
+Bio
+</h3>
+
+<div class="review-item">
+
+<div class="review-value">
+
+${profile.bio || "No bio added"}
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+PHOTOS
+========================================= -->
+
+<div class="review-section">
+
+<h3>
+Profile Photos
+</h3>
+
+<div class="review-photos">
+
+<div class="review-photo-card">
+
+<img
+src="${
+profile.profilePhoto1 ||
+'https://placehold.co/600x800'
+}">
+
+<div class="photo-title">
+Photo 1
+</div>
+
+</div>
+
+<div class="review-photo-card">
+
+<img
+src="${
+profile.profilePhoto2 ||
+'https://placehold.co/600x800'
+}">
+
+<div class="photo-title">
+Photo 2
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+VERIFICATION
+========================================= -->
+
+<div class="review-section">
+
+<h3>
+Verification Documents
+</h3>
+
+<div class="review-photos">
+
+<div class="review-photo-card">
+
+<img
+src="${
+profile.selfieImage ||
+'https://placehold.co/600x800'
+}">
+
+<div class="photo-title">
+Selfie Verification
+</div>
+
+</div>
+
+<div class="review-photo-card">
+
+<img
+src="${
+profile.itsCardImage ||
+'https://placehold.co/600x800'
+}">
+
+<div class="photo-title">
+ITS / E-Jamaat Card
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+ACTIONS
+========================================= -->
+
+<div class="review-actions">
+
+<button
+class="approve-action"
+onclick="approveUser('${uid}')">
+
+Approve Profile
+
+</button>
+
+<button
+class="return-action"
+onclick="returnProfile('${uid}')">
+
+Return With Comments
+
+</button>
+
+<button
+class="block-action"
+onclick="blockUser('${uid}')">
+
+Block User
+
+</button>
+
+</div>
+
+`;
+
+modal.style.display =
+"flex";
+
+hideLoader();
+
+}catch(error){
+
+console.log(error);
+
+hideLoader();
+
 showToast(
-"Profile review modal coming in Step 3",
-"success"
+error.message,
+"error"
 );
+
+}
+
+}
+
+
+
+/* =========================================
+CLOSE REVIEW MODAL
+========================================= */
+
+function closeReviewModal(){
+
+document.getElementById(
+"review-modal"
+).style.display = "none";
 
 }
