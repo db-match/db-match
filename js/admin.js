@@ -10,14 +10,30 @@ document.getElementById(
 );
 
 /* =========================================
-AUTH CHECK
+LOAD ADMIN PANEL
 ========================================= */
 
-auth.onAuthStateChanged(
-async(user)=>{
+loadAdminPanel();
 
 /* =========================================
-NOT LOGGED IN
+ADMIN PANEL
+========================================= */
+
+async function loadAdminPanel(){
+
+try{
+
+showLoader();
+
+/* =========================================
+CURRENT USER
+========================================= */
+
+const user =
+auth.currentUser;
+
+/* =========================================
+NO USER
 ========================================= */
 
 if(!user){
@@ -28,10 +44,6 @@ window.location.href =
 return;
 
 }
-
-try{
-
-showLoader();
 
 /* =========================================
 CURRENT USER DOC
@@ -236,7 +248,6 @@ error.message,
 }
 
 }
-);
 
 /* =========================================
 APPROVE USER
