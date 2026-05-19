@@ -144,6 +144,19 @@ return;
 const profile =
 doc.data();
 
+/ * =========================================
+ADMIN USER
+========================================= * /
+
+if(profile.role === "admin"){
+
+window.location.href =
+"admin.html";
+
+return;
+
+}  
+
   
 /* =========================================
 BLOCKED USER
@@ -213,68 +226,6 @@ function requireAdmin(){
 auth.onAuthStateChanged(
 async(user)=>{
 
-if(!user){
-
-window.location.href =
-"login.html";
-
-return;
-
-}
-
-try{
-
-const doc =
-await db.collection("users")
-.doc(user.uid)
-.get();
-
-if(!doc.exists){
-
-window.location.href =
-"login.html";
-
-return;
-
-}
-
-const profile =
-doc.data();
-
-/* =========================================
-NOT ADMIN
-========================================= */
-
-if(profile.role !== "admin"){
-
-window.location.href =
-"discover.html";
-
-return;
-
-}
-
-}catch(error){
-
-console.log(error);
-
-}
-
-});
-
-}
-
-
-
-/* =========================================
-REQUIRE ADMIN
-========================================= */
-
-function requireAdmin(){
-
-auth.onAuthStateChanged(
-async(user)=>{
-
 /* =========================================
 NO USER
 ========================================= */
@@ -312,6 +263,19 @@ const profile =
 doc.data();
 
 /* =========================================
+BLOCKED
+========================================= */
+
+if(profile.isBlocked === true){
+
+window.location.href =
+"blocked.html";
+
+return;
+
+}
+
+/* =========================================
 NOT ADMIN
 ========================================= */
 
@@ -319,19 +283,6 @@ if(profile.role !== "admin"){
 
 window.location.href =
 "discover.html";
-
-return;
-
-}
-
-/* =========================================
-BLOCKED
-========================================= */
-
-if(profile.isBlocked === true){
-
-window.location.href =
-"login.html";
 
 return;
 
@@ -349,3 +300,4 @@ window.location.href =
 });
 
 }
+
