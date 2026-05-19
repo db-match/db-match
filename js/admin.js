@@ -32,17 +32,8 @@ CURRENT USER
 const user =
 auth.currentUser;
 
-/* =========================================
-NO USER
-========================================= */
-
 if(!user){
-
-window.location.href =
-"login.html";
-
 return;
-
 }
 
 /* =========================================
