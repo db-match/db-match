@@ -385,6 +385,7 @@ line-height:1.8;
 
 }
 
+
 /* =========================================
 AUTH
 ========================================= */
@@ -400,6 +401,8 @@ justify-content:center;
 
 padding:30px;
 
+background:var(--background-color);
+
 }
 
 
@@ -409,14 +412,16 @@ padding:30px;
 width:100%;
 max-width:450px;
 
-background:white;
+background:var(--white-color);
 
 padding:40px;
 
 border-radius:30px;
 
 box-shadow:
-0 15px 45px rgba(0,0,0,0.08);
+var(--shadow);
+
+border:1px solid var(--border-color);
 
 }
 
@@ -428,13 +433,15 @@ font-size:36px;
 
 margin-bottom:10px;
 
+color:var(--text-color);
+
 }
 
 
 
 .auth-card p{
 
-color:var(--zhr-muted);
+color:var(--light-text);
 
 margin-bottom:30px;
 
@@ -460,7 +467,7 @@ padding:16px;
 
 border-radius:16px;
 
-border:1px solid var(--zhr-border);
+border:1px solid var(--border-color);
 
 font-size:16px;
 
@@ -468,16 +475,20 @@ outline:none;
 
 transition:0.3s ease;
 
+background:var(--white-color);
+
+color:var(--text-color);
+
 }
 
 
 
 input:focus{
 
-border-color:var(--zhr-secondary);
+border-color:var(--primary-color);
 
 box-shadow:
-0 0 0 4px rgba(139,30,109,0.12);
+0 0 0 4px rgba(194,24,91,0.12);
 
 }
 
@@ -494,6 +505,8 @@ font-size:42px;
 font-weight:800;
 
 margin-bottom:35px;
+
+color:var(--primary-color);
 
 }
 
@@ -514,7 +527,7 @@ gap:30px;
 
 .profile-card{
 
-background:var(--zhr-card);
+background:var(--white-color);
 
 border-radius:30px;
 
@@ -524,6 +537,8 @@ box-shadow:
 0 10px 35px rgba(0,0,0,0.06);
 
 transition:0.3s ease;
+
+border:1px solid var(--border-color);
 
 }
 
@@ -535,7 +550,7 @@ transform:
 translateY(-8px);
 
 box-shadow:
-0 20px 45px rgba(214,0,110,0.12);
+0 20px 45px rgba(194,24,91,0.12);
 
 }
 
@@ -567,13 +582,15 @@ font-size:28px;
 
 margin-bottom:10px;
 
+color:var(--text-color);
+
 }
 
 
 
 .profile-info p{
 
-color:var(--zhr-muted);
+color:var(--light-text);
 
 }
 
@@ -592,13 +609,9 @@ margin-top:18px;
 .profile-tags span{
 
 background:
-linear-gradient(
-135deg,
-#e10072,
-#9c136c
-);
+var(--primary-color);
 
-color:white;
+color:var(--white-color);
 
 padding:10px 18px;
 
@@ -609,7 +622,7 @@ font-size:14px;
 font-weight:600;
 
 box-shadow:
-0 8px 20px rgba(225,0,114,0.18);
+0 8px 20px rgba(194,24,91,0.18);
 
 }
 
@@ -653,20 +666,22 @@ transition:0.3s ease;
 
 .like-btn{
 
-background:#d6006e;
+background:var(--primary-color);
 
-color:white;
+color:var(--white-color);
 
 box-shadow:
-0 10px 25px rgba(214,0,110,0.25);
+0 10px 25px rgba(194,24,91,0.25);
 
 }
 
 .reject-btn{
 
-background:#f3f4f6;
+background:var(--background-color);
 
-color:#6b7280;
+color:var(--light-text);
+
+border:1px solid var(--border-color);
 
 }
 
@@ -685,6 +700,13 @@ transform:scale(1.05);
 
 }
 
+.like-btn:hover{
+
+background:var(--primary-hover);
+
+}
+
+
 /* =========================================
 PROFILE PAGE
 ========================================= */
@@ -693,7 +715,7 @@ PROFILE PAGE
 
 text-align:center;
 
-background:white;
+background:var(--white-color);
 
 padding:40px;
 
@@ -701,6 +723,8 @@ border-radius:30px;
 
 box-shadow:
 0 10px 35px rgba(0,0,0,0.06);
+
+border:1px solid var(--border-color);
 
 }
 
@@ -717,7 +741,7 @@ object-fit:cover;
 
 margin-bottom:20px;
 
-border:6px solid #f3f4f6;
+border:6px solid var(--background-color);
 
 }
 
@@ -734,13 +758,9 @@ gap:8px;
 padding:10px 18px;
 
 background:
-linear-gradient(
-135deg,
-#001d4c,
-#8b1e6d
-);
+var(--primary-color);
 
-color:white;
+color:var(--white-color);
 
 border-radius:50px;
 
@@ -749,6 +769,9 @@ font-size:14px;
 font-weight:600;
 
 margin-top:18px;
+
+box-shadow:
+0 8px 20px rgba(194,24,91,0.20);
 
 }
 
@@ -760,7 +783,7 @@ SETTINGS
 
 .settings-card{
 
-background:white;
+background:var(--white-color);
 
 padding:24px;
 
@@ -775,6 +798,8 @@ transition:0.3s ease;
 box-shadow:
 0 8px 20px rgba(0,0,0,0.05);
 
+border:1px solid var(--border-color);
+
 }
 
 
@@ -783,6 +808,9 @@ box-shadow:
 
 transform:
 translateX(5px);
+
+box-shadow:
+0 12px 28px rgba(194,24,91,0.10);
 
 }
 
@@ -797,7 +825,6 @@ BOTTOM SPACING
 height:100px;
 
 }
-
 
 
 /* =========================================
