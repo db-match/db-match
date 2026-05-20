@@ -6,12 +6,13 @@ DISCOVER PAGE
 padding:40px 24px 120px;
 max-width:1400px;
 margin:auto;
+background:var(--background-color);
 }
 
 .discover-title{
 font-size:38px;
 font-weight:700;
-color:var(--primary);
+color:var(--primary-color);
 margin-bottom:30px;
 }
 
@@ -35,14 +36,14 @@ PROFILE CARD
 =================================== */
 
 .profile-card{
-background:#ffffff;
+background:var(--white-color);
 border-radius:28px;
 overflow:hidden;
 box-shadow:
-0 10px 30px rgba(0,0,0,0.08);
+var(--shadow);
 
 transition:0.3s;
-border:1px solid rgba(0,0,0,0.04);
+border:1px solid var(--border-color);
 }
 
 .profile-card:hover{
@@ -78,11 +79,11 @@ padding:24px;
 font-size:28px;
 font-weight:700;
 margin-bottom:8px;
-color:var(--primary);
+color:var(--primary-color);
 }
 
 .profile-info p{
-color:#666;
+color:var(--light-text);
 font-size:16px;
 margin-bottom:18px;
 }
@@ -101,13 +102,9 @@ margin-bottom:24px;
 }
 
 .profile-tags span{
-background:linear-gradient(
-135deg,
-#001d4c,
-#8b1e6d
-);
+background:var(--primary-color);
 
-color:white;
+color:var(--white-color);
 
 padding:10px 16px;
 
@@ -151,12 +148,12 @@ height:28px;
 /* REJECT */
 
 .reject-btn{
-background:#f3f4f6;
-color:#777;
+background:var(--background-color);
+color:var(--light-text);
 }
 
 .reject-btn:hover{
-background:#ececec;
+background:var(--border-color);
 transform:scale(1.08);
 }
 
@@ -165,19 +162,16 @@ transform:scale(1.08);
 /* LIKE */
 
 .like-btn{
-background:linear-gradient(
-135deg,
-#d81b60,
-#8b1e6d
-);
+background:var(--primary-color);
 
-color:white;
+color:var(--white-color);
 
 box-shadow:
-0 10px 25px rgba(216,27,96,0.35);
+0 10px 25px rgba(194,24,91,0.35);
 }
 
 .like-btn:hover{
+background:var(--primary-hover);
 transform:scale(1.08);
 }
 
@@ -193,7 +187,7 @@ width:100%;
 
 height:78px;
 
-background:white;
+background:var(--white-color);
 
 display:flex;
 
@@ -202,7 +196,7 @@ justify-content:space-around;
 align-items:center;
 
 border-top:
-1px solid rgba(0,0,0,0.06);
+1px solid var(--border-color);
 
 z-index:999;
 
@@ -228,7 +222,7 @@ gap:5px;
 
 text-decoration:none;
 
-color:#9ca3af;
+color:var(--light-text);
 
 font-size:12px;
 
@@ -249,13 +243,13 @@ stroke-width:2.2;
 
 .nav-item.active{
 
-color:#e10072;
+color:var(--primary-color);
 
 }
 
 .nav-item.active i{
 
-color:#e10072;
+color:var(--primary-color);
 
 }
 
@@ -329,4 +323,4 @@ height:360px;
 font-size:24px;
 }
 
-}
+  }
