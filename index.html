@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
 <meta charset="UTF-8">
 
@@ -9,19 +9,18 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Dawoodi Bohra Match | Trusted Dawoodi Bohra Matrimonial & Matchmaking Platform</title>
+Dawoodi Bohra Match | Trusted Dawoodi Bohra Matrimonial & Matchmaking Platform
+</title>
 
-<link rel="stylesheet"
-href="css/variables.css">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link rel="stylesheet"
-href="css/layout.css">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<link rel="stylesheet"
-href="css/main.css">
-
-<link rel="stylesheet"
-href="css/responsive.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -46,16 +45,6 @@ ROOT VARIABLES
 --light-text:#6B7280;
 
 --border-color:#E5E7EB;
-
---success-color:#16A34A;
-
---error-color:#DC2626;
-
---button-color:#C2185B;
-
---button-hover:#A3154C;
-
---button-text:#FFFFFF;
 
 --shadow:
 0 10px 30px rgba(0,0,0,0.08);
@@ -102,25 +91,18 @@ a{
 text-decoration:none;
 }
 
+img{
+max-width:100%;
+display:block;
+}
 
-
-/* =========================================
-APP CONTAINER
-========================================= */
+section{
+padding:100px 24px;
+}
 
 .app-container{
 width:100%;
 overflow:hidden;
-}
-
-
-
-/* =========================================
-SECTION SPACING
-========================================= */
-
-section{
-padding:100px 24px;
 }
 
 
@@ -131,9 +113,9 @@ SECTION HEADING
 
 .section-heading{
 
-max-width:800px;
+max-width:850px;
 
-margin:0 auto 70px;
+margin:auto auto 70px;
 
 text-align:center;
 
@@ -141,16 +123,13 @@ text-align:center;
 
 .section-heading h2{
 
-font-size:48px;
+font-size:52px;
 
 font-weight:800;
 
 line-height:1.2;
 
 margin-bottom:20px;
-
-color:
-var(--text-color);
 
 }
 
@@ -184,7 +163,11 @@ text-align:center;
 padding:120px 24px;
 
 background:
-var(--primary-color);
+linear-gradient(
+135deg,
+#C2185B 0%,
+#A3154C 100%
+);
 
 position:relative;
 
@@ -198,16 +181,18 @@ content:"";
 
 position:absolute;
 
-top:-200px;
-right:-200px;
+top:-120px;
+right:-120px;
 
-width:500px;
-height:500px;
+width:420px;
+height:420px;
 
 background:
 rgba(255,255,255,0.08);
 
 border-radius:50%;
+
+filter:blur(10px);
 
 }
 
@@ -217,22 +202,24 @@ content:"";
 
 position:absolute;
 
-bottom:-250px;
-left:-250px;
+bottom:-180px;
+left:-180px;
 
-width:600px;
-height:600px;
+width:500px;
+height:500px;
 
 background:
 rgba(255,255,255,0.05);
 
 border-radius:50%;
 
+filter:blur(10px);
+
 }
 
 .hero-content{
 
-max-width:900px;
+max-width:950px;
 
 position:relative;
 
@@ -242,14 +229,15 @@ z-index:2;
 
 .hero-content h1{
 
-font-size:72px;
+font-size:78px;
 
 font-weight:800;
 
-line-height:1.1;
+line-height:1.05;
 
-color:
-var(--white-color);
+letter-spacing:-2px;
+
+color:white;
 
 margin-bottom:28px;
 
@@ -259,8 +247,10 @@ margin-bottom:28px;
 
 font-size:22px;
 
+line-height:1.8;
+
 color:
-rgba(255,255,255,0.88);
+rgba(255,255,255,0.90);
 
 max-width:760px;
 
@@ -290,11 +280,9 @@ flex-wrap:wrap;
 
 padding:18px 36px;
 
-background:
-var(--white-color);
+background:white;
 
-color:
-var(--primary-color);
+color:var(--primary-color);
 
 border:none;
 
@@ -314,10 +302,8 @@ align-items:center;
 
 justify-content:center;
 
-gap:10px;
-
 box-shadow:
-0 10px 25px rgba(0,0,0,0.10);
+0 12px 30px rgba(0,0,0,0.12);
 
 }
 
@@ -326,9 +312,6 @@ box-shadow:
 transform:
 translateY(-3px);
 
-background:
-rgba(255,255,255,0.94);
-
 }
 
 .secondary-btn{
@@ -336,12 +319,11 @@ rgba(255,255,255,0.94);
 padding:18px 36px;
 
 background:
-transparent;
+rgba(255,255,255,0.10);
 
-color:
-var(--white-color);
+color:white;
 
-border:1.5px solid rgba(255,255,255,0.30);
+border:1px solid rgba(255,255,255,0.20);
 
 border-radius:60px;
 
@@ -353,14 +335,6 @@ cursor:pointer;
 
 transition:0.3s ease;
 
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:10px;
-
 backdrop-filter:blur(10px);
 
 }
@@ -368,142 +342,10 @@ backdrop-filter:blur(10px);
 .secondary-btn:hover{
 
 background:
-rgba(255,255,255,0.10);
+rgba(255,255,255,0.18);
 
 transform:
 translateY(-2px);
-
-}
-
-
-
-/* =========================================
-USP SECTION
-========================================= */
-
-.usp-section{
-background:
-var(--background-color);
-}
-
-.usp-heading{
-
-max-width:900px;
-
-margin:auto auto 70px;
-
-text-align:center;
-
-}
-
-.usp-heading h2{
-
-font-size:48px;
-
-font-weight:800;
-
-line-height:1.2;
-
-margin-bottom:24px;
-
-}
-
-.usp-heading p{
-
-font-size:18px;
-
-color:
-var(--light-text);
-
-}
-
-.usp-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:28px;
-
-max-width:1400px;
-
-margin:auto;
-
-}
-
-.usp-card{
-
-background:
-var(--white-color);
-
-padding:38px;
-
-border-radius:
-var(--radius);
-
-box-shadow:
-var(--shadow);
-
-border:1px solid var(--border-color);
-
-transition:0.3s ease;
-
-}
-
-.usp-card:hover{
-
-transform:
-translateY(-8px);
-
-}
-
-.usp-icon{
-
-width:72px;
-height:72px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-background:
-var(--primary-color);
-
-border-radius:22px;
-
-margin-bottom:26px;
-
-}
-
-.usp-icon i{
-
-width:34px;
-height:34px;
-
-color:
-var(--white-color);
-
-}
-
-.usp-card h3{
-
-font-size:26px;
-
-margin-bottom:16px;
-
-font-weight:700;
-
-}
-
-.usp-card p{
-
-color:
-var(--light-text);
-
-font-size:16px;
 
 }
 
@@ -514,10 +356,7 @@ STATS SECTION
 ========================================= */
 
 .stats-section{
-
-background:
-var(--white-color);
-
+background:white;
 }
 
 .stats-grid{
@@ -549,29 +388,159 @@ text-align:center;
 
 border:1px solid var(--border-color);
 
+box-shadow:
+var(--shadow);
+
 }
 
 .stat-card h2{
 
-font-size:52px;
+font-size:54px;
+
+font-weight:800;
 
 color:
 var(--primary-color);
 
 margin-bottom:10px;
 
-font-weight:800;
-
 }
 
 .stat-card p{
 
-color:
-var(--light-text);
-
 font-size:16px;
 
 font-weight:600;
+
+color:
+var(--light-text);
+
+}
+
+  /* =========================================
+FEATURE / USP SECTION
+========================================= */
+
+.usp-section{
+background:var(--background-color);
+}
+
+.usp-heading{
+
+max-width:900px;
+
+margin:auto auto 70px;
+
+text-align:center;
+
+}
+
+.usp-heading h2{
+
+font-size:52px;
+
+font-weight:800;
+
+line-height:1.2;
+
+margin-bottom:22px;
+
+}
+
+.usp-heading p{
+
+font-size:18px;
+
+color:var(--light-text);
+
+}
+
+.usp-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:28px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.usp-card{
+
+background:white;
+
+padding:38px;
+
+border-radius:var(--radius);
+
+border:1px solid var(--border-color);
+
+box-shadow:var(--shadow);
+
+transition:0.3s ease;
+
+}
+
+.usp-card:hover{
+
+transform:
+translateY(-8px);
+
+}
+
+.usp-icon{
+
+width:72px;
+height:72px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+135deg,
+#C2185B,
+#A3154C
+);
+
+margin-bottom:26px;
+
+}
+
+.usp-icon i{
+
+width:34px;
+height:34px;
+
+color:white;
+
+}
+
+.usp-card h3{
+
+font-size:26px;
+
+font-weight:700;
+
+margin-bottom:16px;
+
+}
+
+.usp-card p{
+
+font-size:16px;
+
+color:var(--light-text);
 
 }
 
@@ -580,6 +549,10 @@ font-weight:600;
 /* =========================================
 HOW IT WORKS
 ========================================= */
+
+.how-section{
+background:white;
+}
 
 .how-grid{
 
@@ -599,38 +572,48 @@ margin:auto;
 .how-card{
 
 background:
-var(--white-color);
+var(--background-color);
 
-padding:38px;
+padding:40px;
 
-border-radius:
-var(--radius);
-
-box-shadow:
-var(--shadow);
+border-radius:var(--radius);
 
 border:1px solid var(--border-color);
+
+box-shadow:var(--shadow);
+
+transition:0.3s ease;
+
+}
+
+.how-card:hover{
+
+transform:
+translateY(-6px);
 
 }
 
 .how-number{
 
-width:60px;
-height:60px;
-
-background:
-var(--primary-color);
-
-color:
-var(--white-color);
-
-border-radius:50%;
+width:62px;
+height:62px;
 
 display:flex;
 
 align-items:center;
 
 justify-content:center;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+#C2185B,
+#A3154C
+);
+
+color:white;
 
 font-size:22px;
 
@@ -644,92 +627,97 @@ margin-bottom:24px;
 
 font-size:24px;
 
-margin-bottom:16px;
+font-weight:700;
+
+margin-bottom:14px;
 
 }
 
 .how-card p{
 
-color:
-var(--light-text);
+font-size:16px;
+
+color:var(--light-text);
 
 }
 
 
 
 /* =========================================
-SAFETY SECTION
+TESTIMONIALS
 ========================================= */
 
-.safety-section{
-
-background:
-var(--primary-color);
-
-color:
-var(--white-color);
-
+.testimonial-section{
+background:var(--background-color);
 }
 
-.safety-content{
-
-max-width:900px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.safety-content h2{
-
-font-size:52px;
-
-margin-bottom:24px;
-
-font-weight:800;
-
-}
-
-.safety-content p{
-
-font-size:20px;
-
-color:
-rgba(255,255,255,0.88);
-
-margin-bottom:40px;
-
-}
-
-.safety-content ul{
-
-list-style:none;
+.testimonial-grid{
 
 display:grid;
 
-gap:18px;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:28px;
+
+max-width:1300px;
+
+margin:auto;
 
 }
 
-.safety-content li{
+.testimonial-card{
 
-background:
-rgba(255,255,255,0.10);
+background:white;
 
-padding:18px 24px;
+padding:40px;
 
-border-radius:18px;
+border-radius:var(--radius);
 
-font-size:17px;
+border:1px solid var(--border-color);
+
+box-shadow:var(--shadow);
+
+transition:0.3s ease;
 
 }
 
+.testimonial-card:hover{
 
+transform:
+translateY(-6px);
 
-/* =========================================
-FAQ
+}
+
+.testimonial-card p{
+
+font-size:18px;
+
+line-height:1.9;
+
+margin-bottom:24px;
+
+color:var(--text-color);
+
+}
+
+.testimonial-card h4{
+
+font-size:16px;
+
+font-weight:700;
+
+color:var(--primary-color);
+
+}
+
+  /* =========================================
+FAQ SECTION
 ========================================= */
+
+.faq-section{
+background:white;
+}
 
 .faq-grid{
 
@@ -749,17 +737,24 @@ margin:auto;
 .faq-card{
 
 background:
-var(--white-color);
+var(--background-color);
 
-padding:36px;
+padding:38px;
 
-border-radius:
-var(--radius);
-
-box-shadow:
-var(--shadow);
+border-radius:var(--radius);
 
 border:1px solid var(--border-color);
+
+box-shadow:var(--shadow);
+
+transition:0.3s ease;
+
+}
+
+.faq-card:hover{
+
+transform:
+translateY(-6px);
 
 }
 
@@ -767,14 +762,19 @@ border:1px solid var(--border-color);
 
 font-size:22px;
 
+font-weight:700;
+
 margin-bottom:16px;
 
 }
 
 .faq-card p{
 
-color:
-var(--light-text);
+font-size:16px;
+
+line-height:1.8;
+
+color:var(--light-text);
 
 }
 
@@ -785,30 +785,24 @@ CONTACT SECTION
 ========================================= */
 
 .contact-section{
-
-background:
-var(--background-color);
-
+background:var(--background-color);
 }
 
 .contact-box{
 
-max-width:800px;
+max-width:850px;
 
 margin:auto;
 
-background:
-var(--white-color);
+background:white;
 
-padding:70px 40px;
+padding:80px 50px;
 
-border-radius:
-var(--radius);
+border-radius:var(--radius);
 
 text-align:center;
 
-box-shadow:
-var(--shadow);
+box-shadow:var(--shadow);
 
 border:1px solid var(--border-color);
 
@@ -816,7 +810,9 @@ border:1px solid var(--border-color);
 
 .contact-box h2{
 
-font-size:48px;
+font-size:54px;
+
+font-weight:800;
 
 margin-bottom:20px;
 
@@ -826,10 +822,11 @@ margin-bottom:20px;
 
 font-size:18px;
 
-color:
-var(--light-text);
+line-height:1.8;
 
-margin-bottom:35px;
+color:var(--light-text);
+
+margin-bottom:40px;
 
 }
 
@@ -842,12 +839,13 @@ FOOTER
 .footer{
 
 background:
-var(--white-color);
+linear-gradient(
+135deg,
+#C2185B 0%,
+#A3154C 100%
+);
 
-padding:70px 24px 40px;
-
-border-top:
-1px solid var(--border-color);
+padding:90px 24px 45px;
 
 }
 
@@ -863,27 +861,28 @@ text-align:center;
 
 .footer-content h2{
 
-font-size:36px;
-
-margin-bottom:18px;
+font-size:40px;
 
 font-weight:800;
 
-color:
-var(--primary-color);
+color:white;
+
+margin-bottom:20px;
 
 }
 
 .footer-content p{
 
-color:
-var(--light-text);
-
 font-size:16px;
 
-max-width:700px;
+line-height:1.9;
 
-margin:auto auto 30px;
+color:
+rgba(255,255,255,0.88);
+
+max-width:760px;
+
+margin:auto auto 35px;
 
 }
 
@@ -893,18 +892,19 @@ display:flex;
 
 justify-content:center;
 
-gap:28px;
+gap:30px;
 
 flex-wrap:wrap;
 
-margin-bottom:30px;
+margin-bottom:35px;
 
 }
 
 .footer-links a{
 
-color:
-var(--text-color);
+color:white;
+
+font-size:15px;
 
 font-weight:600;
 
@@ -914,8 +914,7 @@ transition:0.3s ease;
 
 .footer-links a:hover{
 
-color:
-var(--primary-color);
+opacity:0.8;
 
 }
 
@@ -924,7 +923,7 @@ var(--primary-color);
 font-size:14px;
 
 color:
-var(--light-text);
+rgba(255,255,255,0.72);
 
 }
 
@@ -937,14 +936,13 @@ RESPONSIVE
 @media(max-width:992px){
 
 .hero-content h1{
-font-size:56px;
+font-size:58px;
 }
 
 .section-heading h2,
 .usp-heading h2,
-.safety-content h2,
 .contact-box h2{
-font-size:40px;
+font-size:42px;
 }
 
 }
@@ -959,6 +957,7 @@ padding:80px 20px;
 
 .hero-content h1{
 font-size:42px;
+letter-spacing:-1px;
 }
 
 .hero-content p{
@@ -967,7 +966,6 @@ font-size:18px;
 
 .section-heading h2,
 .usp-heading h2,
-.safety-content h2,
 .contact-box h2{
 font-size:34px;
 }
@@ -975,6 +973,7 @@ font-size:34px;
 .primary-btn,
 .secondary-btn{
 width:100%;
+justify-content:center;
 }
 
 .hero-buttons{
@@ -983,24 +982,40 @@ flex-direction:column;
 
 .usp-card,
 .how-card,
+.testimonial-card,
 .faq-card{
 padding:30px;
 }
 
 .contact-box{
-padding:50px 28px;
+padding:55px 28px;
+}
+
+.footer{
+padding:70px 20px 35px;
+}
+
+.footer-links{
+gap:20px;
 }
 
 }
+
+
+
+/* =========================================
+END STYLE
+========================================= */
 
 </style>
-  
-  
-</head>
 
-<body>
+    <body>
 
 <div class="app-container">
+
+<!-- =========================================
+HERO SECTION
+========================================= -->
 
 <section class="hero-section">
 
@@ -1011,20 +1026,23 @@ Meaningful Dawoodi Bohra Connections
 </h1>
 
 <p>
-A modern matchmaking platform focused on trust,
-privacy and genuine conversations.
+A premium Dawoodi Bohra matchmaking platform designed for meaningful matrimonial connections, verified profiles and respectful conversations.
 </p>
 
 <div class="hero-buttons">
 
 <a href="signup.html"
 class="primary-btn">
+
 Create Profile
+
 </a>
 
 <a href="login.html"
 class="secondary-btn">
+
 Login
+
 </a>
 
 </div>
@@ -1033,16 +1051,84 @@ Login
 
 </section>
 
+
+
+<!-- =========================================
+TRUST STATS
+========================================= -->
+
+<section class="stats-section">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<h2>
+100%
+</h2>
+
+<p>
+Community Focused
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+Verified
+</h2>
+
+<p>
+ITS & Selfie Review
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+24 Hr
+</h2>
+
+<p>
+Private Conversations
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+Secure
+</h2>
+
+<p>
+Privacy First Experience
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+FEATURES
+========================================= -->
+
 <section class="usp-section">
 
 <div class="usp-heading">
 
 <h2>
-A trusted community-first Dawoodi Bohra matchmaking platform built without restrictive paywalls.
+Built Exclusively For The Dawoodi Bohra Community
 </h2>
 
 <p>
-Designed for meaningful connections through verified profiles, privacy-focused conversations and a respectful modern matchmaking experience.
+Designed to create serious and meaningful matrimonial connections through privacy, trust and community-focused verification.
 </p>
 
 </div>
@@ -1066,12 +1152,10 @@ Unlimited Profile Browsing
 </h3>
 
 <p>
-Explore profiles freely without daily browsing limits or unnecessary restrictions.
+Explore compatible profiles freely without restrictive browsing limitations.
 </p>
 
 </div>
-
-
 
 
 
@@ -1088,12 +1172,10 @@ Unlimited Likes
 </h3>
 
 <p>
-Express genuine interest freely without locking core interactions behind subscriptions.
+Express genuine interest without locking core matchmaking interactions behind subscriptions.
 </p>
 
 </div>
-
-
 
 
 
@@ -1110,12 +1192,10 @@ Private 24 Hour Chats
 </h3>
 
 <p>
-Personal conversations automatically disappear after 24 hours for additional privacy and comfort.
+Conversations automatically disappear after 24 hours for additional privacy and comfort.
 </p>
 
 </div>
-
-
 
 
 
@@ -1128,16 +1208,14 @@ Personal conversations automatically disappear after 24 hours for additional pri
 </div>
 
 <h3>
-Verified profiles
+Verified Profiles
 </h3>
 
 <p>
-Profiles become active only after verification review to help maintain a trusted community environment.
+Profiles become visible only after manual review and verification approval.
 </p>
 
 </div>
-
-
 
 
 
@@ -1154,12 +1232,10 @@ ITS & Selfie Verification
 </h3>
 
 <p>
-ITS/E-Jamaat and selfie verification help improve authenticity and profile trustworthiness.
+ITS/E-Jamaat and selfie verification improve profile authenticity and trustworthiness.
 </p>
 
 </div>
-
-
 
 
 
@@ -1176,12 +1252,10 @@ Privacy Focused Experience
 </h3>
 
 <p>
-Personal information remains protected and users choose when to share contact details.
+Users control when and how personal contact information is shared privately.
 </p>
 
 </div>
-
-
 
 
 
@@ -1198,12 +1272,10 @@ Modern Yet Respectful
 </h3>
 
 <p>
-A clean and thoughtfully designed experience focused on serious Dawoodi Bohra matchmaking.
+A thoughtfully designed matchmaking experience focused on serious matrimonial intentions.
 </p>
 
 </div>
-
-
 
 
 
@@ -1220,65 +1292,7 @@ Community Focused Platform
 </h3>
 
 <p>
-Built specifically for the Dawoodi Bohra community with trust, security and meaningful compatibility in mind.
-</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-<section class="stats-section">
-
-<div class="stats-grid">
-
-<div class="stat-card">
-
-<h2>
-100%
-</h2>
-
-<p>
-Community Focused
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-24 Hr
-</h2>
-
-<p>
-Private Chats
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-Verified
-</h2>
-
-<p>
-ITS & Selfie Review
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-Secure
-</h2>
-
-<p>
-Privacy First Platform
+Built specifically for the Dawoodi Bohra community with trust, compatibility and security in mind.
 </p>
 
 </div>
@@ -1286,6 +1300,12 @@ Privacy First Platform
 </div>
 
 </section>
+
+
+
+<!-- =========================================
+HOW IT WORKS
+========================================= -->
 
 <section class="how-section">
 
@@ -1296,10 +1316,12 @@ How DB Match Works
 </h2>
 
 <p>
-A simple and respectful matchmaking experience built for the Dawoodi Bohra community.
+A simple and respectful matrimonial experience built for the Dawoodi Bohra community.
 </p>
 
 </div>
+
+
 
 <div class="how-grid">
 
@@ -1314,10 +1336,12 @@ Create Your Profile
 </h3>
 
 <p>
-Sign up and complete your matchmaking profile with genuine details.
+Complete your profile with genuine personal and matrimonial details.
 </p>
 
 </div>
+
+
 
 <div class="how-card">
 
@@ -1330,10 +1354,12 @@ Verification Review
 </h3>
 
 <p>
-Profiles are reviewed with ITS and selfie verification for community trust.
+Profiles are manually reviewed through ITS and selfie verification.
 </p>
 
 </div>
+
+
 
 <div class="how-card">
 
@@ -1346,10 +1372,12 @@ Discover Profiles
 </h3>
 
 <p>
-Browse compatible Dawoodi Bohra profiles without restrictive limits.
+Browse compatible Dawoodi Bohra profiles in a clean and secure environment.
 </p>
 
 </div>
+
+
 
 <div class="how-card">
 
@@ -1362,7 +1390,7 @@ Start Meaningful Conversations
 </h3>
 
 <p>
-Connect through respectful private chats designed for serious matchmaking.
+Connect through respectful private chats focused on genuine matrimonial intentions.
 </p>
 
 </div>
@@ -1370,46 +1398,79 @@ Connect through respectful private chats designed for serious matchmaking.
 </div>
 
 </section>
-  
-<section class="safety-section">
 
-<div class="safety-content">
+
+  <!-- =========================================
+TESTIMONIALS
+========================================= -->
+
+<section class="testimonial-section">
+
+<div class="section-heading">
 
 <h2>
-Designed Around Trust & Privacy
+Community Focused Matchmaking
 </h2>
 
 <p>
-DB Match prioritizes profile authenticity, respectful communication and community-focused moderation.
+Designed for respectful and meaningful matrimonial connections within the Dawoodi Bohra community.
 </p>
 
-<ul>
+</div>
 
-<li>
-ITS & Selfie Verification
-</li>
 
-<li>
-Manual Admin Approval
-</li>
 
-<li>
-Private 24 Hour Chats
-</li>
+<div class="testimonial-grid">
 
-<li>
-No Public Contact Information
-</li>
+<div class="testimonial-card">
 
-<li>
-Secure Moderation System
-</li>
+<p>
+“DB Match feels modern, respectful and genuinely community focused.”
+</p>
 
-</ul>
+<h4>
+Verified Member
+</h4>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<p>
+“The verification process makes the platform feel safer and more authentic.”
+</p>
+
+<h4>
+Community User
+</h4>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<p>
+“A clean and serious matrimonial experience without unnecessary distractions.”
+</p>
+
+<h4>
+Verified Profile
+</h4>
+
+</div>
 
 </div>
 
 </section>
+
+
+
+<!-- =========================================
+FAQ SECTION
+========================================= -->
 
 <section class="faq-section">
 
@@ -1419,7 +1480,13 @@ Secure Moderation System
 Frequently Asked Questions
 </h2>
 
+<p>
+Everything you need to know about DB Match.
+</p>
+
 </div>
+
+
 
 <div class="faq-grid">
 
@@ -1435,6 +1502,8 @@ Yes. The platform is specifically designed for the Dawoodi Bohra community.
 
 </div>
 
+
+
 <div class="faq-card">
 
 <h3>
@@ -1446,6 +1515,8 @@ Profiles undergo ITS and selfie verification before approval.
 </p>
 
 </div>
+
+
 
 <div class="faq-card">
 
@@ -1459,14 +1530,16 @@ Yes. Chats automatically disappear after 24 hours for additional privacy.
 
 </div>
 
+
+
 <div class="faq-card">
 
 <h3>
-Can users share contact numbers?
+Can users share contact details?
 </h3>
 
 <p>
-Yes, users may choose to share contact details privately during conversations.
+Yes. Users may privately exchange contact information during conversations.
 </p>
 
 </div>
@@ -1474,6 +1547,12 @@ Yes, users may choose to share contact details privately during conversations.
 </div>
 
 </section>
+
+
+
+<!-- =========================================
+CONTACT SECTION
+========================================= -->
 
 <section class="contact-section">
 
@@ -1497,7 +1576,13 @@ Contact Support
 
 </div>
 
-</section>  
+</section>
+
+
+
+<!-- =========================================
+FOOTER
+========================================= -->
 
 <footer class="footer">
 
@@ -1510,6 +1595,8 @@ Dawoodi Bohra Match
 <p>
 A respectful and modern matchmaking platform designed exclusively for the Dawoodi Bohra community.
 </p>
+
+
 
 <div class="footer-links">
 
@@ -1527,6 +1614,8 @@ Contact
 
 </div>
 
+
+
 <p class="footer-copy">
 
 © 2026 Dawoodi Bohra Match. All rights reserved.
@@ -1537,16 +1626,25 @@ Contact
 
 </footer>
 
-  
-
-  
 </div>
 
 
 
-<div id="toast" class="toast"></div>
+<!-- =========================================
+TOAST
+========================================= -->
 
-<div id="global-loader" class="global-loader">
+<div id="toast"
+class="toast"></div>
+
+
+
+<!-- =========================================
+GLOBAL LOADER
+========================================= -->
+
+<div id="global-loader"
+class="global-loader">
 
 <div class="loader-spinner"></div>
 
@@ -1554,15 +1652,31 @@ Contact
 
 
 
+<!-- =========================================
+FIREBASE
+========================================= -->
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
+
+
+<!-- =========================================
+JS FILES
+========================================= -->
+
 <script src="js/ui.js"></script>
 
 <script src="js/app.js"></script>
+
+
+
+<!-- =========================================
+LUCIDE ICONS
+========================================= -->
 
 <script>
 
@@ -1571,4 +1685,5 @@ lucide.createIcons();
 </script>
 
 </body>
+
 </html>
