@@ -25,6 +25,977 @@ href="css/responsive.css">
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<style>
+
+/* =========================================
+ROOT VARIABLES
+========================================= */
+
+:root{
+
+--primary-color:#C2185B;
+
+--primary-hover:#A3154C;
+
+--background-color:#F9FAFB;
+
+--white-color:#FFFFFF;
+
+--text-color:#1F2937;
+
+--light-text:#6B7280;
+
+--border-color:#E5E7EB;
+
+--success-color:#16A34A;
+
+--error-color:#DC2626;
+
+--button-color:#C2185B;
+
+--button-hover:#A3154C;
+
+--button-text:#FFFFFF;
+
+--shadow:
+0 10px 30px rgba(0,0,0,0.08);
+
+--radius:28px;
+
+}
+
+
+
+/* =========================================
+GLOBAL
+========================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:
+'Poppins',
+sans-serif;
+
+background:
+var(--background-color);
+
+color:
+var(--text-color);
+
+line-height:1.7;
+
+overflow-x:hidden;
+
+}
+
+a{
+text-decoration:none;
+}
+
+
+
+/* =========================================
+APP CONTAINER
+========================================= */
+
+.app-container{
+width:100%;
+overflow:hidden;
+}
+
+
+
+/* =========================================
+SECTION SPACING
+========================================= */
+
+section{
+padding:100px 24px;
+}
+
+
+
+/* =========================================
+SECTION HEADING
+========================================= */
+
+.section-heading{
+
+max-width:800px;
+
+margin:0 auto 70px;
+
+text-align:center;
+
+}
+
+.section-heading h2{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.2;
+
+margin-bottom:20px;
+
+color:
+var(--text-color);
+
+}
+
+.section-heading p{
+
+font-size:18px;
+
+color:
+var(--light-text);
+
+}
+
+
+
+/* =========================================
+HERO SECTION
+========================================= */
+
+.hero-section{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:120px 24px;
+
+background:
+var(--primary-color);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero-section::before{
+
+content:"";
+
+position:absolute;
+
+top:-200px;
+right:-200px;
+
+width:500px;
+height:500px;
+
+background:
+rgba(255,255,255,0.08);
+
+border-radius:50%;
+
+}
+
+.hero-section::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-250px;
+left:-250px;
+
+width:600px;
+height:600px;
+
+background:
+rgba(255,255,255,0.05);
+
+border-radius:50%;
+
+}
+
+.hero-content{
+
+max-width:900px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.hero-content h1{
+
+font-size:72px;
+
+font-weight:800;
+
+line-height:1.1;
+
+color:
+var(--white-color);
+
+margin-bottom:28px;
+
+}
+
+.hero-content p{
+
+font-size:22px;
+
+color:
+rgba(255,255,255,0.88);
+
+max-width:760px;
+
+margin:auto auto 45px;
+
+}
+
+
+
+/* =========================================
+BUTTONS
+========================================= */
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.primary-btn{
+
+padding:18px 36px;
+
+background:
+var(--white-color);
+
+color:
+var(--primary-color);
+
+border:none;
+
+border-radius:60px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.10);
+
+}
+
+.primary-btn:hover{
+
+transform:
+translateY(-3px);
+
+background:
+rgba(255,255,255,0.94);
+
+}
+
+.secondary-btn{
+
+padding:18px 36px;
+
+background:
+transparent;
+
+color:
+var(--white-color);
+
+border:1.5px solid rgba(255,255,255,0.30);
+
+border-radius:60px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.secondary-btn:hover{
+
+background:
+rgba(255,255,255,0.10);
+
+transform:
+translateY(-2px);
+
+}
+
+
+
+/* =========================================
+USP SECTION
+========================================= */
+
+.usp-section{
+background:
+var(--background-color);
+}
+
+.usp-heading{
+
+max-width:900px;
+
+margin:auto auto 70px;
+
+text-align:center;
+
+}
+
+.usp-heading h2{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.2;
+
+margin-bottom:24px;
+
+}
+
+.usp-heading p{
+
+font-size:18px;
+
+color:
+var(--light-text);
+
+}
+
+.usp-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:28px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.usp-card{
+
+background:
+var(--white-color);
+
+padding:38px;
+
+border-radius:
+var(--radius);
+
+box-shadow:
+var(--shadow);
+
+border:1px solid var(--border-color);
+
+transition:0.3s ease;
+
+}
+
+.usp-card:hover{
+
+transform:
+translateY(-8px);
+
+}
+
+.usp-icon{
+
+width:72px;
+height:72px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+var(--primary-color);
+
+border-radius:22px;
+
+margin-bottom:26px;
+
+}
+
+.usp-icon i{
+
+width:34px;
+height:34px;
+
+color:
+var(--white-color);
+
+}
+
+.usp-card h3{
+
+font-size:26px;
+
+margin-bottom:16px;
+
+font-weight:700;
+
+}
+
+.usp-card p{
+
+color:
+var(--light-text);
+
+font-size:16px;
+
+}
+
+
+
+/* =========================================
+STATS SECTION
+========================================= */
+
+.stats-section{
+
+background:
+var(--white-color);
+
+}
+
+.stats-grid{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:24px;
+
+}
+
+.stat-card{
+
+background:
+var(--background-color);
+
+padding:40px;
+
+border-radius:
+var(--radius);
+
+text-align:center;
+
+border:1px solid var(--border-color);
+
+}
+
+.stat-card h2{
+
+font-size:52px;
+
+color:
+var(--primary-color);
+
+margin-bottom:10px;
+
+font-weight:800;
+
+}
+
+.stat-card p{
+
+color:
+var(--light-text);
+
+font-size:16px;
+
+font-weight:600;
+
+}
+
+
+
+/* =========================================
+HOW IT WORKS
+========================================= */
+
+.how-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:28px;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+.how-card{
+
+background:
+var(--white-color);
+
+padding:38px;
+
+border-radius:
+var(--radius);
+
+box-shadow:
+var(--shadow);
+
+border:1px solid var(--border-color);
+
+}
+
+.how-number{
+
+width:60px;
+height:60px;
+
+background:
+var(--primary-color);
+
+color:
+var(--white-color);
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+font-weight:700;
+
+margin-bottom:24px;
+
+}
+
+.how-card h3{
+
+font-size:24px;
+
+margin-bottom:16px;
+
+}
+
+.how-card p{
+
+color:
+var(--light-text);
+
+}
+
+
+
+/* =========================================
+SAFETY SECTION
+========================================= */
+
+.safety-section{
+
+background:
+var(--primary-color);
+
+color:
+var(--white-color);
+
+}
+
+.safety-content{
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.safety-content h2{
+
+font-size:52px;
+
+margin-bottom:24px;
+
+font-weight:800;
+
+}
+
+.safety-content p{
+
+font-size:20px;
+
+color:
+rgba(255,255,255,0.88);
+
+margin-bottom:40px;
+
+}
+
+.safety-content ul{
+
+list-style:none;
+
+display:grid;
+
+gap:18px;
+
+}
+
+.safety-content li{
+
+background:
+rgba(255,255,255,0.10);
+
+padding:18px 24px;
+
+border-radius:18px;
+
+font-size:17px;
+
+}
+
+
+
+/* =========================================
+FAQ
+========================================= */
+
+.faq-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:28px;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+.faq-card{
+
+background:
+var(--white-color);
+
+padding:36px;
+
+border-radius:
+var(--radius);
+
+box-shadow:
+var(--shadow);
+
+border:1px solid var(--border-color);
+
+}
+
+.faq-card h3{
+
+font-size:22px;
+
+margin-bottom:16px;
+
+}
+
+.faq-card p{
+
+color:
+var(--light-text);
+
+}
+
+
+
+/* =========================================
+CONTACT SECTION
+========================================= */
+
+.contact-section{
+
+background:
+var(--background-color);
+
+}
+
+.contact-box{
+
+max-width:800px;
+
+margin:auto;
+
+background:
+var(--white-color);
+
+padding:70px 40px;
+
+border-radius:
+var(--radius);
+
+text-align:center;
+
+box-shadow:
+var(--shadow);
+
+border:1px solid var(--border-color);
+
+}
+
+.contact-box h2{
+
+font-size:48px;
+
+margin-bottom:20px;
+
+}
+
+.contact-box p{
+
+font-size:18px;
+
+color:
+var(--light-text);
+
+margin-bottom:35px;
+
+}
+
+
+
+/* =========================================
+FOOTER
+========================================= */
+
+.footer{
+
+background:
+var(--white-color);
+
+padding:70px 24px 40px;
+
+border-top:
+1px solid var(--border-color);
+
+}
+
+.footer-content{
+
+max-width:1200px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-content h2{
+
+font-size:36px;
+
+margin-bottom:18px;
+
+font-weight:800;
+
+color:
+var(--primary-color);
+
+}
+
+.footer-content p{
+
+color:
+var(--light-text);
+
+font-size:16px;
+
+max-width:700px;
+
+margin:auto auto 30px;
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+margin-bottom:30px;
+
+}
+
+.footer-links a{
+
+color:
+var(--text-color);
+
+font-weight:600;
+
+transition:0.3s ease;
+
+}
+
+.footer-links a:hover{
+
+color:
+var(--primary-color);
+
+}
+
+.footer-copy{
+
+font-size:14px;
+
+color:
+var(--light-text);
+
+}
+
+
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:992px){
+
+.hero-content h1{
+font-size:56px;
+}
+
+.section-heading h2,
+.usp-heading h2,
+.safety-content h2,
+.contact-box h2{
+font-size:40px;
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+section{
+padding:80px 20px;
+}
+
+.hero-content h1{
+font-size:42px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.section-heading h2,
+.usp-heading h2,
+.safety-content h2,
+.contact-box h2{
+font-size:34px;
+}
+
+.primary-btn,
+.secondary-btn{
+width:100%;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.usp-card,
+.how-card,
+.faq-card{
+padding:30px;
+}
+
+.contact-box{
+padding:50px 28px;
+}
+
+}
+
+</style>
+  
+  
 </head>
 
 <body>
@@ -259,6 +1230,315 @@ Built specifically for the Dawoodi Bohra community with trust, security and mean
 </div>
 
 </section>
+
+<section class="stats-section">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<h2>
+100%
+</h2>
+
+<p>
+Community Focused
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+24 Hr
+</h2>
+
+<p>
+Private Chats
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+Verified
+</h2>
+
+<p>
+ITS & Selfie Review
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+Secure
+</h2>
+
+<p>
+Privacy First Platform
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="how-section">
+
+<div class="section-heading">
+
+<h2>
+How DB Match Works
+</h2>
+
+<p>
+A simple and respectful matchmaking experience built for the Dawoodi Bohra community.
+</p>
+
+</div>
+
+<div class="how-grid">
+
+<div class="how-card">
+
+<div class="how-number">
+1
+</div>
+
+<h3>
+Create Your Profile
+</h3>
+
+<p>
+Sign up and complete your matchmaking profile with genuine details.
+</p>
+
+</div>
+
+<div class="how-card">
+
+<div class="how-number">
+2
+</div>
+
+<h3>
+Verification Review
+</h3>
+
+<p>
+Profiles are reviewed with ITS and selfie verification for community trust.
+</p>
+
+</div>
+
+<div class="how-card">
+
+<div class="how-number">
+3
+</div>
+
+<h3>
+Discover Profiles
+</h3>
+
+<p>
+Browse compatible Dawoodi Bohra profiles without restrictive limits.
+</p>
+
+</div>
+
+<div class="how-card">
+
+<div class="how-number">
+4
+</div>
+
+<h3>
+Start Meaningful Conversations
+</h3>
+
+<p>
+Connect through respectful private chats designed for serious matchmaking.
+</p>
+
+</div>
+
+</div>
+
+</section>
+  
+<section class="safety-section">
+
+<div class="safety-content">
+
+<h2>
+Designed Around Trust & Privacy
+</h2>
+
+<p>
+DB Match prioritizes profile authenticity, respectful communication and community-focused moderation.
+</p>
+
+<ul>
+
+<li>
+ITS & Selfie Verification
+</li>
+
+<li>
+Manual Admin Approval
+</li>
+
+<li>
+Private 24 Hour Chats
+</li>
+
+<li>
+No Public Contact Information
+</li>
+
+<li>
+Secure Moderation System
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="faq-section">
+
+<div class="section-heading">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+</div>
+
+<div class="faq-grid">
+
+<div class="faq-card">
+
+<h3>
+Is DB Match only for Dawoodi Bohras?
+</h3>
+
+<p>
+Yes. The platform is specifically designed for the Dawoodi Bohra community.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Are profiles verified?
+</h3>
+
+<p>
+Profiles undergo ITS and selfie verification before approval.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Are chats private?
+</h3>
+
+<p>
+Yes. Chats automatically disappear after 24 hours for additional privacy.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Can users share contact numbers?
+</h3>
+
+<p>
+Yes, users may choose to share contact details privately during conversations.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact-section">
+
+<div class="contact-box">
+
+<h2>
+Contact Us
+</h2>
+
+<p>
+Have questions, suggestions or support queries?  
+We would love to hear from you.
+</p>
+
+<a href="#"
+class="primary-btn">
+
+Contact Support
+
+</a>
+
+</div>
+
+</section>  
+
+<footer class="footer">
+
+<div class="footer-content">
+
+<h2>
+Dawoodi Bohra Match
+</h2>
+
+<p>
+A respectful and modern matchmaking platform designed exclusively for the Dawoodi Bohra community.
+</p>
+
+<div class="footer-links">
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms & Conditions
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+<p class="footer-copy">
+
+© 2026 Dawoodi Bohra Match. All rights reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+  
+
   
 </div>
 
