@@ -106,7 +106,35 @@ overflow:hidden;
 }
 
 
+/* =========================================
+GLOBAL LUCIDE ICON FIX
+========================================= */
 
+i[data-lucide]{
+
+stroke:currentColor;
+
+}
+
+
+
+/* =========================================
+WHITE ICONS
+========================================= */
+
+.usp-icon i,
+.how-icon i{
+
+color:white;
+
+width:34px;
+height:34px;
+
+stroke-width:2.2;
+
+}
+
+  
 /* =========================================
 SECTION HEADING
 ========================================= */
@@ -258,7 +286,86 @@ margin:auto auto 45px;
 
 }
 
+/* =========================================
+HERO TRUST
+========================================= */
 
+.hero-trust{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+margin-top:35px;
+
+}
+
+.trust-item{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 18px;
+
+border-radius:50px;
+
+background:
+rgba(255,255,255,0.10);
+
+border:
+1px solid rgba(255,255,255,0.14);
+
+backdrop-filter:blur(10px);
+
+color:white;
+
+font-size:14px;
+
+font-weight:600;
+
+}
+
+.trust-item i{
+
+width:18px;
+height:18px;
+
+color:white;
+
+}
+
+  .hero-content{
+
+animation:
+fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+  
 
 /* =========================================
 BUTTONS
@@ -489,7 +596,13 @@ transition:0.3s ease;
 .usp-card:hover{
 
 transform:
-translateY(-8px);
+translateY(-10px);
+
+box-shadow:
+0 20px 45px rgba(194,24,91,0.14);
+
+border-color:
+rgba(194,24,91,0.14);
 
 }
 
@@ -1068,7 +1181,20 @@ margin-bottom:40px;
 
 }
 
+.contact-box .primary-btn{
 
+background:
+linear-gradient(
+135deg,
+#C2185B,
+#A3154C
+);
+
+color:white;
+
+}
+
+  
 
 /* =========================================
 FOOTER
@@ -1239,42 +1365,6 @@ gap:20px;
 
 }
 
-
-.usp-icon{
-
-width:72px;
-height:72px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-border-radius:22px;
-
-background:
-linear-gradient(
-135deg,
-#C2185B,
-#A3154C
-);
-
-margin-bottom:26px;
-
-}
-
-.usp-icon i{
-
-width:34px;
-height:34px;
-
-color:white;
-
-stroke-width:2.2;
-
-}
-
   
 </style>
 
@@ -1316,6 +1406,41 @@ Login
 
 </div>
 
+<div class="hero-trust">
+
+<div class="trust-item">
+
+<i data-lucide="shield-check"></i>
+
+<span>
+Verified Profiles
+</span>
+
+</div>
+
+<div class="trust-item">
+
+<i data-lucide="lock"></i>
+
+<span>
+Privacy Focused
+</span>
+
+</div>
+
+<div class="trust-item">
+
+<i data-lucide="badge-check"></i>
+
+<span>
+ITS Verification
+</span>
+
+</div>
+
+</div>
+
+  
 </div>
 
 </section>
