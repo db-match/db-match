@@ -545,14 +545,107 @@ color:var(--light-text);
 }
 
 
-
 /* =========================================
 HOW IT WORKS
 ========================================= */
 
 .how-section{
-background:white;
+
+background:
+linear-gradient(
+135deg,
+#C2185B 0%,
+#A3154C 100%
+);
+
+position:relative;
+
+overflow:hidden;
+
 }
+
+
+
+/* =========================================
+PREMIUM GLOW
+========================================= */
+
+.how-section::before{
+
+content:"";
+
+position:absolute;
+
+top:-120px;
+right:-120px;
+
+width:350px;
+height:350px;
+
+background:
+rgba(255,255,255,0.08);
+
+border-radius:50%;
+
+filter:blur(10px);
+
+}
+
+
+
+.how-section::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-140px;
+left:-140px;
+
+width:420px;
+height:420px;
+
+background:
+rgba(255,255,255,0.05);
+
+border-radius:50%;
+
+filter:blur(10px);
+
+}
+
+
+
+/* =========================================
+SECTION HEADING
+========================================= */
+
+.how-section .section-heading{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.how-section .section-heading h2{
+
+color:white;
+
+}
+
+.how-section .section-heading p{
+
+color:
+rgba(255,255,255,0.85);
+
+}
+
+
+
+/* =========================================
+GRID
+========================================= */
 
 .how-grid{
 
@@ -567,36 +660,63 @@ max-width:1300px;
 
 margin:auto;
 
+position:relative;
+
+z-index:2;
+
 }
+
+
+
+/* =========================================
+CARDS
+========================================= */
 
 .how-card{
 
 background:
-var(--background-color);
+rgba(255,255,255,0.10);
+
+backdrop-filter:blur(12px);
+
+-webkit-backdrop-filter:blur(12px);
 
 padding:40px;
 
-border-radius:var(--radius);
+border-radius:28px;
 
-border:1px solid var(--border-color);
-
-box-shadow:var(--shadow);
+border:
+1px solid rgba(255,255,255,0.12);
 
 transition:0.3s ease;
 
+box-shadow:
+0 10px 30px rgba(0,0,0,0.10);
+
 }
+
+
 
 .how-card:hover{
 
 transform:
-translateY(-6px);
+translateY(-8px);
+
+background:
+rgba(255,255,255,0.14);
 
 }
 
+
+
+/* =========================================
+STEP NUMBER
+========================================= */
+
 .how-number{
 
-width:62px;
-height:62px;
+width:68px;
+height:68px;
 
 display:flex;
 
@@ -606,22 +726,26 @@ justify-content:center;
 
 border-radius:50%;
 
-background:
-linear-gradient(
-135deg,
-#C2185B,
-#A3154C
-);
+background:white;
 
-color:white;
+color:#C2185B;
 
-font-size:22px;
+font-size:24px;
 
-font-weight:700;
+font-weight:800;
 
-margin-bottom:24px;
+margin-bottom:26px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.12);
 
 }
+
+
+
+/* =========================================
+TEXT
+========================================= */
 
 .how-card h3{
 
@@ -629,7 +753,9 @@ font-size:24px;
 
 font-weight:700;
 
-margin-bottom:14px;
+margin-bottom:16px;
+
+color:white;
 
 }
 
@@ -637,11 +763,123 @@ margin-bottom:14px;
 
 font-size:16px;
 
-color:var(--light-text);
+line-height:1.8;
+
+color:
+rgba(255,255,255,0.85);
+
+  }
+
+
+/* =========================================
+SECTION BADGE
+========================================= */
+
+.section-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:10px 22px;
+
+border-radius:50px;
+
+background:
+rgba(255,255,255,0.12);
+
+border:
+1px solid rgba(255,255,255,0.15);
+
+color:white;
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:24px;
+
+backdrop-filter:blur(10px);
 
 }
 
 
+
+/* =========================================
+TOP AREA
+========================================= */
+
+.how-top{
+
+display:flex;
+
+align-items:center;
+
+margin-bottom:24px;
+
+}
+
+
+
+/* =========================================
+CONNECTING LINE
+========================================= */
+
+.how-line{
+
+flex:1;
+
+height:2px;
+
+background:
+rgba(255,255,255,0.15);
+
+margin-left:16px;
+
+border-radius:10px;
+
+}
+
+
+
+/* =========================================
+ICON
+========================================= */
+
+.how-icon{
+
+width:72px;
+height:72px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:22px;
+
+background:
+rgba(255,255,255,0.12);
+
+margin-bottom:26px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.how-icon i{
+
+width:34px;
+height:34px;
+
+color:white;
+
+stroke-width:2.2;
+
+}
 
 /* =========================================
 TESTIMONIALS
@@ -1002,11 +1240,42 @@ gap:20px;
 }
 
 
+.usp-icon{
 
-/* =========================================
-END STYLE
-========================================= */
+width:72px;
+height:72px;
 
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+135deg,
+#C2185B,
+#A3154C
+);
+
+margin-bottom:26px;
+
+}
+
+.usp-icon i{
+
+width:34px;
+height:34px;
+
+color:white;
+
+stroke-width:2.2;
+
+}
+
+  
 </style>
 
     <body>
@@ -1050,69 +1319,6 @@ Login
 </div>
 
 </section>
-
-
-
-<!-- =========================================
-TRUST STATS
-========================================= -->
-
-<section class="stats-section">
-
-<div class="stats-grid">
-
-<div class="stat-card">
-
-<h2>
-100%
-</h2>
-
-<p>
-Community Focused
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-Verified
-</h2>
-
-<p>
-ITS & Selfie Review
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-24 Hr
-</h2>
-
-<p>
-Private Conversations
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h2>
-Secure
-</h2>
-
-<p>
-Privacy First Experience
-</p>
-
-</div>
-
-</div>
-
-</section>
-
 
 
 <!-- =========================================
@@ -1302,7 +1508,6 @@ Built specifically for the Dawoodi Bohra community with trust, compatibility and
 </section>
 
 
-
 <!-- =========================================
 HOW IT WORKS
 ========================================= -->
@@ -1311,12 +1516,18 @@ HOW IT WORKS
 
 <div class="section-heading">
 
+<span class="section-badge">
+
+Simple Process
+
+</span>
+
 <h2>
 How DB Match Works
 </h2>
 
 <p>
-A simple and respectful matrimonial experience built for the Dawoodi Bohra community.
+A respectful and community-focused matrimonial experience designed specifically for Dawoodi Bohras.
 </p>
 
 </div>
@@ -1325,10 +1536,26 @@ A simple and respectful matrimonial experience built for the Dawoodi Bohra commu
 
 <div class="how-grid">
 
+
+
+<!-- STEP 1 -->
+
 <div class="how-card">
+
+<div class="how-top">
 
 <div class="how-number">
 1
+</div>
+
+<div class="how-line"></div>
+
+</div>
+
+<div class="how-icon">
+
+<i data-lucide="user-round-plus"></i>
+
 </div>
 
 <h3>
@@ -1336,17 +1563,31 @@ Create Your Profile
 </h3>
 
 <p>
-Complete your profile with genuine personal and matrimonial details.
+Complete your matrimonial profile with genuine personal details and preferences.
 </p>
 
 </div>
 
 
 
+<!-- STEP 2 -->
+
 <div class="how-card">
+
+<div class="how-top">
 
 <div class="how-number">
 2
+</div>
+
+<div class="how-line"></div>
+
+</div>
+
+<div class="how-icon">
+
+<i data-lucide="badge-check"></i>
+
 </div>
 
 <h3>
@@ -1354,17 +1595,31 @@ Verification Review
 </h3>
 
 <p>
-Profiles are manually reviewed through ITS and selfie verification.
+Profiles are reviewed using ITS and selfie verification for improved authenticity.
 </p>
 
 </div>
 
 
 
+<!-- STEP 3 -->
+
 <div class="how-card">
+
+<div class="how-top">
 
 <div class="how-number">
 3
+</div>
+
+<div class="how-line"></div>
+
+</div>
+
+<div class="how-icon">
+
+<i data-lucide="search"></i>
+
 </div>
 
 <h3>
@@ -1372,25 +1627,37 @@ Discover Profiles
 </h3>
 
 <p>
-Browse compatible Dawoodi Bohra profiles in a clean and secure environment.
+Browse compatible Dawoodi Bohra profiles within a secure and respectful environment.
 </p>
 
 </div>
 
 
 
+<!-- STEP 4 -->
+
 <div class="how-card">
+
+<div class="how-top">
 
 <div class="how-number">
 4
 </div>
 
+</div>
+
+<div class="how-icon">
+
+<i data-lucide="messages-square"></i>
+
+</div>
+
 <h3>
-Start Meaningful Conversations
+Meaningful Conversations
 </h3>
 
 <p>
-Connect through respectful private chats focused on genuine matrimonial intentions.
+Connect privately through respectful conversations focused on serious matrimonial intentions.
 </p>
 
 </div>
