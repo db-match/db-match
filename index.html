@@ -286,6 +286,97 @@ margin:auto auto 45px;
 
 }
 
+.hero-content h1{
+
+animation:
+heroTitle 1.2s cubic-bezier(0.22,1,0.36,1);
+
+}
+
+.hero-content p{
+
+opacity:0;
+
+animation:
+heroFade 1.4s ease forwards;
+
+animation-delay:0.4s;
+
+}
+
+.hero-buttons{
+
+opacity:0;
+
+animation:
+heroFade 1.4s ease forwards;
+
+animation-delay:0.8s;
+
+}
+
+.hero-trust{
+
+opacity:0;
+
+animation:
+heroFade 1.4s ease forwards;
+
+animation-delay:1.1s;
+
+}
+
+@keyframes heroTitle{
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(40px)
+scale(0.96);
+
+filter:blur(10px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+filter:blur(0);
+
+}
+
+}
+
+@keyframes heroFade{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+  
 /* =========================================
 HERO TRUST
 ========================================= */
@@ -456,6 +547,96 @@ translateY(-2px);
 
 }
 
+/* =========================================
+FLOATING ORBS
+========================================= */
+
+.floating-orb{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(70px);
+
+opacity:0.35;
+
+animation:
+floatOrb 12s ease-in-out infinite;
+
+pointer-events:none;
+
+}
+
+.orb-1{
+
+width:300px;
+height:300px;
+
+background:#ff4f9a;
+
+top:10%;
+left:5%;
+
+animation-delay:0s;
+
+}
+
+.orb-2{
+
+width:350px;
+height:350px;
+
+background:#ff7eb3;
+
+bottom:10%;
+right:5%;
+
+animation-delay:3s;
+
+}
+
+.orb-3{
+
+width:220px;
+height:220px;
+
+background:#ffb3d1;
+
+top:45%;
+right:35%;
+
+animation-delay:6s;
+
+}
+
+@keyframes floatOrb{
+
+0%{
+transform:translateY(0px) translateX(0px);
+}
+
+25%{
+transform:translateY(-20px) translateX(15px);
+}
+
+50%{
+transform:translateY(10px) translateX(-10px);
+}
+
+75%{
+transform:translateY(-15px) translateX(10px);
+}
+
+100%{
+transform:translateY(0px) translateX(0px);
+}
+
+}
+
+  
+
+  
 
 
 /* =========================================
@@ -1416,6 +1597,10 @@ Login
 
 </div>
 
+<div class="floating-orb orb-1"></div>
+<div class="floating-orb orb-2"></div>
+<div class="floating-orb orb-3"></div>
+  
 <div class="hero-trust">
 
 <div class="trust-item">
